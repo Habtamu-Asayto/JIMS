@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="QettegnakisandkesemelsmezgebViewDlg" widgetVar="QettegnakisandkesemelsmezgebViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewQettegnakisandkesemelsmezgebTitle}">
+            <h:form id="QettegnakisandkesemelsmezgebViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{qettegnakisandkesemelsmezgebController.selected != null}">
+                        <h:outputText value="#{bundle.ViewQettegnakisandkesemelsmezgebLabel_id}"/>
+                        <h:outputText value="#{qettegnakisandkesemelsmezgebController.selected.id}" title="#{bundle.ViewQettegnakisandkesemelsmezgebTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewQettegnakisandkesemelsmezgebLabel_kebele}"/>
+                        <h:outputText value="#{qettegnakisandkesemelsmezgebController.selected.kebele}" title="#{bundle.ViewQettegnakisandkesemelsmezgebTitle_kebele}"/>
+                        <h:outputText value="#{bundle.ViewQettegnakisandkesemelsmezgebLabel_mezgebkutr}"/>
+                        <h:outputText value="#{qettegnakisandkesemelsmezgebController.selected.mezgebkutr}" title="#{bundle.ViewQettegnakisandkesemelsmezgebTitle_mezgebkutr}"/>
+                        <h:outputText value="#{bundle.ViewQettegnakisandkesemelsmezgebLabel_yzoonfrdbetsem}"/>
+                        <h:outputText value="#{qettegnakisandkesemelsmezgebController.selected.yzoonfrdbetsem}" title="#{bundle.ViewQettegnakisandkesemelsmezgebTitle_yzoonfrdbetsem}"/>
+                        <h:outputText value="#{bundle.ViewQettegnakisandkesemelsmezgebLabel_yftabhermezgebkutr}"/>
+                        <h:outputText value="#{qettegnakisandkesemelsmezgebController.selected.yftabhermezgebkutr}" title="#{bundle.ViewQettegnakisandkesemelsmezgebTitle_yftabhermezgebkutr}"/>
+                        <h:outputText value="#{bundle.ViewQettegnakisandkesemelsmezgebLabel_yabkmemezgebkutr}"/>
+                        <h:outputText value="#{qettegnakisandkesemelsmezgebController.selected.yabkmemezgebkutr}" title="#{bundle.ViewQettegnakisandkesemelsmezgebTitle_yabkmemezgebkutr}"/>
+                        <h:outputText value="#{bundle.ViewQettegnakisandkesemelsmezgebLabel_ksashaynet}"/>
+                        <h:outputText value="#{qettegnakisandkesemelsmezgebController.selected.ksashaynet}" title="#{bundle.ViewQettegnakisandkesemelsmezgebTitle_ksashaynet}"/>
+                        <h:outputText value="#{bundle.ViewQettegnakisandkesemelsmezgebLabel_kesashdrgtname}"/>
+                        <h:outputText value="#{qettegnakisandkesemelsmezgebController.selected.kesashdrgtname}" title="#{bundle.ViewQettegnakisandkesemelsmezgebTitle_kesashdrgtname}"/>
+                        <h:outputText value="#{bundle.ViewQettegnakisandkesemelsmezgebLabel_kesashname}"/>
+                        <h:outputText value="#{qettegnakisandkesemelsmezgebController.selected.kesashname}" title="#{bundle.ViewQettegnakisandkesemelsmezgebTitle_kesashname}"/>
+                        <h:outputText value="#{bundle.ViewQettegnakisandkesemelsmezgebLabel_kesashfname}"/>
+                        <h:outputText value="#{qettegnakisandkesemelsmezgebController.selected.kesashfname}" title="#{bundle.ViewQettegnakisandkesemelsmezgebTitle_kesashfname}"/>
+                        <h:outputText value="#{bundle.ViewQettegnakisandkesemelsmezgebLabel_kesashlastname}"/>
+                        <h:outputText value="#{qettegnakisandkesemelsmezgebController.selected.kesashlastname}" title="#{bundle.ViewQettegnakisandkesemelsmezgebTitle_kesashlastname}"/>
+                        <h:outputText value="#{bundle.ViewQettegnakisandkesemelsmezgebLabel_yetekesashaynet}"/>
+                        <h:outputText value="#{qettegnakisandkesemelsmezgebController.selected.yetekesashaynet}" title="#{bundle.ViewQettegnakisandkesemelsmezgebTitle_yetekesashaynet}"/>
+                        <h:outputText value="#{bundle.ViewQettegnakisandkesemelsmezgebLabel_tekesashdrgtname}"/>
+                        <h:outputText value="#{qettegnakisandkesemelsmezgebController.selected.tekesashdrgtname}" title="#{bundle.ViewQettegnakisandkesemelsmezgebTitle_tekesashdrgtname}"/>
+                        <h:outputText value="#{bundle.ViewQettegnakisandkesemelsmezgebLabel_tekesashname}"/>
+                        <h:outputText value="#{qettegnakisandkesemelsmezgebController.selected.tekesashname}" title="#{bundle.ViewQettegnakisandkesemelsmezgebTitle_tekesashname}"/>
+                        <h:outputText value="#{bundle.ViewQettegnakisandkesemelsmezgebLabel_tekesashfname}"/>
+                        <h:outputText value="#{qettegnakisandkesemelsmezgebController.selected.tekesashfname}" title="#{bundle.ViewQettegnakisandkesemelsmezgebTitle_tekesashfname}"/>
+                        <h:outputText value="#{bundle.ViewQettegnakisandkesemelsmezgebLabel_tekesashlastname}"/>
+                        <h:outputText value="#{qettegnakisandkesemelsmezgebController.selected.tekesashlastname}" title="#{bundle.ViewQettegnakisandkesemelsmezgebTitle_tekesashlastname}"/>
+                        <h:outputText value="#{bundle.ViewQettegnakisandkesemelsmezgebLabel_yegudayuaynet}"/>
+                        <h:outputText value="#{qettegnakisandkesemelsmezgebController.selected.yegudayuaynet}" title="#{bundle.ViewQettegnakisandkesemelsmezgebTitle_yegudayuaynet}"/>
+                        <h:outputText value="#{bundle.ViewQettegnakisandkesemelsmezgebLabel_yegenzebumeten}"/>
+                        <h:outputText value="#{qettegnakisandkesemelsmezgebController.selected.yegenzebumeten}" title="#{bundle.ViewQettegnakisandkesemelsmezgebTitle_yegenzebumeten}"/>
+                        <h:outputText value="#{bundle.ViewQettegnakisandkesemelsmezgebLabel_fayluyetekefetebetken}"/>
+                        <h:outputText value="#{qettegnakisandkesemelsmezgebController.selected.fayluyetekefetebetken}" title="#{bundle.ViewQettegnakisandkesemelsmezgebTitle_fayluyetekefetebetken}"/>
+                        <h:outputText value="#{bundle.ViewQettegnakisandkesemelsmezgebLabel_fayluyetekemetebetbota}"/>
+                        <h:outputText value="#{qettegnakisandkesemelsmezgebController.selected.fayluyetekemetebetbota}" title="#{bundle.ViewQettegnakisandkesemelsmezgebTitle_fayluyetekemetebetbota}"/>
+                        <h:outputText value="#{bundle.ViewQettegnakisandkesemelsmezgebLabel_getbzat}"/>
+                        <h:outputText value="#{qettegnakisandkesemelsmezgebController.selected.getbzat}" title="#{bundle.ViewQettegnakisandkesemelsmezgebTitle_getbzat}"/>
+                        <h:outputText value="#{bundle.ViewQettegnakisandkesemelsmezgebLabel_mezgebuyetewesenebetken}"/>
+                        <h:outputText value="#{qettegnakisandkesemelsmezgebController.selected.mezgebuyetewesenebetken}" title="#{bundle.ViewQettegnakisandkesemelsmezgebTitle_mezgebuyetewesenebetken}"/>
+                        <h:outputText value="#{bundle.ViewQettegnakisandkesemelsmezgebLabel_ketero}"/>
+                        <h:outputText value="#{qettegnakisandkesemelsmezgebController.selected.ketero}" title="#{bundle.ViewQettegnakisandkesemelsmezgebTitle_ketero}"/>
+                        <h:outputText value="#{bundle.ViewQettegnakisandkesemelsmezgebLabel_regionid}"/>
+                        <h:outputText value="#{qettegnakisandkesemelsmezgebController.selected.regionid}" title="#{bundle.ViewQettegnakisandkesemelsmezgebTitle_regionid}"/>
+                        <h:outputText value="#{bundle.ViewQettegnakisandkesemelsmezgebLabel_kesashregionid}"/>
+                        <h:outputText value="#{qettegnakisandkesemelsmezgebController.selected.kesashregionid}" title="#{bundle.ViewQettegnakisandkesemelsmezgebTitle_kesashregionid}"/>
+                        <h:outputText value="#{bundle.ViewQettegnakisandkesemelsmezgebLabel_tekesashregionid}"/>
+                        <h:outputText value="#{qettegnakisandkesemelsmezgebController.selected.tekesashregionid}" title="#{bundle.ViewQettegnakisandkesemelsmezgebTitle_tekesashregionid}"/>
+                        <h:outputText value="#{bundle.ViewQettegnakisandkesemelsmezgebLabel_woredaid}"/>
+                        <h:outputText value="#{qettegnakisandkesemelsmezgebController.selected.woredaid}" title="#{bundle.ViewQettegnakisandkesemelsmezgebTitle_woredaid}"/>
+                        <h:outputText value="#{bundle.ViewQettegnakisandkesemelsmezgebLabel_kesashweredaid}"/>
+                        <h:outputText value="#{qettegnakisandkesemelsmezgebController.selected.kesashweredaid}" title="#{bundle.ViewQettegnakisandkesemelsmezgebTitle_kesashweredaid}"/>
+                        <h:outputText value="#{bundle.ViewQettegnakisandkesemelsmezgebLabel_tekesashweredaid}"/>
+                        <h:outputText value="#{qettegnakisandkesemelsmezgebController.selected.tekesashweredaid}" title="#{bundle.ViewQettegnakisandkesemelsmezgebTitle_tekesashweredaid}"/>
+                        <h:outputText value="#{bundle.ViewQettegnakisandkesemelsmezgebLabel_kesashzoneid}"/>
+                        <h:outputText value="#{qettegnakisandkesemelsmezgebController.selected.kesashzoneid}" title="#{bundle.ViewQettegnakisandkesemelsmezgebTitle_kesashzoneid}"/>
+                        <h:outputText value="#{bundle.ViewQettegnakisandkesemelsmezgebLabel_zoneid}"/>
+                        <h:outputText value="#{qettegnakisandkesemelsmezgebController.selected.zoneid}" title="#{bundle.ViewQettegnakisandkesemelsmezgebTitle_zoneid}"/>
+                        <h:outputText value="#{bundle.ViewQettegnakisandkesemelsmezgebLabel_tekesashzoneid}"/>
+                        <h:outputText value="#{qettegnakisandkesemelsmezgebController.selected.tekesashzoneid}" title="#{bundle.ViewQettegnakisandkesemelsmezgebTitle_tekesashzoneid}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="QettegnakisandkesemelsmezgebViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

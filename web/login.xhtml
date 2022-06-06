@@ -1,0 +1,83 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title><ui:insert name="title">Default Title</ui:insert></title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <h:outputStylesheet library="css" name="jsfcrud.css"/>
+        <h:outputScript library="js" name="jsfcrud.js"/>
+
+        <h:outputStylesheet library="css" name="bootstrap.css"/>
+        <h:outputScript library="js" name="jquery.js"/>
+    </h:head>
+    <f:view locale="#{languageController.language}">
+        <ui:composition template="/templatenormal.xhtml">
+            <ui:define name="body">    
+                <br></br><br></br><br></br> <p:messages id="msgs" showDetail="true" showSummary="false" >
+                    <p:effect type="pulsate" event="load" delay="500" /></p:messages>
+
+                <h:form>   
+                    <div class="row justify-content-center">
+
+                        <div class="col-xl-8 col-lg-8 col-md-6">
+
+                            <div class="card o-hidden border-0 shadow-lg my-5">
+                                <div class="card-body p-0">
+                                    <!-- Nested Row within Card Body -->
+                                    <div style="background-image: url('akabihig.jpg');" class="row">
+                                        <div  class="col-lg-6 d-none d-lg-block " >
+
+
+                                            <!--              <img   src="logo.png"  style="padding-top: 10px" height ="80%"  width="80%"/>-->
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                            <div class="p-5">
+                                                <div class="text-center">
+                                                    <h1 class="h4 text-white mb-4">Login</h1>
+                                                </div>
+                                                <h:form class="user">
+                                                    <div class="form-group">
+
+                                                        <h:inputText pt:placeholder="#{msg.Emailadd}" id="email"  class="form-control form-control-user" value="#{Loginjustice.email}" required="true" requiredMessage="Enter Username"  />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <h:inputSecret pt:placeholder="#{msg.Passwords}"  id="password" class="form-control form-control-user" value="#{Loginjustice.pwd}" required="true" requiredMessage="Enter Password" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="custom-control custom-checkbox small">
+                                                            <input type="checkbox" class="custom-control-input" id="customCheck" />
+                                                            <label class="custom-control-label" for="customCheck">#{msg.RememberMe}</label>
+                                                        </div>
+                                                    </div>
+
+                                                    <h:commandButton   class="btn btn-success btn-user btn-block" value="#{msg.Logins}" action="#{Loginjustice.proceslogin()}"/>
+
+
+                                                    <hr></hr>
+                                                    <div class="text-center">
+                                                        <a href="#"  data-toggle="modal" data-target="#infoModal" class="small" >#{msg.ForgotPass}</a>
+                                                    </div>
+
+                                                </h:form>
+                                                <h:form> 
+                                                    <h:link class="collapse-item" value="#{msg.guestLogin}" outcome="/dashboard.xhtml" />
+                                                </h:form>
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div> 
+                </h:form> 
+            </ui:define>
+        </ui:composition>
+    </f:view>
+</html>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="SenedochenatebekochViewDlg" widgetVar="SenedochenatebekochViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewSenedochenatebekochTitle}">
+            <h:form id="SenedochenatebekochViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{senedochenatebekochController.selected != null}">
+                        <h:outputText value="#{bundle.ViewSenedochenatebekochLabel_id}"/>
+                        <h:outputText value="#{senedochenatebekochController.selected.id}" title="#{bundle.ViewSenedochenatebekochTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewSenedochenatebekochLabel_hager}"/>
+                        <h:outputText value="#{senedochenatebekochController.selected.hager}" title="#{bundle.ViewSenedochenatebekochTitle_hager}"/>
+                        <h:outputText value="#{bundle.ViewSenedochenatebekochLabel_kebele}"/>
+                        <h:outputText value="#{senedochenatebekochController.selected.kebele}" title="#{bundle.ViewSenedochenatebekochTitle_kebele}"/>
+                        <h:outputText value="#{bundle.ViewSenedochenatebekochLabel_glgalotteyakiaynet}"/>
+                        <h:outputText value="#{senedochenatebekochController.selected.glgalotteyakiaynet}" title="#{bundle.ViewSenedochenatebekochTitle_glgalotteyakiaynet}"/>
+                        <h:outputText value="#{bundle.ViewSenedochenatebekochLabel_name}"/>
+                        <h:outputText value="#{senedochenatebekochController.selected.name}" title="#{bundle.ViewSenedochenatebekochTitle_name}"/>
+                        <h:outputText value="#{bundle.ViewSenedochenatebekochLabel_fname}"/>
+                        <h:outputText value="#{senedochenatebekochController.selected.fname}" title="#{bundle.ViewSenedochenatebekochTitle_fname}"/>
+                        <h:outputText value="#{bundle.ViewSenedochenatebekochLabel_lastname}"/>
+                        <h:outputText value="#{senedochenatebekochController.selected.lastname}" title="#{bundle.ViewSenedochenatebekochTitle_lastname}"/>
+                        <h:outputText value="#{bundle.ViewSenedochenatebekochLabel_dregtname}"/>
+                        <h:outputText value="#{senedochenatebekochController.selected.dregtname}" title="#{bundle.ViewSenedochenatebekochTitle_dregtname}"/>
+                        <h:outputText value="#{bundle.ViewSenedochenatebekochLabel_yegudayuaynet}"/>
+                        <h:outputText value="#{senedochenatebekochController.selected.yegudayuaynet}" title="#{bundle.ViewSenedochenatebekochTitle_yegudayuaynet}"/>
+                        <h:outputText value="#{bundle.ViewSenedochenatebekochLabel_gelgalotyetesetebetken}"/>
+                        <h:outputText value="#{senedochenatebekochController.selected.gelgalotyetesetebetken}" title="#{bundle.ViewSenedochenatebekochTitle_gelgalotyetesetebetken}"/>
+                        <h:outputText value="#{bundle.ViewSenedochenatebekochLabel_filekutr}"/>
+                        <h:outputText value="#{senedochenatebekochController.selected.filekutr}" title="#{bundle.ViewSenedochenatebekochTitle_filekutr}"/>
+                        <h:outputText value="#{bundle.ViewSenedochenatebekochLabel_mezgebuyetekemetebetbota}"/>
+                        <h:outputText value="#{senedochenatebekochController.selected.mezgebuyetekemetebetbota}" title="#{bundle.ViewSenedochenatebekochTitle_mezgebuyetekemetebetbota}"/>
+                        <h:outputText value="#{bundle.ViewSenedochenatebekochLabel_getbzat}"/>
+                        <h:outputText value="#{senedochenatebekochController.selected.getbzat}" title="#{bundle.ViewSenedochenatebekochTitle_getbzat}"/>
+                        <h:outputText value="#{bundle.ViewSenedochenatebekochLabel_glgalotyesetewbalemuyaname}"/>
+                        <h:outputText value="#{senedochenatebekochController.selected.glgalotyesetewbalemuyaname}" title="#{bundle.ViewSenedochenatebekochTitle_glgalotyesetewbalemuyaname}"/>
+                        <h:outputText value="#{bundle.ViewSenedochenatebekochLabel_regionid}"/>
+                        <h:outputText value="#{senedochenatebekochController.selected.regionid}" title="#{bundle.ViewSenedochenatebekochTitle_regionid}"/>
+                        <h:outputText value="#{bundle.ViewSenedochenatebekochLabel_woredaid}"/>
+                        <h:outputText value="#{senedochenatebekochController.selected.woredaid}" title="#{bundle.ViewSenedochenatebekochTitle_woredaid}"/>
+                        <h:outputText value="#{bundle.ViewSenedochenatebekochLabel_zoneid}"/>
+                        <h:outputText value="#{senedochenatebekochController.selected.zoneid}" title="#{bundle.ViewSenedochenatebekochTitle_zoneid}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="SenedochenatebekochViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

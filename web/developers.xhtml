@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/templatenormal.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListContactUsTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            
+         
+
+            
+            <h:form id="ContactUsListForm">
+                <p:panel id="toggleable" header="Developer" toggleable="true" closable="true" toggleSpeed="500" closeSpeed="500" widgetVar="panel1" style="margin-bottom:30px;width: 50%">
+     <p:panelGrid columns="2">
+         <p:graphicImage value="../images/fedlu.jpg"   width="50%"     height="15%"   />
+         <p:panel class="panel-primary" style="width: 100%">
+            <h:outputText value="Name: Mr Fedlu Nurhussien Hussien" /><br></br>
+            <h:outputText value="Department: Computer Science" /><br></br>
+            <h:outputText value="Email : abuesmael2005@gmail.com" /><br></br>
+            <h:outputText value="Phone :+251968362181" /><br></br>
+             <h:outputText value="Website:" /><a style="color: blue"  href="https://ehealthlab.org/our-team/">www.ehealthlab.org</a>
+            </p:panel>
+        </p:panelGrid>
+ 
+        <f:facet name="options">
+            <p:menu>
+                <p:submenu label="Settings">
+                    <p:menuitem value="Toggle" url="#" icon="pi pi-clone" onclick="PF('panel1').toggle()" />
+                    <p:menuitem value="Remove" url="#" icon="pi pi-times" onclick="PF('panel1').close()" />
+                </p:submenu>
+            </p:menu>
+        </f:facet>
+    </p:panel> 
+                
+            </h:form>
+
+          
+        </ui:define>
+    </ui:composition>
+
+</html>
+
+         
+
+

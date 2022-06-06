@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog height="500" id="YigbagnayigbagnmelsCreateDlg" widgetVar="YigbagnayigbagnmelsCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateYigbagnayigbagnmelsTitle}">
+            <h:form id="YigbagnayigbagnmelsCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{yigbagnayigbagnmelsController.selected != null}">
+                    
+                        <p:outputLabel rendered="false" value="#{bundle.CreateYigbagnayigbagnmelsLabel_mezgebkutr}" for="mezgebkutr" />
+                        <p:inputText rendered="false" id="mezgebkutr" value="#{yigbagnayigbagnmelsController.selected.mezgebkutr}" title="#{bundle.CreateYigbagnayigbagnmelsTitle_mezgebkutr}" />
+                        <p:outputLabel value="#{bundle.CreateYigbagnayigbagnmelsLabel_yeabkmeftabhermezgebkutr}" for="yeabkmeftabhermezgebkutr" />
+                        <p:inputText id="yeabkmeftabhermezgebkutr" value="#{yigbagnayigbagnmelsController.selected.yeabkmeftabhermezgebkutr}" title="#{bundle.CreateYigbagnayigbagnmelsTitle_yeabkmeftabhermezgebkutr}" />
+                        <p:outputLabel value="#{bundle.CreateYigbagnayigbagnmelsLabel_yeabkmeyigbagnmezgebkutr}" for="yeabkmeyigbagnmezgebkutr" />
+                        <p:inputText id="yeabkmeyigbagnmezgebkutr" value="#{yigbagnayigbagnmelsController.selected.yeabkmeyigbagnmezgebkutr}" title="#{bundle.CreateYigbagnayigbagnmelsTitle_yeabkmeyigbagnmezgebkutr}" />
+                    </p:panelGrid>
+                        
+                        
+                            <p:panel  toggleable="true"  header="የፋይሉ የተቀመጠበት ቦታ እና መረጃ" > 
+                          <p:panelGrid columns="2">
+                              <p:panelGrid columns="1" rendered="#{yigbagnayigbagnmelsController.selected != null}">
+                               <p:selectOneRadio   id="ksashaynet" value="#{yigbagnayigbagnmelsController.selected.ksashaynet}"  required="true" requiredMessage="please select Privilege"  >
+                    <p:ajax  event="change" update="kesash"  />                   
+            <f:selectItem itemLabel="ግለሰብ" itemValue="ግለሰብ"/>
+             <f:selectItem itemLabel="ድርጂት" itemValue="ድርጂት"/>
+                                
+           </p:selectOneRadio>
+                              
+                              </p:panelGrid>
+                              
+                               <p:panelGrid id="kesash" columns="6">
+                        <p:outputLabel rendered="#{yigbagnayigbagnmelsController.selected.ksashaynet eq 'ድርጂት'}"  value="#{bundle.CreateYigbagnayigbagnmelsLabel_kesashdrgtname}" for="kesashdrgtname" />
+                        <p:inputText rendered="#{yigbagnayigbagnmelsController.selected.ksashaynet eq 'ድርጂት'}" id="kesashdrgtname" value="#{yigbagnayigbagnmelsController.selected.kesashdrgtname}" title="#{bundle.CreateYigbagnayigbagnmelsTitle_kesashdrgtname}" />
+                        <p:outputLabel rendered="#{yigbagnayigbagnmelsController.selected.ksashaynet eq 'ግለሰብ'}"  value="#{bundle.CreateYigbagnayigbagnmelsLabel_kesashname}" for="kesashname" />
+                        <p:inputText rendered="#{yigbagnayigbagnmelsController.selected.ksashaynet eq 'ግለሰብ'}"  id="kesashname" value="#{yigbagnayigbagnmelsController.selected.kesashname}" title="#{bundle.CreateYigbagnayigbagnmelsTitle_kesashname}" />
+                        <p:outputLabel rendered="#{yigbagnayigbagnmelsController.selected.ksashaynet eq 'ግለሰብ'}"   value="#{bundle.CreateYigbagnayigbagnmelsLabel_kesashfname}" for="kesashfname" />
+                        <p:inputText rendered="#{yigbagnayigbagnmelsController.selected.ksashaynet eq 'ግለሰብ'}"  id="kesashfname" value="#{yigbagnayigbagnmelsController.selected.kesashfname}" title="#{bundle.CreateYigbagnayigbagnmelsTitle_kesashfname}" />
+                        <p:outputLabel rendered="#{yigbagnayigbagnmelsController.selected.ksashaynet eq 'ግለሰብ'}"   value="#{bundle.CreateYigbagnayigbagnmelsLabel_kesashlastname}" for="kesashlastname" />
+                        <p:inputText rendered="#{yigbagnayigbagnmelsController.selected.ksashaynet eq 'ግለሰብ'}"  id="kesashlastname" value="#{yigbagnayigbagnmelsController.selected.kesashlastname}" title="#{bundle.CreateYigbagnayigbagnmelsTitle_kesashlastname}" />
+                               <p:outputLabel value="#{bundle.CreateYigbagnayigbagnmelsLabel_kesashregionid}" for="kesashregionid" />
+                        <p:selectOneMenu id="kesashregionid" value="#{yigbagnayigbagnmelsController.selected.kesashregionid}" >
+                            <f:selectItems value="#{regionsController.itemsAvailableSelectOne}"
+                                           var="kesashregionidItem"
+                                           itemValue="#{kesashregionidItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateYigbagnayigbagnmelsLabel_kesashzoneid}" for="kesashzoneid" />
+                        <p:selectOneMenu id="kesashzoneid" value="#{yigbagnayigbagnmelsController.selected.kesashzoneid}" >
+                            <f:selectItems value="#{zonesController.itemsAvailableSelectOne}"
+                                           var="kesashzoneidItem"
+                                           itemValue="#{kesashzoneidItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateYigbagnayigbagnmelsLabel_kesashweredaid}" for="kesashweredaid" />
+                        <p:selectOneMenu id="kesashweredaid" value="#{yigbagnayigbagnmelsController.selected.kesashweredaid}" >
+                            <f:selectItems value="#{weredasController.itemsAvailableSelectOne}"
+                                           var="kesashweredaidItem"
+                                           itemValue="#{kesashweredaidItem}"/>
+                        </p:selectOneMenu>
+                               </p:panelGrid></p:panelGrid></p:panel>
+                              
+                         
+                    
+                    
+                          <p:panel  toggleable="true"  header="የፋይሉ የተቀመጠበት ቦታ እና መረጃ" > 
+                          <p:panelGrid columns="2">
+                              <p:panelGrid columns="1" rendered="#{yigbagnayigbagnmelsController.selected != null}">
+                           
+          <p:outputLabel value="#{bundle.CreateYigbagnayigbagnmelsLabel_yetekesashaynet}" for="yetekesashaynet" />
+           <p:selectOneRadio   id="yetekesashaynet" value="#{yigbagnayigbagnmelsController.selected.yetekesashaynet}" required="true" requiredMessage="please select Privilege"  >
+                    <p:ajax  event="change" update="tekesash"  />                   
+            <f:selectItem itemLabel="ግለሰብ" itemValue="ግለሰብ"/>
+             <f:selectItem itemLabel="ድርጂት" itemValue="ድርጂት"/>
+                                
+           </p:selectOneRadio>
+                              
+                              </p:panelGrid>
+              <p:panelGrid id="tekesash" columns="6">
+                        <p:outputLabel rendered="#{yigbagnayigbagnmelsController.selected.yetekesashaynet eq 'ድርጂት'}" value="#{bundle.CreateYigbagnayigbagnmelsLabel_tekesashdrgtname}" for="tekesashdrgtname" />
+                        <p:inputText rendered="#{yigbagnayigbagnmelsController.selected.yetekesashaynet eq 'ድርጂት'}"  id="tekesashdrgtname" value="#{yigbagnayigbagnmelsController.selected.tekesashdrgtname}" title="#{bundle.CreateYigbagnayigbagnmelsTitle_tekesashdrgtname}" />
+                        <p:outputLabel rendered="#{yigbagnayigbagnmelsController.selected.yetekesashaynet eq 'ግለሰብ'}"  value="#{bundle.CreateYigbagnayigbagnmelsLabel_tekesashname}" for="tekesashname" />
+                        <p:inputText rendered="#{yigbagnayigbagnmelsController.selected.yetekesashaynet eq 'ግለሰብ'}"  id="tekesashname" value="#{yigbagnayigbagnmelsController.selected.tekesashname}" title="#{bundle.CreateYigbagnayigbagnmelsTitle_tekesashname}" />
+                        <p:outputLabel rendered="#{yigbagnayigbagnmelsController.selected.yetekesashaynet eq 'ግለሰብ'}"  value="#{bundle.CreateYigbagnayigbagnmelsLabel_tekesashfname}" for="tekesashfname" />
+                        <p:inputText rendered="#{yigbagnayigbagnmelsController.selected.yetekesashaynet eq 'ግለሰብ'}"  id="tekesashfname" value="#{yigbagnayigbagnmelsController.selected.tekesashfname}" title="#{bundle.CreateYigbagnayigbagnmelsTitle_tekesashfname}" />
+                        <p:outputLabel rendered="#{yigbagnayigbagnmelsController.selected.yetekesashaynet eq 'ግለሰብ'}"  value="#{bundle.CreateYigbagnayigbagnmelsLabel_tekesashlastname}" for="tekesashlastname" />
+                        <p:inputText rendered="#{yigbagnayigbagnmelsController.selected.yetekesashaynet eq 'ግለሰብ'}"  id="tekesashlastname" value="#{yigbagnayigbagnmelsController.selected.tekesashlastname}" title="#{bundle.CreateYigbagnayigbagnmelsTitle_tekesashlastname}" />
+              <p:outputLabel value="#{bundle.CreateYigbagnayigbagnmelsLabel_tekesashregionid}" for="tekesashregionid" />
+                        <p:selectOneMenu id="tekesashregionid" value="#{yigbagnayigbagnmelsController.selected.tekesashregionid}" >
+                            <f:selectItems value="#{regionsController.itemsAvailableSelectOne}"
+                                           var="tekesashregionidItem"
+                                           itemValue="#{tekesashregionidItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateYigbagnayigbagnmelsLabel_tekesashzoneid}" for="tekesashzoneid" />
+                        <p:selectOneMenu id="tekesashzoneid" value="#{yigbagnayigbagnmelsController.selected.tekesashzoneid}" >
+                            <f:selectItems value="#{zonesController.itemsAvailableSelectOne}"
+                                           var="tekesashzoneidItem"
+                                           itemValue="#{tekesashzoneidItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateYigbagnayigbagnmelsLabel_tekesashweredaid}" for="tekesashweredaid" />
+                        <p:selectOneMenu id="tekesashweredaid" value="#{yigbagnayigbagnmelsController.selected.tekesashweredaid}" >
+                            <f:selectItems value="#{weredasController.itemsAvailableSelectOne}"
+                                           var="tekesashweredaidItem"
+                                           itemValue="#{tekesashweredaidItem}"/>
+                        </p:selectOneMenu>
+              
+              </p:panelGrid>
+                          </p:panelGrid>
+                          </p:panel>
+                        <p:outputLabel value="#{bundle.CreateYigbagnayigbagnmelsLabel_yegudauaynet}" for="yegudauaynet" />
+                        <p:editor height="100"  id="yegudauaynet" value="#{yigbagnayigbagnmelsController.selected.yegudauaynet}"  />
+                        <p:panelGrid columns="6">
+                        <p:outputLabel value="#{bundle.CreateYigbagnayigbagnmelsLabel_yegenzebumeten}" for="yegenzebumeten" />
+                        <p:inputText id="yegenzebumeten" value="#{yigbagnayigbagnmelsController.selected.yegenzebumeten}" title="#{bundle.CreateYigbagnayigbagnmelsTitle_yegenzebumeten}" />
+                        <p:outputLabel value="#{bundle.CreateYigbagnayigbagnmelsLabel_fayluyetekemetebetbota}" for="fayluyetekemetebetbota" />
+                        <p:inputText id="fayluyetekemetebetbota" value="#{yigbagnayigbagnmelsController.selected.fayluyetekemetebetbota}" title="#{bundle.CreateYigbagnayigbagnmelsTitle_fayluyetekemetebetbota}" />
+                        <p:outputLabel value="#{bundle.CreateYigbagnayigbagnmelsLabel_getbzat}" for="getbzat" />
+                        <p:inputText id="getbzat" value="#{yigbagnayigbagnmelsController.selected.getbzat}" title="#{bundle.CreateYigbagnayigbagnmelsTitle_getbzat}" />
+                        <p:outputLabel value="#{bundle.CreateYigbagnayigbagnmelsLabel_mezgebuyetewesenebetken}" for="mezgebuyetewesenebetken" />
+                        <p:inputText onmousedown="fun(this);"  id="mezgebuyetewesenebetken" value="#{yigbagnayigbagnmelsController.selected.mezgebuyetewesenebetken}" title="#{bundle.CreateYigbagnayigbagnmelsTitle_mezgebuyetewesenebetken}" />
+                        <p:outputLabel value="#{bundle.CreateYigbagnayigbagnmelsLabel_ketero}" for="ketero" />
+                        <p:inputText onmousedown="fun(this);"  id="ketero" value="#{yigbagnayigbagnmelsController.selected.ketero}" title="#{bundle.CreateYigbagnayigbagnmelsTitle_ketero}" />
+                       
+                       <p:outputLabel value="#{bundle.CreateYigbagnayigbagnmelsLabel_mezgebuyetekefetebetken}" for="mezgebuyetekefetebetken" />
+                        <p:inputText onmousedown="fun(this);"  id="mezgebuyetekefetebetken" value="#{yigbagnayigbagnmelsController.selected.mezgebuyetekefetebetken}" title="#{bundle.CreateYigbagnayigbagnmelsTitle_mezgebuyetekefetebetken}" />
+                       
+                       
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{yigbagnayigbagnmelsController.create}" value="#{bundle.Save}" update="display,:YigbagnayigbagnmelsListForm:datalist,:growl" oncomplete="handleSubmit(args,'YigbagnayigbagnmelsCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="YigbagnayigbagnmelsCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

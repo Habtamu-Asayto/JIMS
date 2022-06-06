@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog  height="500" id="SenedochenatebekochEditDlg" widgetVar="SenedochenatebekochEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditSenedochenatebekochTitle}">
+            <h:form id="SenedochenatebekochEditForm">
+          <h:panelGroup id="display">
+                    
+                 <p:panelGrid columns="8" rendered="#{senedochenatebekochController.selected != null}">
+                    <p:outputLabel value="#{bundle.CreateMeritizazandabetutaLabel_regionid}" for="regionid" />
+                        <p:selectOneMenu panelStyleClass="hideDisabled" filter="true" filterMatchMode="contains"  id="regionid" value="#{senedochenatebekochController.selected.regionid}" required="true" requiredMessage="#{bundle.EditMeritizazandabetutaRequiredMessage_regionid}">
+                           
+                         <f:selectItem itemLabel="እባክዎን ክልል ይምረጡ" itemValue="#{null}"/>  
+                            <p:ajax update="zoneid" event="change"/>
+                            <f:selectItems value="#{regionsController.itemsAvailableSelectOne}"
+                                           var="regionidItem"
+                                           itemValue="#{regionidItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateMeritizazandabetutaLabel_zoneid}" for="zoneid" />
+                        <p:selectOneMenu panelStyleClass="hideDisabled" filter="true" filterMatchMode="contains"  id="zoneid" value="#{senedochenatebekochController.selected.zoneid}" required="true" requiredMessage="#{bundle.EditMeritizazandabetutaRequiredMessage_zoneid}">
+                             <p:ajax update="weredacor" event="change"/>
+                            <f:selectItem itemLabel="እባክዎን ዞን ይምረጡ" itemValue="#{null}"/>
+                            <f:selectItems value="#{zonesController.itemsAvailableSelectOne}"
+                                           var="zoneidItem"
+                                           itemDisabled="#{zoneidItem.regionid != senedochenatebekochController.selected.regionid}"
+                                           itemValue="#{zoneidItem}"/>
+                        </p:selectOneMenu>
+                          <p:outputLabel value="ወረዳ" for="weredacor" />
+                       
+                          <p:selectOneMenu  panelStyleClass="hideDisabled" filter="true" filterMatchMode="contains"  id="weredacor" value="#{senedochenatebekochController.selected.weredacor}" required="true" requiredMessage="#{bundle.EditMebtnatkmmastebekyefetabherafetatemfayRequiredMessage_kesashweredaid}">
+                            <f:selectItem itemLabel="እባክዎን ወረዳ ይምረጡ" itemValue="#{null}"/>
+                              <f:selectItems value="#{weredasController.itemsAvailableSelectOne}"
+                                           var="woredaidItem" 
+                                           itemDisabled="#{woredaidItem.zoneid != senedochenatebekochController.selected.zoneid}"
+                                           itemValue="#{woredaidItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateSenedochenatebekochLabel_kebele}" for="kebele" />
+                        <p:inputText id="kebele" value="#{senedochenatebekochController.selected.kebele}" title="#{bundle.CreateSenedochenatebekochTitle_glgalotteyakiaynet}" />
+                    </p:panelGrid>
+           
+         <p:panel  toggleable="true"  header="አገልግሎት ጠያቂ " > 
+           <p:panelGrid columns="2" rendered="#{senedochenatebekochController.selected != null}"> 
+                        
+               <p:panelGrid columns="2">
+               <p:outputLabel value="ውል ሰጭ አይነት" for="glgalotteyakiaynet" />
+                     
+             <p:selectOneRadio   id="glgalotteyakiaynet" value="#{senedochenatebekochController.selected.glgalotteyakiaynet}"   required="true" requiredMessage="please select Privilege"  >
+                    <p:ajax  event="change" update="teyaki"  />                   
+            <f:selectItem itemLabel="ግለሰብ" itemValue="ግለሰብ"/>
+             <f:selectItem itemLabel="ድርጂት" itemValue="ድርጂት"/>
+                                
+           </p:selectOneRadio>
+                        
+           </p:panelGrid>
+              <p:panelGrid columns="2" id="teyaki">
+                        <p:outputLabel rendered="#{senedochenatebekochController.selected.glgalotteyakiaynet eq 'ግለሰብ'}" value="#{bundle.CreateSenedochenatebekochLabel_name}" for="name" />
+                      <p:inputText rendered="#{senedochenatebekochController.selected.glgalotteyakiaynet eq 'ግለሰብ'}"  id="name" value="#{senedochenatebekochController.selected.name}" title="#{bundle.CreateSenedochenatebekochTitle_name}" />
+                        <p:outputLabel rendered="#{senedochenatebekochController.selected.glgalotteyakiaynet eq 'ግለሰብ'}" value="#{bundle.CreateSenedochenatebekochLabel_fname}" for="fname" />
+                        <p:inputText rendered="#{senedochenatebekochController.selected.glgalotteyakiaynet eq 'ግለሰብ'}"  id="fname" value="#{senedochenatebekochController.selected.fname}" title="#{bundle.CreateSenedochenatebekochTitle_fname}" />
+                        <p:outputLabel rendered="#{senedochenatebekochController.selected.glgalotteyakiaynet eq 'ግለሰብ'}"  value="#{bundle.CreateSenedochenatebekochLabel_lastname}" for="lastname" />
+                        <p:inputText rendered="#{senedochenatebekochController.selected.glgalotteyakiaynet eq 'ግለሰብ'}"  id="lastname" value="#{senedochenatebekochController.selected.lastname}" title="#{bundle.CreateSenedochenatebekochTitle_lastname}" />
+                      
+                        <p:outputLabel rendered="#{senedochenatebekochController.selected.glgalotteyakiaynet eq 'ድርጂት'}"  value="#{bundle.CreateSenedochenatebekochLabel_dregtname}" for="dregtname" />
+                        <p:inputText rendered="#{senedochenatebekochController.selected.glgalotteyakiaynet eq 'ድርጂት'}"  id="dregtname" value="#{senedochenatebekochController.selected.dregtname}" title="#{bundle.CreateSenedochenatebekochTitle_dregtname}" />
+              </p:panelGrid></p:panelGrid></p:panel>
+  
+     <p:panelGrid columns="2" rendered="#{senedochenatebekochController.selected != null}">
+      <p:outputLabel value="#{bundle.CreateSenedochenatebekochLabel_yegudayuaynet}" for="yegudayuaynet" />
+                       <p:selectOneMenu  filter="true" filterMatchMode="contains"  id="yegudayuaynet" value="#{senedochenatebekochController.selected.yegudayuaynet}"  required="true" requiredMessage="please select Privilege"  >
+                                 <f:selectItem itemLabel="እባክዎን የፋይሉ አይነት ይምረጡ " itemValue="#{null}"/>
+                                 <f:selectItem itemLabel="ውክልና " itemValue="ውክልና "/>
+                                  <f:selectItem itemLabel="የውክልና መሻር" itemValue="የውክልና መሻር"/>
+                                 <f:selectItem itemLabel="ግልፅ ኑዛዜ" itemValue="ግልፅ ኑዛዜ"/>
+                                 <f:selectItem itemLabel="ስጦታ" itemValue="ስጦታ"/>
+                                 <f:selectItem itemLabel="የአደራ ውል" itemValue="የአደራ ውል"/>
+                                 <f:selectItem itemLabel="የኪራይ ውል" itemValue="የኪራይ ውል"/>
+                                 <f:selectItem itemLabel="የስራ ቅጥር ውል" itemValue="የስራ ቅጥር ውል"/>
+                                 <f:selectItem itemLabel="የብድር ውል" itemValue="የብድር ውል"/>
+                                 <f:selectItem itemLabel="የዋስትና ውል" itemValue="የዋስትና ውል"/>
+                                 <f:selectItem itemLabel="የስልጠና እና የዋስትና ውል" itemValue="የስልጠና እና የዋስትና ውል"/>
+                                 <f:selectItem itemLabel="ተጋቢዎች ንብረታቸውንና አስተዳደሩን አስመልክተው የሚያደርጉት ውል" itemValue="ተጋቢዎች ንብረታቸውንና አስተዳደሩን አስመልክተው የሚያደርጉት ውል"/>
+                                 <f:selectItem itemLabel="ተጋቢዎች ከጋብቻ በፊት የግል ንብረታቸውን አስመልክተው የሚያደርጉት ውል" itemValue="ተጋቢዎች ከጋብቻ በፊት የግል ንብረታቸውን አስመልክተው የሚያደርጉት ውል"/>
+                                 <f:selectItem itemLabel="ትርጉም ማረጋገጥ" itemValue="ትርጉም ማረጋገጥ"/>
+                                 <f:selectItem itemLabel="ሰነድ ማገናዘብ" itemValue="ሰነድ ማገናዘብ"/>
+                                 <f:selectItem itemLabel="የጠበቆች ፈቃድ አሰጣጥና እድሳት" itemValue="የጠበቆች ፈቃድ አሰጣጥና እድሳት"/>
+                                 <f:selectItem itemLabel="ቃለ መሀላ" itemValue="ቃለ መሀላ"/>
+                                 <f:selectItem itemLabel="ልዩ ልዩ የውል ስምምነቶች" itemValue="ልዩ ልዩ የውል ስምምነቶች"/>
+                                 <f:selectItem itemLabel="የበጎ አድራጎት ማህበራት" itemValue="የበጎ አድራጎት ማህበራት"/>
+                                   <f:selectItem itemLabel="ፈቃድ መስጠት " itemValue="ፈቃድ መስጠት "/>
+                                    <f:selectItem itemLabel="ፈቃድ ማደስ" itemValue="ፈቃድ ማደስ"/>
+                                     <f:selectItem itemLabel="የቤት ኪራይ" itemValue="የቤት ኪራይ"/>
+                             </p:selectOneMenu>
+     </p:panelGrid>
+                  <p:panel  toggleable="true" header="አገልግሎት ተቀባይ" >        
+      <p:panelGrid columns="2" rendered="#{senedochenatebekochController.selected != null}">        
+       <p:outputLabel value="#{bundle.CreateMeritizazandabetutaLabel_glglaotteyaksechaynet}" for="tewekayaynet" />
+       
+      
+       <p:selectOneRadio  id="tewekayaynet" value="#{senedochenatebekochController.selected.tewekayaynet}"  required="true" requiredMessage="please select Privilege"  >
+       
+           <p:ajax  event="change" update="tekebay"  />                   
+            <f:selectItem itemLabel="ግለሰብ" itemValue="ግለሰብ"/>
+             <f:selectItem itemLabel="ድርጂት" itemValue="ድርጂት"/>
+                                
+       </p:selectOneRadio>
+         
+      </p:panelGrid>
+          <p:panelGrid id="tekebay" columns="8" rendered="#{senedochenatebekochController.selected != null}">        
+                       
+                        <p:outputLabel rendered="#{senedochenatebekochController.selected.tewekayaynet == 'ድርጂት'}" value="#{bundle.CreateMeritizazandabetutaLabel_glglaotteyaksechnmae}"  />
+                        <p:inputText rendered="#{senedochenatebekochController.selected.tewekayaynet == 'ድርጂት'}" id="glglaotteyaksechnmae" value="#{meritizazandabetutaController.selected.glglaotteyaksechnmae}" title="#{bundle.CreateMeritizazandabetutaTitle_glglaotteyaksechnmae}" />
+                        <p:outputLabel rendered="#{senedochenatebekochController.selected.tewekayaynet eq 'ግለሰብ'}" value="#{bundle.CreateMeritizazandabetutaLabel_wultekebayname}"  />
+                        <p:inputText rendered="#{senedochenatebekochController.selected.tewekayaynet eq 'ግለሰብ'}" id="wname" value="#{senedochenatebekochController.selected.wname}" title="#{bundle.CreateMeritizazandabetutaTitle_wultekebayname}" />
+                        <p:outputLabel rendered="#{senedochenatebekochController.selected.tewekayaynet eq 'ግለሰብ'}" value="#{bundle.CreateMeritizazandabetutaLabel_wultekebayfname}"  />
+                        <p:inputText rendered="#{senedochenatebekochController.selected.tewekayaynet eq 'ግለሰብ'}" id="wmname" value="#{senedochenatebekochController.selected.wmname}" title="#{bundle.CreateMeritizazandabetutaTitle_wultekebayfname}" />
+                        <p:outputLabel rendered="#{senedochenatebekochController.selected.tewekayaynet eq 'ግለሰብ'}" value="#{bundle.CreateMeritizazandabetutaLabel_wultekebaylastname}"  />
+                        <p:inputText rendered="#{ senedochenatebekochController.selected.tewekayaynet eq 'ግለሰብ'}" id="wlname" value="#{senedochenatebekochController.selected.wlname}" title="#{bundle.CreateMeritizazandabetutaTitle_wultekebaylastname}" />
+       </p:panelGrid>
+                    </p:panel>          
+                      <p:panel  toggleable="true"  header="የፋይሉ የተቀመጠበት ቦታ እና መረጃ" >   
+                  
+                    <p:panelGrid columns="4" rendered="#{senedochenatebekochController.selected != null}">
+                         <p:outputLabel value="#{bundle.CreateSenedochenatebekochLabel_gelgalotyetesetebetken}" for="gelgalotyetesetebetken" />
+                        <p:inputText onmousedown="fun(this);"   id="gelgalotyetesetebetken" value="#{senedochenatebekochController.selected.gelgalotyetesetebetken}" title="#{bundle.CreateSenedochenatebekochTitle_gelgalotyetesetebetken}" />
+                        <p:outputLabel value="#{bundle.CreateSenedochenatebekochLabel_filekutr}" for="filekutr" />
+                        <p:inputText id="filekutr" value="#{senedochenatebekochController.selected.filekutr}" title="#{bundle.CreateSenedochenatebekochTitle_filekutr}" />
+                        <p:outputLabel value="#{bundle.CreateSenedochenatebekochLabel_mezgebuyetekemetebetbota}" for="mezgebuyetekemetebetbota" />
+                        <p:inputText id="mezgebuyetekemetebetbota" value="#{senedochenatebekochController.selected.mezgebuyetekemetebetbota}" title="#{bundle.CreateSenedochenatebekochTitle_mezgebuyetekemetebetbota}" />
+                        <p:outputLabel value="#{bundle.CreateSenedochenatebekochLabel_getbzat}" for="getbzat" />
+                        <p:inputText id="getbzat" value="#{senedochenatebekochController.selected.getbzat}" title="#{bundle.CreateSenedochenatebekochTitle_getbzat}" />
+                        <p:outputLabel value="#{bundle.CreateSenedochenatebekochLabel_glgalotyesetewbalemuyaname}" for="glgalotyesetewbalemuyaname" />
+                        <p:inputText id="glgalotyesetewbalemuyaname" value="#{senedochenatebekochController.selected.glgalotyesetewbalemuyaname}" title="#{bundle.CreateSenedochenatebekochTitle_glgalotyesetewbalemuyaname}" />
+                         <p:outputLabel value="የተከፈለ የገንዘብ መጠን" for="amount" />
+                         <p:inputText id="amount" value="#{senedochenatebekochController.selected.amount}" title="#{bundle.CreateSenedochenatebekochTitle_glgalotyesetewbalemuyaname}" />
+                      
+                    
+                    </p:panelGrid>
+                      </p:panel>
+             <p:outputLabel value="ፍይል ማያያዣ"  for="filepath" />
+             <p:fileUpload  id="filepath"     fileLimit="1" invalidFileMessage="please upload only pdf files"  fileLimitMessage="You Already Uploaded!You Are Allowed To upload Only Once"   requiredMessage="please attach your file pdf here  "   listener="#{senedochenatebekochController.selected.handleFileUploadfile}"  dragDropSupport="true"
+                                      allowTypes="/(\.|\/)(pdf)$/"
+                                    update=":growl"  > 
+      
+      
+                          </p:fileUpload>
+   
+                    <p:commandButton actionListener="#{senedochenatebekochController.update}" value="#{bundle.Save}" update="display,:SenedochenatebekochListForm:datalist,:growl" oncomplete="handleSubmit(args, 'SenedochenatebekochEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="SenedochenatebekochEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

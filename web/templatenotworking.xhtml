@@ -1,0 +1,203 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <meta http-equiv="refresh" content="#{facesContext.externalContext.sessionMaxInactiveInterval};url=#{request.contextPath}/faces/login.xhtml"/>
+   
+ <h:head>
+        <title><ui:insert name="title"></ui:insert></title>
+         <h:outputStylesheet library="css" name="jsfcrud.css"/>
+        <h:outputScript library="js" name="jsfcrud.js"/>
+        <link rel="stylesheet" href="resources/css/layout.css" type="text/css"/>
+        
+        <!-- Bootstrap Core CSS -->
+        <h:outputStylesheet library="vendor" name="bootstrap/css/bootstrap.min.css"/>
+    
+        <!-- MetisMenu CSS -->
+        <h:outputStylesheet library="vendor" name="metisMenu/metisMenu.min.css"/>
+
+        <!-- Custom CSS -->
+        <h:outputStylesheet library="dist" name="css/sb-admin-2.css"/>
+    
+        <!-- Custom Fonts -->
+        <h:outputStylesheet library="font-awesome" name="css/font-awesome.min.css"/>
+    <!--  end of Bootstrap Core CSS -->  
+    
+    
+         <h:outputStylesheet library="eth" name="css/jquery.calendars.picker.css"/> 
+       
+  <script>
+
+function fun(that){
+ 
+ 
+$(that).calendarsPicker({
+  calendar: $.calendars.instance('ethiopian'),
+  showOtherMonths: true
+     
+});
+
+}
+</script>
+     </h:head>
+
+    <style>
+       .ui-layout-pane-north.ui-widget-content{
+ border: 0;
+}
+.ui-layout-pane-east.ui-widget-content{
+ border: 0;
+}
+ 
+ .ui-layout-pane-west.ui-widget-content{
+ border: 0;
+}
+ 
+ .ui-layout-pane-center.ui-widget-content{
+ border: 0;
+}
+    </style>
+  <p:growl id="growl" life="3000" />
+        <p:layout fullPage="true">
+             <p:layoutUnit position="north" size="150"  style="width:85%; height: 100%; float:  contour;margin-left: 100;margin-top: 0" resizable="true" closable="true" collapsible="true">
+                  
+              <p:graphicImage value="../images/azezologo.png" width="100%"   height="90" /> 
+               <h:form id="menuForms">
+                    <p:menubar  class="menubar" style="background: lightyellow" >
+                     
+                         
+                         <p:menuitem value="የፍታብሄር ጉዳዮች"  icon="ui-icon-file"  outcome="/mebtnatkmmyefetabherafetatem/List.xhtml" />
+                            <p:menuitem value="  የውል ረቂቅ  እና ምርመራ ዝግጂት " icon="ui-icon-person"  outcome="/meritizazandabetuta/List.xhtml" />
+                            <p:menuitem value="  ቀጥተኛ ክስ እና የክስ መልስ"  icon="ui-icon-person"   outcome="/qettegnakisandkesemelsmezgeb/List.xhtml" />
+                           
+                            <p:menuitem value="  ሰነዶች እና ጠበቆች ማረጋገጫ" icon="ui-icon-person"    outcome="/senedochenatebekoch/List.xhtml" />
+                             <p:menuitem value=" በጎ አድራጎት " icon="ui-icon-person"    outcome="/begoadragot/List.xhtml" />
+                        <p:submenu label="ሽያጭ" icon="ui-icon-person"  >
+                        
+                          <p:menuitem value="ቤት ሽያጭ"  icon="ui-icon-car"   outcome="/betshiyach/List.xhtml"   />
+                          <p:menuitem value="መኪና  ሽያጭ "  icon="ui-icon-person"  outcome="/mekinashiyach/List.xhtml"   />
+                             </p:submenu>
+                             <p:submenu label="  ወንጀል መዛግብት ፋይል" icon="ui-icon-person" >
+                        
+                          <p:menuitem value="የወንጀል ዋስትና "  icon="ui-icon-person"   outcome="/wengelwastna/List.xhtml"   />
+                          <p:menuitem value="የወንጀል አቤቱታ"  icon="ui-icon-person"  outcome="/wengelabetuta/List.xhtml"   />
+                             </p:submenu>
+                           
+                            <p:menuitem value="  የወንጀል መዝገብ ቀዳሚ ምርመራ" icon="ui-icon-person"   outcome="/wenjelmezgebkedamimrmra/List.xhtml" />
+                      
+                            <p:menuitem value="  ይግባኝ እና ይግባኝ መልስ"  icon="ui-icon-person"   outcome="/yigbagnayigbagnmels/List.xhtml" />
+                           
+                             <p:submenu   label="የዛሬ ቀጠሮዎች"   >
+                         <p:menuitem value="መብት እና ጥቅም ማስጠበቅ" outcome="/mebtnatkmmyefetabherafetatem/Listappointment.xhtml" />
+                           <p:menuitem rendered="false" value="መሪ ትእዛዝ እና አቤቱታ" outcome="/meritizazandabetuta/Listappointment.xhtml" />
+                            <p:menuitem rendered="false" value="ቀጥተኛ ክስ እና የክስ መልስ" outcome="/qettegnakisandkesemelsmezgeb/Listappointment.xhtml" />
+                            <p:menuitem rendered="false" value="ሰነዶች እና ጠበቆች ማረጋገጫ" outcome="/senedochenatebekoch/Listappointment.xhtml" />
+                           <p:menuitem rendered="false" value="የወንጀል ዋስትና "   outcome="/wengelabetuta/Listappointment.xhtml"  />
+                          <p:menuitem rendered="false" value="የወንጀል አቤቱታ"   outcome="/wengelwastna/Listappointment.xhtml"  />
+                         
+                       <p:menuitem value="ይግባኝ እና ይግባኝ መልስ" outcome="/yigbagnayigbagnmels/List.xhtml" />
+                             </p:submenu>
+                            
+                            <p:submenu   label="ሪፖርቶች"   >
+                          <p:menuitem  value="መብት እና ጥቅም ማስጠበቅ" outcome="/basic/reportmebtnatkm.xhtml" />
+                           <p:menuitem value="መሪ ትእዛዝ እና አቤቱታ" outcome="/basic/reportmeritizaz.xhtml" />
+                            <p:menuitem rendered="false" value="ቀጥተኛ ክስ እና የክስ መልስ" outcome="/qettegnakisandkesemelsmezgeb/Listreport.xhtml" />
+                            <p:menuitem value="ሰነዶች እና ጠበቆች ማረጋገጫ" outcome="/senedochenatebekoch/List.xhtml" />
+                           <p:menuitem value="የወንጀል ዋስትና "   outcome="/wengelabetuta/List.xhtml"  />
+                          <p:menuitem value="የወንጀል አቤቱታ"   outcome="/wengelwastna/List.xhtml"  />
+                             </p:submenu>
+         
+            
+                  
+       
+                           <p:submenu   label="  SETTING"  style="width: auto" >
+                         <p:menuitem value="  ክልሎች" outcome="/regions/List.xhtml" />
+                             <p:menuitem value="ዞኖች" outcome="/zones/List.xhtml" />
+                               <p:menuitem value="ወረዳዎች" outcome="/weredas/List.xhtml" />
+                               <p:menuitem value="ተጠቃሚዎች"  rendered="#{session.getValue('role')=='Admin'}" outcome="/users/List.xhtml" />
+                                      <p:menuitem value="መልእክቶች" outcome="/messege/List.xhtml" />
+                                 <p:menuitem value=" BACK UP  "  icon="ui-icon-backup"    outcome="/Backup.xhtml" rendered="#{session.getValue('role')=='Admin'}" />   
+                          </p:submenu>
+                        
+                        <p:menuitem    value="  MANAGE ACCOUNT    "  icon="ui-icon-person" rendered="#{session.getValue('role')=='director' ||  session.getValue('role')=='Coordinator' || session.getValue('role')=='pi' || session.getValue('role')=='researchdirector'}" outcome="/manageaccount.xhtml" />
+      </p:menubar>
+                                    
+                    <div style="margin-top: 20px;">
+                        <p:commandLink  style="float: right;font-size: 32px;font-weight: 300;background: aqua"  action="#{loginclass.logout()}" value="|  log out"></p:commandLink>
+                    <h:outputText style="float: right ;font-size: 14px;bold"  id="logeduser" value=" welcome ,| #{session.getValue('user')}   "/>
+                    </div>
+                </h:form>
+              
+              
+             </p:layoutUnit>
+            <p:layoutUnit position="west" size="175"  header="Menues" collapsible="true">
+                          
+               
+                     
+                      
+                <p:menu   style="background: #ccffcc" >
+                    
+                         <p:menuitem value="የፍታብሄር ጉዳዮች" outcome="/mebtnatkmmyefetabherafetatem/List.xhtml" />
+                            <p:menuitem value="መሪ ትእዛዝ እና አቤቱታ" outcome="/meritizazandabetuta/List.xhtml" />
+                            <p:menuitem value="ቀጥተኛ ክስ እና የክስ መልስ" outcome="/qettegnakisandkesemelsmezgeb/List.xhtml" />
+                            <p:menuitem value="ሰነዶች እና ጠበቆች ማረጋገጫ" outcome="/senedochenatebekoch/List.xhtml" />
+                        
+                            <p:submenu   label="ወንጀል መዛግብት ፋይል"   >
+                        
+                          <p:menuitem value="የወንጀል ዋስትና "   outcome="/wengelabetuta/List.xhtml"  />
+                          <p:menuitem value="የወንጀል አቤቱታ"   outcome="/wengelwastna/List.xhtml"  />
+                             </p:submenu>
+                           
+                            
+                            <p:menuitem  rendered="false" value="የወንጀል መዝገብ ቀዳሚ ምርመራ" outcome="/wenjelmezgebkedamimrmra/List.xhtml" />
+                      
+                            <p:menuitem value="ይግባኝ እና ይግባኝ መልስ" outcome="/yigbagnayigbagnmels/List.xhtml" />
+                           
+         
+            
+                  
+       
+                          
+                        
+                </p:menu>
+                </p:layoutUnit>
+           
+            <p:layoutUnit position="south" size="40">
+                <ui:insert name="footer"/>
+                <h:form>
+                 
+                    <div  align="center">
+                        <p style="font-family: serif" > Role : #{session.getValue('role')}</p>
+                    </div>
+                    <p style="float: right;font-family: serif"> developed by :  Fedlu Nurhussien @University Of Gondar,2018</p>     
+                </h:form>
+               
+            </p:layoutUnit>
+
+            <p:layoutUnit position="center">
+                <br></br>
+                <br></br>
+                
+                <ui:insert name="body"/>
+               <h:outputScript library="vendor" name="bootstrap/js/bootstrap.min.js"/>
+    
+    <!-- Metis Menu Plugin JavaScript -->
+    <h:outputScript library="vendor" name="metisMenu/metisMenu.min.js"/>
+
+    <h:outputScript library="dist" name="js/sb-admin-2.js"/>
+                
+    <h:outputScript library="eth"  name="js/jquery.calendars.js"/>
+<h:outputScript library="eth" name="js/jquery.calendars.plus.js"/>
+<h:outputScript library="eth" name="js/jquery.plugin.js"/> 
+<h:outputScript library="eth"  name="js/jquery.calendars.picker.js"/>
+<h:outputScript library="eth" name="js/jquery.calendars.ethiopian.min.js"/>
+            </p:layoutUnit>
+          
+        </p:layout>
+
+    
+
+</html>

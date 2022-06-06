@@ -1,0 +1,125 @@
+<pretty-config xmlns="http://ocpsoft.org/schema/rewrite-config-prettyfaces" 
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+               xsi:schemaLocation="http://ocpsoft.org/schema/rewrite-config-prettyfaces
+                      http://ocpsoft.org/xml/ns/prettyfaces/rewrite-config-prettyfaces.xsd">
+
+    <url-mapping id="begoadragot">
+        <pattern value="/faces/begoadragot/List" />
+        <view-id value="/faces/patient/List.xhtml" />
+    </url-mapping>
+    
+    <url-mapping id="mebtnatkmmyefetabherafetatem">
+        <pattern value="/faces/mebtnatkmmyefetabherafetatem/List" />
+        <view-id value="/faces/mebtnatkmmyefetabherafetatem/List.xhtml" />
+    </url-mapping>
+    
+    <url-mapping id="meritizazandabetuta">
+        <pattern value="/faces/meritizazandabetuta/List" />
+        <view-id value="/faces/meritizazandabetuta/List.xhtml" />
+    </url-mapping>
+    
+    <url-mapping id="qettegnakisandkesemelsmezgeb">
+        <pattern value="/faces/qettegnakisandkesemelsmezgeb/List" />
+        <view-id value="/faces/qettegnakisandkesemelsmezgeb/List.xhtml" />
+    </url-mapping>
+   
+    <url-mapping id="begoadragot">
+        <pattern value="/faces/begoadragot/List" />
+        <view-id value="/faces/begoadragot/List.xhtml" />
+    </url-mapping>
+    
+    <url-mapping id="senedochenatebekoch">
+        <pattern value="/faces/senedochenatebekoch/List" />
+        <view-id value="/faces/senedochenatebekoch/List.xhtml" />
+    </url-mapping>
+    
+    <url-mapping id="betshiyach">
+        <pattern value="/faces/betshiyach/List" />
+        <view-id value="/faces/betshiyach/List.xhtml" />
+    </url-mapping>
+    
+    <url-mapping id="mekinashiyach">
+        <pattern value="/faces/mekinashiyach/List" />
+        <view-id value="/faces/mekinashiyach/List.xhtml" />
+    </url-mapping>
+    
+    <url-mapping id="wengelwastna">
+        <pattern value="/faces/wengelwastna/List" />
+        <view-id value="/faces/wengelwastna/List.xhtml" />
+    </url-mapping>
+    <url-mapping id="wengelabetuta">
+        <pattern value="/faces/wengelabetuta/List" />
+        <view-id value="/faces/wengelabetuta/List.xhtml" />
+    </url-mapping>
+    <url-mapping id="wenjelmezgebkedamimrmra">
+        <pattern value="/faces/wenjelmezgebkedamimrmra/List" />
+        <view-id value="/faces/wenjelmezgebkedamimrmra/List.xhtml" />
+    </url-mapping>
+    <url-mapping id="yigbagnayigbagnmels">
+        <pattern value="/faces/yigbagnayigbagnmels/List" />
+        <view-id value="/faces/yigbagnayigbagnmels/List.xhtml" />
+    </url-mapping>
+    <url-mapping id="reportmeritizaz">
+        <pattern value="/faces/basic/reportmebtnatkm"  />
+        <view-id value="/faces/basic/reportmebtnatkm.xhtml"  />
+    </url-mapping>
+        
+    <url-mapping id="reportmeritizaz">
+        <pattern value="/faces/basic/reportmeritizaz"  />
+        <view-id value="/faces/basic/reportmeritizaz.xhtml"  />
+    </url-mapping>
+        
+    <url-mapping id="regions">
+        <pattern value="/faces/regions/List" />
+        <view-id value="/faces/regions/List.xhtml" />
+    </url-mapping>        
+    <url-mapping id="zones">
+        <pattern value="/faces/zones/List" />
+        <view-id value="/faces/zones/List.xhtml" />
+    </url-mapping>
+    <url-mapping id="weredas">
+        <pattern value="/faces/weredas/List" />
+        <view-id value="/faces/weredas/List.xhtml" />
+    </url-mapping> 
+    
+    <url-mapping id="messege">
+        <pattern value="/faces/messege/List" />
+        <view-id value="/faces/messege/List.xhtml" />
+    </url-mapping> 
+    
+    <url-mapping id="users">
+        <pattern value="/faces/users/List" />
+        <view-id value="/faces/users/List.xhtml" />
+    </url-mapping>
+        
+    <url-mapping id="roles">
+        <pattern value="/faces/roles/List" />
+        <view-id value="/faces/roles/List.xhtml" />
+    </url-mapping>
+    <url-mapping id="login">
+        <pattern value="/faces/login" />
+        <view-id value="/faces/login.xhtml" />
+    </url-mapping>
+    
+    <url-mapping id="manageaccount">
+        <pattern value="/faces/manageaccount" />
+        <view-id value="/faces/manageaccount.xhtml" />
+    </url-mapping>
+         
+    <url-mapping id="template">
+        <pattern value="/faces/template" />
+        <view-id value="/faces/template.xhtml" />
+    </url-mapping>
+        
+    <url-mapping id="dashboard">
+        <pattern value="/faces/dashboard" />
+        <view-id value="/faces/dashboard.xhtml" />
+    </url-mapping>
+    
+    <url-mapping id="wuklnacriterias">
+        <pattern value="/faces/wuklnacriterias/List" />
+        <view-id value="/faces/wuklnacriterias/List.xhtml" />
+    </url-mapping>
+         
+        
+</pretty-config>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="WuklnaEditDlg" widgetVar="WuklnaEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditWuklnaTitle}">
+            <h:form id="WuklnaEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{wuklnaController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditWuklnaLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{wuklnaController.selected.id}" title="#{bundle.EditWuklnaTitle_id}" required="true" requiredMessage="#{bundle.EditWuklnaRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditWuklnaLabel_yetewokayAynet}" for="yetewokayAynet" />
+                        <p:inputText id="yetewokayAynet" value="#{wuklnaController.selected.yetewokayAynet}" title="#{bundle.EditWuklnaTitle_yetewokayAynet}" />
+                        <p:outputLabel value="#{bundle.EditWuklnaLabel_yewokayAynet}" for="yewokayAynet" />
+                        <p:selectOneMenu id="yewokayAynet" value="#{wuklnaController.selected.yewokayAynet}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{officetypesController.itemsAvailableSelectOne}"
+                                           var="yewokayAynetItem"
+                                           itemValue="#{yewokayAynetItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditWuklnaLabel_misikir}" for="misikir" />
+                        <p:selectOneMenu id="misikir" value="#{wuklnaController.selected.misikir}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{usersController.itemsAvailableSelectOne}"
+                                           var="misikirItem"
+                                           itemValue="#{misikirItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditWuklnaLabel_tewokay}" for="tewokay" />
+                        <p:selectOneMenu id="tewokay" value="#{wuklnaController.selected.tewokay}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{usersController.itemsAvailableSelectOne}"
+                                           var="tewokayItem"
+                                           itemValue="#{tewokayItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditWuklnaLabel_wekay}" for="wekay" />
+                        <p:selectOneMenu id="wekay" value="#{wuklnaController.selected.wekay}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{usersController.itemsAvailableSelectOne}"
+                                           var="wekayItem"
+                                           itemValue="#{wekayItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditWuklnaLabel_yewuklnaaynet}" for="yewuklnaaynet" />
+                        <p:selectOneMenu id="yewuklnaaynet" value="#{wuklnaController.selected.yewuklnaaynet}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{yewuklnaAynetController.itemsAvailableSelectOne}"
+                                           var="yewuklnaaynetItem"
+                                           itemValue="#{yewuklnaaynetItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{wuklnaController.update}" value="#{bundle.Save}" update="display,:WuklnaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'WuklnaEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="WuklnaEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+ <ui:composition template="/template.xhtml">
+  <ui:define name="title">
+            <h:outputText value="#{bundle.CreateFinancesettlmentTitle}"></h:outputText>
+        </ui:define>
+<ui:define name="title">
+            <h:outputText value="#{bundle.CreateFinancesettlmentTitle}"></h:outputText>
+        </ui:define>
+   <ui:define name="body">
+       <h:form>
+             
+           <p:wizard   flowListener="#{wizardmekinawuklna.onFlowProcess}">
+             <p:tab  title="Header I">
+                  <p:panel  toggleable="true"  header="አገልግሎት ጠያቂ " > 
+           <h:form id="UsersCreateForm">
+                <h:panelGroup id="display">
+                 
+                     <p:panelGrid columns="8" >
+                         <p:outputLabel value="#{bundle.CreateUsersLabel_nationality}" for="nationality" />
+                        <p:selectOneMenu id="nationality" value="#{usersController.selected.nationality}" >
+                            <f:selectItems value="#{nationalitiesController.itemsAvailableSelectOne}"
+                                           var="nationalityItem"
+                                           itemValue="#{nationalityItem}"/>
+                        </p:selectOneMenu>
+                       
+                        <p:outputLabel value="#{bundle.CreateUsersLabel_region}" for="region" />
+                        <p:selectOneMenu id="region" value="#{usersController.selected.region}" >
+                            <f:selectItems value="#{regionsController.itemsAvailableSelectOne}"
+                                           var="regionItem"
+                                           itemValue="#{regionItem}"/>
+                        </p:selectOneMenu>
+                         <p:outputLabel value="#{bundle.CreateUsersLabel_zone}" for="zone" />
+                        <p:selectOneMenu id="zone" value="#{usersController.selected.zone}" >
+                            <f:selectItems value="#{zonesController.itemsAvailableSelectOne}"
+                                           var="zoneItem"
+                                           itemValue="#{zoneItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateUsersLabel_woreda}" for="woreda" />
+                        <p:selectOneMenu id="woreda" value="#{usersController.selected.woreda}" >
+                            <f:selectItems value="#{weredasController.itemsAvailableSelectOne}"
+                                           var="woredaItem"
+                                           itemValue="#{woredaItem}"/>
+                        </p:selectOneMenu>
+                       
+                     </p:panelGrid>
+                       <p:panelGrid columns="4" >
+                      <p:outputLabel value="#{bundle.CreateUsersLabel_organizationType}" for="organizationType" />
+                        <p:selectOneMenu id="organizationType" value="#{usersController.selected.organizationType}" >
+                            <p:ajax  event="change"   listener="#{usersController.selected.setStatus('Enabled')}" update="per" />      
+                              <f:selectItem itemLabel="Select Organization Type" itemValue="#{null}" />
+                            <f:selectItems value="#{officetypesController.itemsAvailableSelectOne}"
+                                           var="organizationTypeItem"
+                                           itemValue="#{organizationTypeItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                        <h:panelGroup id="per"  >
+                            <p:panelGrid columns="2" rendered="#{usersController.selected.organizationType.name.equalsIgnoreCase('ድርጂት')}" id="xy" >
+                   <p:outputLabel value="Organization Name" for="title" />
+                   <p:inputText id="organizationname" value="#{usersController.selected.organizationname}" title="#{bundle.CreateUsersTitle_firtstname}" />
+                            </p:panelGrid>
+                            <p:panelGrid columns="8" rendered="#{usersController.selected.organizationType.name.equalsIgnoreCase('ግለሰብ')}" id="x" >
+                            <p:outputLabel value="#{bundle.CreateUsersLabel_title}" for="title" />
+                        <p:selectOneMenu id="title" value="#{usersController.selected.title}" >
+                            <f:selectItems value="#{titlerankController.itemsAvailableSelectOne}"
+                                           var="titlerankItem"
+                                           itemValue="#{titlerankItem}"/>
+                        </p:selectOneMenu>
+                        
+                        <p:outputLabel value="#{bundle.CreateUsersLabel_firtstname}" for="firtstname" />
+                        <p:inputText id="firtstname" value="#{usersController.selected.firtstname}" title="#{bundle.CreateUsersTitle_firtstname}" />
+                        <p:outputLabel value="#{bundle.CreateUsersLabel_middlename}" for="middlename" />
+                        <p:inputText id="middlename" value="#{usersController.selected.middlename}" title="#{bundle.CreateUsersTitle_middlename}" />
+                        <p:outputLabel value="#{bundle.CreateUsersLabel_lastname}" for="lastname" />
+                        <p:inputText id="lastname" value="#{usersController.selected.lastname}" title="#{bundle.CreateUsersTitle_lastname}" />
+                           
+                          <p:outputLabel value="#{bundle.CreateUsersLabel_sex}" for="sex" />
+                  
+                       <p:selectOneRadio id="sex" value="#{usersController.selected.sex}"  >
+            <f:selectItem itemLabel="Male" itemValue="Male"  />
+                   <f:selectItem itemLabel="Female" itemValue="Female"  />
+             
+                   <f:validateRequired for="sex"/>
+        </p:selectOneRadio>
+                 
+                          <p:outputLabel value="#{bundle.CreateUsersLabel_dateOfBirth}" for="dateOfBirth" />
+                        <p:inputText id="dateOfBirth" value="#{usersController.selected.dateOfBirth}" title="#{bundle.CreateUsersTitle_dateOfBirth}" />
+                          </p:panelGrid>  
+                        </h:panelGroup>
+                    <p:panelGrid columns="6" >
+                        <p:outputLabel value="#{bundle.CreateUsersLabel_kebele}" for="kebele" />
+                        <p:inputText id="kebele" value="#{usersController.selected.kebele}" title="#{bundle.CreateUsersTitle_kebele}" />
+                        <p:outputLabel value="#{bundle.CreateUsersLabel_idNumber}" for="idNumber" />
+                        <p:inputText id="idNumber" value="#{usersController.selected.idNumber}" title="#{bundle.CreateUsersTitle_idNumber}" />
+                        <p:outputLabel value="#{bundle.CreateUsersLabel_houseNumber}" for="houseNumber" />
+                        <p:inputText id="houseNumber" value="#{usersController.selected.houseNumber}" title="#{bundle.CreateUsersTitle_houseNumber}" />
+                        <p:outputLabel value="#{bundle.CreateUsersLabel_pobox}" for="pobox" />
+                        <p:inputText id="pobox" value="#{usersController.selected.pobox}" title="#{bundle.CreateUsersTitle_pobox}" />
+                             <p:outputLabel value="#{bundle.CreateUsersLabel_phoneNumber}" for="phoneNumber" />
+                            <p:inputMask mask="(+251) 999-99-9999"  id="phoneNumber" value="#{usersController.selected.phoneNumber}" />
+                        
+                            <p:outputLabel value="#{bundle.CreateUsersLabel_housePhoneNumber}" for="housePhoneNumber" />
+                             <p:inputText id="housePhoneNumber" value="#{usersController.selected.housePhoneNumber}" title="#{bundle.CreateUsersTitle_housePhoneNumber}" />
+                     </p:panelGrid><!-- comment -->   
+                    
+                      
+                     <p:commandButton ajax="false"  immediate="true"  styleClass="ui-button-success" action="#{usersController.create('123','wekay')}" value="#{bundle.Save}" update="display,:growl" />
+ </h:panelGroup>
+            </h:form>
+   </p:panel>
+            </p:tab>
+                  <p:tab title="Wuklana">
+                        <p:panel  toggleable="true"  header="Wuklan Data" > 
+              <h:form id="MekinashiyachCreateForm">
+                <h:panelGroup id="display">
+           
+                         <p:panelGrid columns="2" >
+                        <p:outputLabel value="#{bundle.CreateMekinashiyachLabel_targakutr}" for="targakutr" />
+                        <p:inputText id="targakutr" value="#{mekinashiyachController.selected.targakutr}" title="#{bundle.CreateMekinashiyachTitle_targakutr}" />
+                        <p:outputLabel value="#{bundle.CreateMekinashiyachLabel_chancikutr}" for="chancikutr" />
+                        <p:inputText id="chancikutr" value="#{mekinashiyachController.selected.chancikutr}" title="#{bundle.CreateMekinashiyachTitle_chancikutr}" />
+                        <p:outputLabel value="#{bundle.CreateMekinashiyachLabel_motorkutr}" for="motorkutr" />
+                        <p:inputText id="motorkutr" value="#{mekinashiyachController.selected.motorkutr}" title="#{bundle.CreateMekinashiyachTitle_motorkutr}" />
+                        <p:outputLabel value="#{bundle.CreateMekinashiyachLabel_yebrmetenm}" for="yebrmetenm" />
+                        <p:inputText id="yebrmetenm" value="#{mekinashiyachController.selected.yebrmetenm}" title="#{bundle.CreateMekinashiyachTitle_yebrmetenm}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{mekinashiyachController.create('123')}" value="#{bundle.Save}" update="display,:growl" oncomplete="handleSubmit(args,'MekinashiyachCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="MekinashiyachCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+                        </p:panel>
+            </p:tab>
+                  <p:tab title="Tewokay">
+                           <p:panel  toggleable="true"  header="Tewekay" > 
+                <h:form id="UsersCreateFormtewokay">
+                <h:panelGroup id="display">
+               
+                     <p:panelGrid columns="8" rendered="#{usersController.selected != null}">
+                         <p:outputLabel value="#{bundle.CreateUsersLabel_nationality}" for="nationality" />
+                        <p:selectOneMenu id="nationality" value="#{usersController.selected.nationality}" >
+                            <f:selectItems value="#{nationalitiesController.itemsAvailableSelectOne}"
+                                           var="nationalityItem"
+                                           itemValue="#{nationalityItem}"/>
+                        </p:selectOneMenu>
+                       
+                        <p:outputLabel value="#{bundle.CreateUsersLabel_region}" for="region" />
+                        <p:selectOneMenu id="region" value="#{usersController.selected.region}" >
+                            <f:selectItems value="#{regionsController.itemsAvailableSelectOne}"
+                                           var="regionItem"
+                                           itemValue="#{regionItem}"/>
+                        </p:selectOneMenu>
+                         <p:outputLabel value="#{bundle.CreateUsersLabel_zone}" for="zone" />
+                        <p:selectOneMenu id="zone" value="#{usersController.selected.zone}" >
+                            <f:selectItems value="#{zonesController.itemsAvailableSelectOne}"
+                                           var="zoneItem"
+                                           itemValue="#{zoneItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateUsersLabel_woreda}" for="woreda" />
+                        <p:selectOneMenu id="woreda" value="#{usersController.selected.woreda}" >
+                            <f:selectItems value="#{weredasController.itemsAvailableSelectOne}"
+                                           var="woredaItem"
+                                           itemValue="#{woredaItem}"/>
+                        </p:selectOneMenu>
+                       
+                     </p:panelGrid>
+                       <p:panelGrid columns="4" rendered="#{usersController.selected != null}">
+                      <p:outputLabel value="#{bundle.CreateUsersLabel_organizationType}" for="organizationType" />
+                        <p:selectOneMenu id="organizationType" value="#{usersController.selected.organizationType}" >
+                            <p:ajax  event="change"   listener="#{usersController.selected.setStatus('Enabled')}" update="per" />      
+                              <f:selectItem itemLabel="Select Organization Type" itemValue="#{null}" />
+                            <f:selectItems value="#{officetypesController.itemsAvailableSelectOne}"
+                                           var="organizationTypeItem"
+                                           itemValue="#{organizationTypeItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                        <h:panelGroup id="per"  >
+                            <p:panelGrid columns="2" rendered="#{usersController.selected.organizationType.name.equalsIgnoreCase('ድርጂት')}" id="xy" >
+                   <p:outputLabel value="Organization Name" for="title" />
+                   <p:inputText id="organizationname" value="#{usersController.selected.organizationname}" title="#{bundle.CreateUsersTitle_firtstname}" />
+                            </p:panelGrid>
+                            <p:panelGrid columns="8" rendered="#{usersController.selected.organizationType.name.equalsIgnoreCase('ግለሰብ')}" id="x" >
+                            <p:outputLabel value="#{bundle.CreateUsersLabel_title}" for="title" />
+                        <p:selectOneMenu id="title" value="#{usersController.selected.title}" >
+                            <f:selectItems value="#{titlerankController.itemsAvailableSelectOne}"
+                                           var="titlerankItem"
+                                           itemValue="#{titlerankItem}"/>
+                        </p:selectOneMenu>
+                        
+                        <p:outputLabel value="#{bundle.CreateUsersLabel_firtstname}" for="firtstname" />
+                        <p:inputText id="firtstname" value="#{usersController.selected.firtstname}" title="#{bundle.CreateUsersTitle_firtstname}" />
+                        <p:outputLabel value="#{bundle.CreateUsersLabel_middlename}" for="middlename" />
+                        <p:inputText id="middlename" value="#{usersController.selected.middlename}" title="#{bundle.CreateUsersTitle_middlename}" />
+                        <p:outputLabel value="#{bundle.CreateUsersLabel_lastname}" for="lastname" />
+                        <p:inputText id="lastname" value="#{usersController.selected.lastname}" title="#{bundle.CreateUsersTitle_lastname}" />
+                           
+                          <p:outputLabel value="#{bundle.CreateUsersLabel_sex}" for="sex" />
+                  
+                       <p:selectOneRadio id="sex" value="#{usersController.selected.sex}"  >
+            <f:selectItem itemLabel="Male" itemValue="Male"  />
+                   <f:selectItem itemLabel="Female" itemValue="Female"  />
+             
+                   <f:validateRequired for="sex"/>
+        </p:selectOneRadio>
+                 
+                          <p:outputLabel value="#{bundle.CreateUsersLabel_dateOfBirth}" for="dateOfBirth" />
+                        <p:inputText id="dateOfBirth" value="#{usersController.selected.dateOfBirth}" title="#{bundle.CreateUsersTitle_dateOfBirth}" />
+                          </p:panelGrid>  
+                        </h:panelGroup>
+                    <p:panelGrid columns="6" >
+                        <p:outputLabel value="#{bundle.CreateUsersLabel_kebele}" for="kebele" />
+                        <p:inputText id="kebele" value="#{usersController.selected.kebele}" title="#{bundle.CreateUsersTitle_kebele}" />
+                        <p:outputLabel value="#{bundle.CreateUsersLabel_idNumber}" for="idNumber" />
+                        <p:inputText id="idNumber" value="#{usersController.selected.idNumber}" title="#{bundle.CreateUsersTitle_idNumber}" />
+                        <p:outputLabel value="#{bundle.CreateUsersLabel_houseNumber}" for="houseNumber" />
+                        <p:inputText id="houseNumber" value="#{usersController.selected.houseNumber}" title="#{bundle.CreateUsersTitle_houseNumber}" />
+                        <p:outputLabel value="#{bundle.CreateUsersLabel_pobox}" for="pobox" />
+                        <p:inputText id="pobox" value="#{usersController.selected.pobox}" title="#{bundle.CreateUsersTitle_pobox}" />
+                             <p:outputLabel value="#{bundle.CreateUsersLabel_phoneNumber}" for="phoneNumber" />
+                            <p:inputMask mask="(+251) 999-99-9999"  id="phoneNumber" value="#{usersController.selected.phoneNumber}" />
+                        
+                            <p:outputLabel value="#{bundle.CreateUsersLabel_housePhoneNumber}" for="housePhoneNumber" />
+                             <p:inputText id="housePhoneNumber" value="#{usersController.selected.housePhoneNumber}" title="#{bundle.CreateUsersTitle_housePhoneNumber}" />
+                    </p:panelGrid> 
+                     
+                     
+                   
+                    <p:commandButton actionListener="#{usersController.create('123','tewekay')}" value="#{bundle.Save}" update="display,:growl" oncomplete="handleSubmit(args,'UsersCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="UsersCreateDialog.hide()"/>
+                </h:panelGroup>
+                </h:form></p:panel>
+            </p:tab>
+       </p:wizard></h:form>
+       
+   </ui:define>
+
+    </ui:composition>
+</html>

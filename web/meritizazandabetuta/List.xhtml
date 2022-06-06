@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+  
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListMeritizazandabetutaTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="MeritizazandabetutaListForm">
+              
+                <h1 align="center" style="color: blue">  የውል ረቂቅ ምርመራ እና የውል ረቂቅ ዝግጂት ፋይል  </h1>
+
+                     <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{meritizazandabetutaController.prepareCreate}" update=":MeritizazandabetutaCreateForm" oncomplete="PF('MeritizazandabetutaCreateDialog').show()"/>
+                     
+                     <p:outputPanel  style="float: right" >   
+                           
+     <h:commandLink>
+        <p:graphicImage value="/images/excel.png"  style="width: 30px;height: 30px"/>
+        <p:dataExporter type="xls" target="datalist" fileName="መሪ ትዕዛዝ ፤አቤቱታ፤የህግ" />
+    </h:commandLink>
+ 
+    <h:commandLink>
+        <p:graphicImage value="/images/pdf.png"  style="width: 30px;height: 30px" />
+        <p:dataExporter type="pdf" target="datalist" fileName="Patient List"  pageOnly="true" />
+    </h:commandLink> 
+                      
+                   </p:outputPanel>
+                     
+                     
+                     <p:dataTable id="datalist" value="#{meritizazandabetutaController.items}" var="item"
+                                 selectionMode="single" selection="#{meritizazandabetutaController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.id}"
+                                 rows="10"
+                                 rowIndexVar="index"
+                                  widgetVar="fileTable"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
+
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton printButton  deleteButton editButtonappoint"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton printButton  deleteButton editButtonappoint"/>
+                       
+                        
+                        <f:facet  name="header">
+                  <p:outputPanel>
+                <h:outputText value="ፋይል በተለያዩ አማራጮች ይፈልጉ " />
+                <p:inputText id="globalFilter" onkeyup="PF('fileTable').filter()" style="width:150px" placeholder="Enter Key word"/>
+             <p:commandButton id="toggler" type="button" value="Columns" style="float:right" icon="ui-icon-calculator" />
+        <p:columnToggler datasource="datalist" trigger="toggler" />
+                  
+                  </p:outputPanel>
+                            
+                        
+                         </f:facet>
+                        <p:column   width="30" style="text-align:left">
+        <f:facet name="header">
+            <h:outputText value="Index " />
+        </f:facet>
+        <h:outputText 
+            value="#{index + 1}" />
+    </p:column> 
+                       
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMeritizazandabetutaTitle_agelgilotyetesetebetken}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.agelgilotyetesetebetken}"/>
+                        </p:column>
+                     
+                        <p:column filterBy="#{item.name} #{item.fname} #{item.lastname} " filterMatchMode="contains" >
+                            <f:facet name="header">
+                                <h:outputText value="አገልግሎት ጠያቂ"/>
+                            </f:facet>
+                            <h:outputText value="#{item.name} #{item.fname} #{item.lastname} "/>
+                             <h:outputText value="#{item.glglaotteyakiname} "/>
+                        </p:column>
+                            <p:column>
+                            <f:facet name="header">
+                                <h:outputText value=" አድራሻ"/>
+                            </f:facet>
+                            <h:outputText value="#{item.region.regionname} -"/>
+                             <h:outputText value="#{item.zoneid.zonename} -"/>
+                            <h:outputText value="#{item.woredaid.weredaname} "/>
+                        </p:column>
+                         <p:column>
+                            <f:facet name="header">
+                                <h:outputText value=" 
+የውል ረቂቅ ምርመራ ውሳኔ
+"/>
+                            </f:facet>
+                             <h:outputText value="#{item.wulrekikwusanie} "/>
+                             
+                        </p:column>
+                        
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="የውል አይነት "/>
+                            </f:facet>
+                            <h:outputText value="#{item.yewulaynet} "/>
+                            
+                        </p:column>
+                       <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="ስልክ ቁጥር"/>
+                            </f:facet>
+                            <h:outputText value="#{item.phonekesash}"/>
+                        </p:column>
+                      
+                        <p:column filterMatchMode="contains" filterBy="#{item.wultekebayname} #{item.wultekebayfname} #{item.wultekebaylastname}">
+                            <f:facet name="header">
+                                <h:outputText value="አገልግሎት ተቀባይ"/>
+                            </f:facet>
+                            <h:outputText value="#{item.wultekebayname} #{item.wultekebayfname} #{item.wultekebaylastname}"/>
+                            <h:outputText value="#{item.glglaotteyaksechnmae} "/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="ስልክ ቁጥር"/>
+                            </f:facet>
+                            <h:outputText value="#{item.phonetekesash}"/>
+                        
+                        </p:column>
+                        
+                      
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMeritizazandabetutaTitle_mezgebuyetekefetebetken}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.mezgebuyetekefetebetken}"/>
+                        </p:column>
+                        
+                       <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMeritizazandabetutaTitle_yefayluaynet}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.yefayluaynet}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMeritizazandabetutaTitle_yefetihbiromeleyakutr}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.yefetihbiromeleyakutr}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMeritizazandabetutaTitle_yegenzebmeten}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.yegenzebmeten}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMeritizazandabetutaTitle_yeweredafithmemrya}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.yeweredafithmemrya}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMeritizazandabetutaTitle_yezonefithmemroya}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.yezonefithmemroya}"/>
+                        </p:column>
+                       <p:column filterMatchMode="contains" filterBy="#{item.ketero}">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMeritizazandabetutaTitle_ketero}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ketero}"/>
+                        </p:column>
+                      
+                       <p:column  exportable="false" >   
+                          
+                             <f:facet name="header">
+                                <h:outputText value="ፋይል"/>
+                            </f:facet>
+                            <p:outputLabel  style="color:red" value="የተያያዘ ፋይል የለውም" rendered="#{item.hager eq null}" />
+                            <p:commandLink rendered="#{item.hager != null}"  style="color: blue;font-family: verdina"  value="ፈይሉን ይመልከቱ "  onstart="this.form.target = '_blank'" immediate="true"
+                                                 actionListener="#{filedownloads.openFile(item.hager)}"
+                                 ajax="false" />           
+                              <br></br>
+                       <p:commandLink  rendered="#{item.hager != null}" value="ፋይሉን ያውርዱ" ajax="false"  style="color: blue;font-family: verdina"   actionListener="#{filedownloads.fileuploadpath(item.hager)}"   >
+                     <p:fileDownload value="#{filedownloads.file}"  />
+                         </p:commandLink>
+                                 
+                         
+   </p:column>
+                        <p:column  exportable="false"  rendered="#{session.getValue('role') eq 'Admin'}">
+                            <f:facet name="header">
+                                <h:outputText value="RegisterdBy"/>
+                            </f:facet>
+                            <h:outputText value="#{item.regby}"/>
+                        </p:column>
+                       <p:column  exportable="false"  rendered="#{session.getValue('role') eq 'Admin'}">
+                            <f:facet name="header">
+                                <h:outputText value="UpdatedBy"/>
+                            </f:facet>
+                           <h:outputText value="#{item.updatedby}"/>
+                           <h:outputText rendered="false" value="Kesash  #{item.kesashmessegeflag}"/>
+                           <h:outputText rendered="false" value="Kesash Registration  #{item.registrationmessageflag}"/>
+                           <h:outputText rendered="false" value="te Kesash   #{item.tekesashmessegeflag}"/>
+                           <h:outputText rendered="false" value="te Kesash   registration #{item.tekesashregistration}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="የባለሙያ ስም "/>
+                            </f:facet>
+                             <h:outputText value="#{item.balemuya}"/>
+                            
+                        </p:column>
+                        <p:column  colspan="2" exportable="false"  >
+                               <f:facet name="header">
+                                <h:outputText value="Operation"/>
+                            </f:facet>
+                          <p:commandButton id="editButtonappoint"   icon="ui-icon-pencil" value="ቀጠሮ" update=":MeritizazandabetutaEditFormappoint" oncomplete="PF('MeritizazandabetutaEditDialogappoint').show()" disabled="#{empty meritizazandabetutaController.selected}">
+                              <f:setPropertyActionListener  value="#{item}" target="#{meritizazandabetutaController.selected}" /></p:commandButton>
+                        </p:column>
+                         
+                        
+                        <f:facet name="footer">
+                            <p:commandButton rendered="false" id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{meritizazandabetutaController.prepareCreate}" update=":MeritizazandabetutaCreateForm" oncomplete="PF('MeritizazandabetutaCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":MeritizazandabetutaViewForm" oncomplete="PF('MeritizazandabetutaViewDialog').show()" disabled="#{empty meritizazandabetutaController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":MeritizazandabetutaEditForm" oncomplete="PF('MeritizazandabetutaEditDialog').show()" disabled="#{empty meritizazandabetutaController.selected}"/>
+                            <p:commandButton id="printButton"   icon="ui-icon-pencil" value="ፕሪንት" update=":MeritizazandabetutaEditFormprint" oncomplete="PF('MeritizazandabetutaEditDialogprint').show()" disabled="#{empty meritizazandabetutaController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{meritizazandabetutaController.destroy}" update=":growl,datalist" disabled="#{empty meritizazandabetutaController.selected}"/>
+                        </f:facet>
+                        
+                    </p:dataTable>
+               
+            </h:form>
+  <p:dialog  id="MeritizazandabetutaEditDlgappoint" widgetVar="MeritizazandabetutaEditDialogappoint" modal="true" resizable="false" appendTo="@(body)" header="ቀጠሮ ማስተካከል">
+            <h:form id="MeritizazandabetutaEditFormappoint">
+                    <h:panelGroup id="display">
+              
+    <p:panelGrid     columns="4" rendered="#{meritizazandabetutaController.selected != null}">        
+                       
+                          <p:outputLabel  value="#{bundle.CreateMeritizazandabetutaLabel_ketero}" for="ketero" />
+                          <p:inputText onchange="#{meritizazandabetutaController.selected.setKesashmessegeflag('0')}"  onmousedown="fun(this);"  id="ketero" value="#{meritizazandabetutaController.selected.ketero}" title="#{bundle.CreateMeritizazandabetutaTitle_ketero}" />
+                         <p:outputLabel value="ጊዜ" for="season" />
+       
+        <p:selectOneRadio  id="season" value="#{meritizazandabetutaController.selected.season}"  required="true" requiredMessage="ጊዜ "  >
+            <p:ajax update="keteromknyat" listener="#{meritizazandabetutaController.selected.process()}" />
+                                  <f:selectItem itemLabel="ጠዋት" itemValue="ጠዋት"/>
+                                  <f:selectItem itemLabel="ከሰዓት" itemValue="ከሰዓት"/>
+                           </p:selectOneRadio>
+    </p:panelGrid>
+                          <p:outputLabel  value="የቀጠሮ ምክንያት" for="keteromknyat" />
+                          <p:editor height="200" width="500"  id="keteromknyat" value="#{meritizazandabetutaController.selected.keteromknyat}" />
+                       
+                        
+                     
+                    
+                    <p:commandButton actionListener="#{meritizazandabetutaController.update}" value="#{bundle.Save}" update="display,:MeritizazandabetutaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'MeritizazandabetutaEditDialogappoint');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="MeritizazandabetutaEditDialogappoint.hide()"/>
+             
+                    </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+              <ui:include src="print.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>

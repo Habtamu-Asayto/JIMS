@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="WuklnaViewDlg" widgetVar="WuklnaViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewWuklnaTitle}">
+            <h:form id="WuklnaViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{wuklnaController.selected != null}">
+                        <h:outputText value="#{bundle.ViewWuklnaLabel_id}"/>
+                        <h:outputText value="#{wuklnaController.selected.id}" title="#{bundle.ViewWuklnaTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewWuklnaLabel_yetewokayAynet}"/>
+                        <h:outputText value="#{wuklnaController.selected.yetewokayAynet}" title="#{bundle.ViewWuklnaTitle_yetewokayAynet}"/>
+                        <h:outputText value="#{bundle.ViewWuklnaLabel_yewokayAynet}"/>
+                        <h:outputText value="#{wuklnaController.selected.yewokayAynet}" title="#{bundle.ViewWuklnaTitle_yewokayAynet}"/>
+                        <h:outputText value="#{bundle.ViewWuklnaLabel_misikir}"/>
+                        <h:outputText value="#{wuklnaController.selected.misikir}" title="#{bundle.ViewWuklnaTitle_misikir}"/>
+                        <h:outputText value="#{bundle.ViewWuklnaLabel_tewokay}"/>
+                        <h:outputText value="#{wuklnaController.selected.tewokay}" title="#{bundle.ViewWuklnaTitle_tewokay}"/>
+                        <h:outputText value="#{bundle.ViewWuklnaLabel_wekay}"/>
+                        <h:outputText value="#{wuklnaController.selected.wekay}" title="#{bundle.ViewWuklnaTitle_wekay}"/>
+                        <h:outputText value="#{bundle.ViewWuklnaLabel_yewuklnaaynet}"/>
+                        <h:outputText value="#{wuklnaController.selected.yewuklnaaynet}" title="#{bundle.ViewWuklnaTitle_yewuklnaaynet}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="WuklnaViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="WenjelmezgebkedamimrmraEditDlg" widgetVar="WenjelmezgebkedamimrmraEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditWenjelmezgebkedamimrmraTitle}">
+            <h:form id="WenjelmezgebkedamimrmraEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{wenjelmezgebkedamimrmraController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditWenjelmezgebkedamimrmraLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{wenjelmezgebkedamimrmraController.selected.id}" title="#{bundle.EditWenjelmezgebkedamimrmraTitle_id}" required="true" requiredMessage="#{bundle.EditWenjelmezgebkedamimrmraRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditWenjelmezgebkedamimrmraLabel_region}" for="region" />
+                        <p:inputText id="region" value="#{wenjelmezgebkedamimrmraController.selected.region}" title="#{bundle.EditWenjelmezgebkedamimrmraTitle_region}" />
+                        <p:outputLabel value="#{bundle.EditWenjelmezgebkedamimrmraLabel_zone}" for="zone" />
+                        <p:inputText id="zone" value="#{wenjelmezgebkedamimrmraController.selected.zone}" title="#{bundle.EditWenjelmezgebkedamimrmraTitle_zone}" />
+                        <p:outputLabel value="#{bundle.EditWenjelmezgebkedamimrmraLabel_woreda}" for="woreda" />
+                        <p:inputText id="woreda" value="#{wenjelmezgebkedamimrmraController.selected.woreda}" title="#{bundle.EditWenjelmezgebkedamimrmraTitle_woreda}" />
+                        <p:outputLabel value="#{bundle.EditWenjelmezgebkedamimrmraLabel_kebele}" for="kebele" />
+                        <p:inputText id="kebele" value="#{wenjelmezgebkedamimrmraController.selected.kebele}" title="#{bundle.EditWenjelmezgebkedamimrmraTitle_kebele}" />
+                        <p:outputLabel value="#{bundle.EditWenjelmezgebkedamimrmraLabel_mezgebkutr}" for="mezgebkutr" />
+                        <p:inputText id="mezgebkutr" value="#{wenjelmezgebkedamimrmraController.selected.mezgebkutr}" title="#{bundle.EditWenjelmezgebkedamimrmraTitle_mezgebkutr}" />
+                        <p:outputLabel value="#{bundle.EditWenjelmezgebkedamimrmraLabel_frdbetkrnchafsim}" for="frdbetkrnchafsim" />
+                        <p:inputText id="frdbetkrnchafsim" value="#{wenjelmezgebkedamimrmraController.selected.frdbetkrnchafsim}" title="#{bundle.EditWenjelmezgebkedamimrmraTitle_frdbetkrnchafsim}" />
+                        <p:outputLabel value="#{bundle.EditWenjelmezgebkedamimrmraLabel_frdbetkrnchafmezgebkutr}" for="frdbetkrnchafmezgebkutr" />
+                        <p:inputText id="frdbetkrnchafmezgebkutr" value="#{wenjelmezgebkedamimrmraController.selected.frdbetkrnchafmezgebkutr}" title="#{bundle.EditWenjelmezgebkedamimrmraTitle_frdbetkrnchafmezgebkutr}" />
+                        <p:outputLabel value="#{bundle.EditWenjelmezgebkedamimrmraLabel_yzonesim}" for="yzonesim" />
+                        <p:inputText id="yzonesim" value="#{wenjelmezgebkedamimrmraController.selected.yzonesim}" title="#{bundle.EditWenjelmezgebkedamimrmraTitle_yzonesim}" />
+                        <p:outputLabel value="#{bundle.EditWenjelmezgebkedamimrmraLabel_yzonemezgebkutr}" for="yzonemezgebkutr" />
+                        <p:inputText id="yzonemezgebkutr" value="#{wenjelmezgebkedamimrmraController.selected.yzonemezgebkutr}" title="#{bundle.EditWenjelmezgebkedamimrmraTitle_yzonemezgebkutr}" />
+                        <p:outputLabel value="#{bundle.EditWenjelmezgebkedamimrmraLabel_zonekeftegnawfrdbet}" for="zonekeftegnawfrdbet" />
+                        <p:inputText id="zonekeftegnawfrdbet" value="#{wenjelmezgebkedamimrmraController.selected.zonekeftegnawfrdbet}" title="#{bundle.EditWenjelmezgebkedamimrmraTitle_zonekeftegnawfrdbet}" />
+                        <p:outputLabel value="#{bundle.EditWenjelmezgebkedamimrmraLabel_zonekeftegnawfrdbetmezgebkutr}" for="zonekeftegnawfrdbetmezgebkutr" />
+                        <p:inputText id="zonekeftegnawfrdbetmezgebkutr" value="#{wenjelmezgebkedamimrmraController.selected.zonekeftegnawfrdbetmezgebkutr}" title="#{bundle.EditWenjelmezgebkedamimrmraTitle_zonekeftegnawfrdbetmezgebkutr}" />
+                        <p:outputLabel value="#{bundle.EditWenjelmezgebkedamimrmraLabel_xqabiheg}" for="xqabiheg" />
+                        <p:inputText id="xqabiheg" value="#{wenjelmezgebkedamimrmraController.selected.xqabiheg}" title="#{bundle.EditWenjelmezgebkedamimrmraTitle_xqabiheg}" />
+                        <p:outputLabel value="#{bundle.EditWenjelmezgebkedamimrmraLabel_ksashaynet}" for="ksashaynet" />
+                        <p:inputText id="ksashaynet" value="#{wenjelmezgebkedamimrmraController.selected.ksashaynet}" title="#{bundle.EditWenjelmezgebkedamimrmraTitle_ksashaynet}" />
+                        <p:outputLabel value="#{bundle.EditWenjelmezgebkedamimrmraLabel_kesashdrgtname}" for="kesashdrgtname" />
+                        <p:inputText id="kesashdrgtname" value="#{wenjelmezgebkedamimrmraController.selected.kesashdrgtname}" title="#{bundle.EditWenjelmezgebkedamimrmraTitle_kesashdrgtname}" />
+                        <p:outputLabel value="#{bundle.EditWenjelmezgebkedamimrmraLabel_kesashname}" for="kesashname" />
+                        <p:inputText id="kesashname" value="#{wenjelmezgebkedamimrmraController.selected.kesashname}" title="#{bundle.EditWenjelmezgebkedamimrmraTitle_kesashname}" />
+                        <p:outputLabel value="#{bundle.EditWenjelmezgebkedamimrmraLabel_kesashfname}" for="kesashfname" />
+                        <p:inputText id="kesashfname" value="#{wenjelmezgebkedamimrmraController.selected.kesashfname}" title="#{bundle.EditWenjelmezgebkedamimrmraTitle_kesashfname}" />
+                        <p:outputLabel value="#{bundle.EditWenjelmezgebkedamimrmraLabel_kesashlastname}" for="kesashlastname" />
+                        <p:inputText id="kesashlastname" value="#{wenjelmezgebkedamimrmraController.selected.kesashlastname}" title="#{bundle.EditWenjelmezgebkedamimrmraTitle_kesashlastname}" />
+                        <p:outputLabel value="#{bundle.EditWenjelmezgebkedamimrmraLabel_yetekesashaynet}" for="yetekesashaynet" />
+                        <p:inputText id="yetekesashaynet" value="#{wenjelmezgebkedamimrmraController.selected.yetekesashaynet}" title="#{bundle.EditWenjelmezgebkedamimrmraTitle_yetekesashaynet}" />
+                        <p:outputLabel value="#{bundle.EditWenjelmezgebkedamimrmraLabel_tekesashdrgtname}" for="tekesashdrgtname" />
+                        <p:inputText id="tekesashdrgtname" value="#{wenjelmezgebkedamimrmraController.selected.tekesashdrgtname}" title="#{bundle.EditWenjelmezgebkedamimrmraTitle_tekesashdrgtname}" />
+                        <p:outputLabel value="#{bundle.EditWenjelmezgebkedamimrmraLabel_tekesashname}" for="tekesashname" />
+                        <p:inputText id="tekesashname" value="#{wenjelmezgebkedamimrmraController.selected.tekesashname}" title="#{bundle.EditWenjelmezgebkedamimrmraTitle_tekesashname}" />
+                        <p:outputLabel value="#{bundle.EditWenjelmezgebkedamimrmraLabel_tekesashfname}" for="tekesashfname" />
+                        <p:inputText id="tekesashfname" value="#{wenjelmezgebkedamimrmraController.selected.tekesashfname}" title="#{bundle.EditWenjelmezgebkedamimrmraTitle_tekesashfname}" />
+                        <p:outputLabel value="#{bundle.EditWenjelmezgebkedamimrmraLabel_tekesashlastname}" for="tekesashlastname" />
+                        <p:inputText id="tekesashlastname" value="#{wenjelmezgebkedamimrmraController.selected.tekesashlastname}" title="#{bundle.EditWenjelmezgebkedamimrmraTitle_tekesashlastname}" />
+                        <p:outputLabel value="#{bundle.EditWenjelmezgebkedamimrmraLabel_wenjeluzrzr}" for="wenjeluzrzr" />
+                        <p:inputText id="wenjeluzrzr" value="#{wenjelmezgebkedamimrmraController.selected.wenjeluzrzr}" title="#{bundle.EditWenjelmezgebkedamimrmraTitle_wenjeluzrzr}" />
+                        <p:outputLabel value="#{bundle.EditWenjelmezgebkedamimrmraLabel_wenjelukebele}" for="wenjelukebele" />
+                        <p:inputText id="wenjelukebele" value="#{wenjelmezgebkedamimrmraController.selected.wenjelukebele}" title="#{bundle.EditWenjelmezgebkedamimrmraTitle_wenjelukebele}" />
+                        <p:outputLabel value="#{bundle.EditWenjelmezgebkedamimrmraLabel_ketero}" for="ketero" />
+                        <p:inputText id="ketero" value="#{wenjelmezgebkedamimrmraController.selected.ketero}" title="#{bundle.EditWenjelmezgebkedamimrmraTitle_ketero}" />
+                        <p:outputLabel value="#{bundle.EditWenjelmezgebkedamimrmraLabel_fayluyetekemetebetbota}" for="fayluyetekemetebetbota" />
+                        <p:inputText id="fayluyetekemetebetbota" value="#{wenjelmezgebkedamimrmraController.selected.fayluyetekemetebetbota}" title="#{bundle.EditWenjelmezgebkedamimrmraTitle_fayluyetekemetebetbota}" />
+                        <p:outputLabel value="#{bundle.EditWenjelmezgebkedamimrmraLabel_getbzat}" for="getbzat" />
+                        <p:inputText id="getbzat" value="#{wenjelmezgebkedamimrmraController.selected.getbzat}" title="#{bundle.EditWenjelmezgebkedamimrmraTitle_getbzat}" />
+                        <p:outputLabel value="#{bundle.EditWenjelmezgebkedamimrmraLabel_mezgebuyetekefetebetken}" for="mezgebuyetekefetebetken" />
+                        <p:inputText id="mezgebuyetekefetebetken" value="#{wenjelmezgebkedamimrmraController.selected.mezgebuyetekefetebetken}" title="#{bundle.EditWenjelmezgebkedamimrmraTitle_mezgebuyetekefetebetken}" />
+                        <p:outputLabel value="#{bundle.EditWenjelmezgebkedamimrmraLabel_mezgebuwusanieyagegnebetken}" for="mezgebuwusanieyagegnebetken" />
+                        <p:inputText id="mezgebuwusanieyagegnebetken" value="#{wenjelmezgebkedamimrmraController.selected.mezgebuwusanieyagegnebetken}" title="#{bundle.EditWenjelmezgebkedamimrmraTitle_mezgebuwusanieyagegnebetken}" />
+                        <p:outputLabel value="#{bundle.EditWenjelmezgebkedamimrmraLabel_tekesashregionid}" for="tekesashregionid" />
+                        <p:selectOneMenu id="tekesashregionid" value="#{wenjelmezgebkedamimrmraController.selected.tekesashregionid}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{regionsController.itemsAvailableSelectOne}"
+                                           var="tekesashregionidItem"
+                                           itemValue="#{tekesashregionidItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditWenjelmezgebkedamimrmraLabel_wenjeluregion}" for="wenjeluregion" />
+                        <p:selectOneMenu id="wenjeluregion" value="#{wenjelmezgebkedamimrmraController.selected.wenjeluregion}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{regionsController.itemsAvailableSelectOne}"
+                                           var="wenjeluregionItem"
+                                           itemValue="#{wenjeluregionItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditWenjelmezgebkedamimrmraLabel_kesashregionid}" for="kesashregionid" />
+                        <p:selectOneMenu id="kesashregionid" value="#{wenjelmezgebkedamimrmraController.selected.kesashregionid}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{regionsController.itemsAvailableSelectOne}"
+                                           var="kesashregionidItem"
+                                           itemValue="#{kesashregionidItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditWenjelmezgebkedamimrmraLabel_tekesashweredaid}" for="tekesashweredaid" />
+                        <p:selectOneMenu id="tekesashweredaid" value="#{wenjelmezgebkedamimrmraController.selected.tekesashweredaid}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{weredasController.itemsAvailableSelectOne}"
+                                           var="tekesashweredaidItem"
+                                           itemValue="#{tekesashweredaidItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditWenjelmezgebkedamimrmraLabel_wenjeluwereda}" for="wenjeluwereda" />
+                        <p:selectOneMenu id="wenjeluwereda" value="#{wenjelmezgebkedamimrmraController.selected.wenjeluwereda}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{weredasController.itemsAvailableSelectOne}"
+                                           var="wenjeluweredaItem"
+                                           itemValue="#{wenjeluweredaItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditWenjelmezgebkedamimrmraLabel_kesashweredaid}" for="kesashweredaid" />
+                        <p:selectOneMenu id="kesashweredaid" value="#{wenjelmezgebkedamimrmraController.selected.kesashweredaid}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{weredasController.itemsAvailableSelectOne}"
+                                           var="kesashweredaidItem"
+                                           itemValue="#{kesashweredaidItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditWenjelmezgebkedamimrmraLabel_wenjeluzone}" for="wenjeluzone" />
+                        <p:selectOneMenu id="wenjeluzone" value="#{wenjelmezgebkedamimrmraController.selected.wenjeluzone}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{zonesController.itemsAvailableSelectOne}"
+                                           var="wenjeluzoneItem"
+                                           itemValue="#{wenjeluzoneItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditWenjelmezgebkedamimrmraLabel_tekesashzoneid}" for="tekesashzoneid" />
+                        <p:selectOneMenu id="tekesashzoneid" value="#{wenjelmezgebkedamimrmraController.selected.tekesashzoneid}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{zonesController.itemsAvailableSelectOne}"
+                                           var="tekesashzoneidItem"
+                                           itemValue="#{tekesashzoneidItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditWenjelmezgebkedamimrmraLabel_kesashzoneid}" for="kesashzoneid" />
+                        <p:selectOneMenu id="kesashzoneid" value="#{wenjelmezgebkedamimrmraController.selected.kesashzoneid}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{zonesController.itemsAvailableSelectOne}"
+                                           var="kesashzoneidItem"
+                                           itemValue="#{kesashzoneidItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{wenjelmezgebkedamimrmraController.update}" value="#{bundle.Save}" update="display,:WenjelmezgebkedamimrmraListForm:datalist,:growl" oncomplete="handleSubmit(args, 'WenjelmezgebkedamimrmraEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="WenjelmezgebkedamimrmraEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

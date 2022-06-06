@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListBegoadragotTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="BegoadragotListForm">
+                <p:panel header="#{bundle.ListBegoadragotTitle}">
+                    <p:dataTable id="datalist" value="#{begoadragotController.items}" var="item"
+                                 selectionMode="single" selection="#{begoadragotController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.id}"
+                                 rows="10"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
+
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+
+                      <f:facet name="header">
+                  <p:outputPanel>
+                <h:outputText value="Search All Fileds  " />
+                <p:inputText id="globalFilter" onkeyup="PF('fileTable').filter()" style="width:150px" placeholder="Enter Key word"/>
+            </p:outputPanel>
+                         </f:facet>
+                        <p:column   width="30" style="text-align:left">
+        <f:facet name="header">
+            <h:outputText value="Index " />
+        </f:facet>
+        <h:outputText 
+            value="#{index + 1}" />
+    </p:column> 
+                  
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListBegoadragotTitle_yemahberusim}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.yemahberusim}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListBegoadragotTitle_yemetubetken}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.yemetubetken}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListBegoadragotTitle_adrasha}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.adrasha}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListBegoadragotTitle_yegenzebmeten}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.yegenzebmeten}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListBegoadragotTitle_yeserawbalemuya}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.yeserawbalemuya}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{begoadragotController.prepareCreate}" update=":BegoadragotCreateForm" oncomplete="PF('BegoadragotCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":BegoadragotViewForm" oncomplete="PF('BegoadragotViewDialog').show()" disabled="#{empty begoadragotController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":BegoadragotEditForm" oncomplete="PF('BegoadragotEditDialog').show()" disabled="#{empty begoadragotController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{begoadragotController.destroy}" update=":growl,datalist" disabled="#{empty begoadragotController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>

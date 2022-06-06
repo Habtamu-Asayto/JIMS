@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="BegoadragotCreateDlg" widgetVar="BegoadragotCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateBegoadragotTitle}">
+            <h:form id="BegoadragotCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="4" rendered="#{begoadragotController.selected != null}">
+                     
+                        <p:outputLabel value="#{bundle.CreateBegoadragotLabel_yemahberusim}" for="yemahberusim" />
+                        <p:inputText id="yemahberusim" value="#{begoadragotController.selected.yemahberusim}" title="#{bundle.CreateBegoadragotTitle_yemahberusim}" />
+                        <p:outputLabel value="#{bundle.CreateBegoadragotLabel_yemetubetken}" for="yemetubetken" />
+                        <p:inputText onmousedown="fun(this);"  id="yemetubetken" value="#{begoadragotController.selected.yemetubetken}" title="#{bundle.CreateBegoadragotTitle_yemetubetken}" />
+                        <p:outputLabel value="#{bundle.CreateBegoadragotLabel_adrasha}" for="adrasha" />
+                        <p:inputText id="adrasha" value="#{begoadragotController.selected.adrasha}" title="#{bundle.CreateBegoadragotTitle_adrasha}" />
+                        <p:outputLabel value="#{bundle.CreateBegoadragotLabel_yegenzebmeten}" for="yegenzebmeten" />
+                        <p:inputText  id="yegenzebmeten" value="#{begoadragotController.selected.yegenzebmeten}" title="#{bundle.CreateBegoadragotTitle_yegenzebmeten}" />
+                        <p:outputLabel value="#{bundle.CreateBegoadragotLabel_yeserawbalemuya}" for="yeserawbalemuya" />
+                        <p:inputText id="yeserawbalemuya" value="#{begoadragotController.selected.yeserawbalemuya}" title="#{bundle.CreateBegoadragotTitle_yeserawbalemuya}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{begoadragotController.create}" value="#{bundle.Save}" update="display,:BegoadragotListForm:datalist,:growl" oncomplete="handleSubmit(args,'BegoadragotCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="BegoadragotCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

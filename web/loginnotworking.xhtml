@@ -1,0 +1,105 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+        <title><ui:insert name="title">Default Title</ui:insert></title>
+         <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <h:outputStylesheet library="css" name="jsfcrud.css"/>
+       <h:outputScript library="js" name="jsfcrud.js"/>
+  
+ <h:outputStylesheet library="css" name="bootstrap.css"/>
+        <h:outputScript library="js" name="jquery.js"/>
+    </h:head>
+     <ui:composition template="/templatenormal.xhtml">
+     <ui:define name="body">    
+         <br></br><br></br><br></br> <p:messages id="msgs" showDetail="true" showSummary="false" >
+             <p:effect type="pulsate" event="load" delay="500" /></p:messages>
+    
+     
+                      
+                 <h:form>
+                
+                     
+                     <div class="row col-md-8"  >
+           
+            <div class="col-md-6 col-md-offset-4 ">
+               
+                <div class="login-panel panel panel-default"  style="margin-top: 10px;">
+                    
+                    <div class="panel-heading" style="background: #ccffcc">
+                        <h3 class="panel-title">Login-Form</h3>
+                    </div>
+                    
+ 
+
+
+
+                    <div class="panel-body">
+                        <h:form role="form">
+                            <p:growl id="messages" showDetail="false" />
+                           
+                            <fieldset>
+                                <div class="form-group">
+                                    <label  >Email</label>
+                                    <p:inputText id="email" class="form-control" value="#{loginclass.email}" required="true" requiredMessage="Enter Username" placeholder="Enter email" />
+                                </div>
+                                <div class="form-group">
+                                      <label >Password</label>
+                                    <p:password id="password" class="form-control" value="#{loginclass.password}" required="true" requiredMessage="Enter Password" placeholder="Password" />
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="remember" type="checkbox" value="Remember Me"></input>Remember Me
+                                    </label>
+                                </div>
+                                <!-- Change this to a button or input when using this as a form -->
+                                <h:commandButton class="btn btn-primary btn-block" value="Login" action="#{loginclass.proceslogin()}"/>
+                              
+                            
+                            </fieldset>
+                        </h:form>
+                    </div> 
+                </div>
+            </div>
+        </div>
+                     
+                     
+                     
+                     
+       
+   
+ 
+                </h:form>
+                  
+  <!--                
+                  <p:ajaxStatus  style="display:block;margin-bottom:2em;height:24px;">
+    <f:facet name="default">
+        <h:outputText value="Status: StandBy" />
+    </f:facet>
+ 
+    <f:facet name="start">
+          <p:graphicImage value="{resource['images/1.gif']}" />
+    </f:facet>
+ 
+    <f:facet name="complete">
+        <h:outputText value="Status: Completed" />
+    </f:facet>
+</p:ajaxStatus>
+ 
+<p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
+ 
+<p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
+      <p:graphicImage value="{resource['images/1.gif']}" />
+</p:dialog>
+      -->       
+      
+      
+<!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+        </ui:define>
+     </ui:composition>
+  
+</html>

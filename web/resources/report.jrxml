@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a951bdfc-8019-46da-a52a-214ef6523207">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="CASE_NUMBER" class="java.lang.String"/>
+	<parameter name="WEKAY_NAME" class="java.lang.String"/>
+	<parameter name="WEKAY_ADDRESS" class="java.lang.String"/>
+	<parameter name="TEWOKAY_NAME" class="java.lang.String"/>
+	<parameter name="TEWOKAY_ADDRESS" class="java.lang.String"/>
+	<parameter name="PROPERTY" class="java.lang.String"/>
+	<parameter name="PROPERTY_DETAIL" class="java.lang.String"/>
+	<parameter name="WITNESS_NAME" class="java.lang.String"/>
+	<parameter name="WITNESS_ADDRESS" class="java.lang.String"/>
+	<parameter name="PHONE" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="569" splitType="Stretch">
+			<line>
+				<reportElement x="166" y="114" width="210" height="1" uuid="89d47082-7cd6-4ce5-8e3f-8f162e0993fd"/>
+			</line>
+			<line>
+				<reportElement x="38" y="237" width="38" height="1" uuid="2673a6f3-037b-4fcf-a7bf-c1746d358e35"/>
+			</line>
+			<line>
+				<reportElement x="40" y="322" width="54" height="1" uuid="e61efb50-97e1-4e54-9f15-1a867586bb3d"/>
+			</line>
+			<staticText>
+				<reportElement x="166" y="90" width="210" height="25" uuid="60aed258-acff-4e46-9e55-c784655bf814"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="16" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<text><![CDATA[Service Request Certificate
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="302" y="135" width="132" height="16" isPrintWhenDetailOverflows="true" uuid="a35e8ec1-1098-48c1-9b9d-4b0bbf04bd96"/>
+				<textElement verticalAlignment="Bottom" markup="html">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Phone number : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="302" y="164" width="134" height="16" uuid="ab2a55bf-0e64-437f-b344-37de71b464ad"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fax number      : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="38" y="221" width="54" height="16" isPrintWhenDetailOverflows="true" uuid="32fe34c8-e4b2-421b-a72f-82e4c5138eec"/>
+				<textElement verticalAlignment="Bottom" markup="html">
+					<font size="12" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<text><![CDATA[Wekay]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="38" y="308" width="73" height="15" uuid="af9afca8-f48b-41db-a8ac-f29f342e27af"/>
+				<textElement verticalAlignment="Bottom" markup="html">
+					<font size="12" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<text><![CDATA[Tewokay]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="16" y="135" width="109" height="16" uuid="e999e943-367a-4d93-99a0-9c6e0cffe5e2"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="12" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<text><![CDATA[Case number : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="125" y="135" width="120" height="16" uuid="3b440caa-16d4-4566-9354-8b983d6ae22e"/>
+				<textElement verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$P{CASE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="40" y="238" width="494" height="23" uuid="cf4bb67f-2cd8-4966-9494-bfef69a0ea16"/>
+				<textElement verticalAlignment="Bottom" markup="html">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>Full Name :- </b>" + $P{WEKAY_NAME}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="38" y="324" width="494" height="15" uuid="ec9ad5f0-04c6-40a5-a248-815912383148"/>
+				<textElement verticalAlignment="Bottom" markup="html">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>Full Name :- </b>" + $P{TEWOKAY_NAME}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement x="302" y="194" width="180" height="27" uuid="71394bc8-f393-47db-bfed-efcbc320ec24"/>
+				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Code128" drawText="false" checksumRequired="false">
+					<jr:codeExpression><![CDATA[$P{CASE_NUMBER}]]></jr:codeExpression>
+				</jr:barbecue>
+			</componentElement>
+			<staticText>
+				<reportElement x="40" y="364" width="71" height="19" uuid="4a778c33-baf5-41dd-8e7e-ef38b25f54d6"/>
+				<textElement verticalAlignment="Bottom" markup="html">
+					<font size="12" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<text><![CDATA[Property]]></text>
+			</staticText>
+			<line>
+				<reportElement x="42" y="384" width="54" height="1" uuid="53098203-a72e-4190-8311-23d5fb201afb"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="42" y="384" width="494" height="20" uuid="981ee1a3-952d-4bb2-a650-f18c802a1492"/>
+				<textElement verticalAlignment="Bottom" markup="html">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>Property Name :- </b>" + $P{PROPERTY}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="42" y="442" width="69" height="16" uuid="0ee58fa9-94f7-49cc-a844-bd990f1c15e4"/>
+				<textElement verticalAlignment="Bottom" markup="html">
+					<font size="12" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<text><![CDATA[Witness]]></text>
+			</staticText>
+			<line>
+				<reportElement x="42" y="458" width="54" height="1" uuid="57ae4be1-7ae8-499f-8a8b-a60979163264"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="42" y="458" width="494" height="18" uuid="badc8a01-203f-4e94-825e-b0a1325d5f64"/>
+				<textElement verticalAlignment="Bottom" markup="html">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>Full Name :- </b>" + $P{WITNESS_NAME}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="42" y="271" width="494" height="22" uuid="1b1535a0-8824-4f7f-9dbd-de49befb56d1"/>
+				<textElement verticalAlignment="Bottom" markup="html">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>Address :- </b>" + $P{WEKAY_ADDRESS}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="40" y="339" width="494" height="15" uuid="94a522e7-8734-48df-a821-d0fdfafd6867"/>
+				<textElement verticalAlignment="Bottom" markup="html">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>Adress :- </b>" + $P{TEWOKAY_ADDRESS}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="42" y="476" width="494" height="19" uuid="8648971b-e494-4f91-b8d1-44175e866ee9"/>
+				<textElement verticalAlignment="Bottom" markup="html">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>Address :- </b>" +  $P{WITNESS_ADDRESS}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="42" y="404" width="494" height="22" uuid="0ae06f40-501d-4ef1-bcc0-d4b1813c146c"/>
+				<textElement verticalAlignment="Bottom" markup="html">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>"+"Property detail :- "+"</b>"+$P{PROPERTY_DETAIL}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="434" y="135" width="120" height="16" uuid="9b8d7e1e-665b-4957-b0f3-ed56509c54c0"/>
+				<textElement verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$P{PHONE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="436" y="164" width="120" height="16" uuid="0883326d-fe13-4840-82da-6f2082cdb962"/>
+				<textElement verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$P{PHONE}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="0" y="0" width="554" height="77" uuid="3fb0de2c-70f8-4971-afbb-7e2332721082"/>
+				<imageExpression><![CDATA["/home/habtamu/NetBeansProjects/JIMS-master/web/resources/Capture.PNG"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<columnFooter>
+		<band height="25">
+			<staticText>
+				<reportElement x="38" y="0" width="490" height="16" uuid="9a8faaf6-de9b-4de4-8811-eaaedf7a9d0e"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="12" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<text><![CDATA[Note : This case number is valid only until 10 days]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<lastPageFooter>
+		<band height="26">
+			<textField>
+				<reportElement x="434" y="0" width="80" height="20" uuid="bab28545-6415-4314-984b-4a53bacc8963"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="514" y="0" width="40" height="20" uuid="4ebcb2b9-0317-4986-8a3a-583c65f56f06"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</lastPageFooter>
+</jasperReport>

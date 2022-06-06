@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="WuklnacriteriasEditDlg" widgetVar="WuklnacriteriasEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditWuklnacriteriasTitle}">
+            <h:form id="WuklnacriteriasEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{wuklnacriteriasController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditWuklnacriteriasLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{wuklnacriteriasController.selected.id}" title="#{bundle.EditWuklnacriteriasTitle_id}" required="true" requiredMessage="#{bundle.EditWuklnacriteriasRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditWuklnacriteriasLabel_type}" for="type" />
+                        <p:inputText id="type" value="#{wuklnacriteriasController.selected.type}" title="#{bundle.EditWuklnacriteriasTitle_type}" />
+                        <p:outputLabel value="#{bundle.EditWuklnacriteriasLabel_information}" for="information" />
+                        <p:inputText id="information" value="#{wuklnacriteriasController.selected.information}" title="#{bundle.EditWuklnacriteriasTitle_information}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{wuklnacriteriasController.update}" value="#{bundle.Save}" update="display,:WuklnacriteriasListForm:datalist,:growl" oncomplete="handleSubmit(args, 'WuklnacriteriasEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="WuklnacriteriasEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

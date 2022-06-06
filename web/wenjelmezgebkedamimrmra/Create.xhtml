@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog  height="500" id="WenjelmezgebkedamimrmraCreateDlg" widgetVar="WenjelmezgebkedamimrmraCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateWenjelmezgebkedamimrmraTitle}">
+            <h:form id="WenjelmezgebkedamimrmraCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="4" rendered="#{wenjelmezgebkedamimrmraController.selected != null}">
+
+                        <p:outputLabel value="#{bundle.CreateWenjelmezgebkedamimrmraLabel_frdbetkrnchafsim}" for="frdbetkrnchafsim" />
+                        <p:inputText id="frdbetkrnchafsim" value="#{wenjelmezgebkedamimrmraController.selected.frdbetkrnchafsim}" title="#{bundle.CreateWenjelmezgebkedamimrmraTitle_frdbetkrnchafsim}" />
+                         <p:outputLabel value="#{bundle.CreateWenjelmezgebkedamimrmraLabel_frdbetkrnchafmezgebkutr}" for="frdbetkrnchafmezgebkutr" />
+                        <p:inputText id="frdbetkrnchafmezgebkutr" value="#{wenjelmezgebkedamimrmraController.selected.frdbetkrnchafmezgebkutr}" title="#{bundle.CreateWenjelmezgebkedamimrmraTitle_frdbetkrnchafmezgebkutr}" />
+                        <p:outputLabel value="ዞን/ወረዳ ፖሊስ " for="yzonesim" />
+                        <p:inputText id="yzonesim" value="#{wenjelmezgebkedamimrmraController.selected.yzonesim}" title="#{bundle.CreateWenjelmezgebkedamimrmraTitle_yzonesim}" />
+                        <p:outputLabel value="#{bundle.CreateWenjelmezgebkedamimrmraLabel_yzonemezgebkutr}" for="yzonemezgebkutr" />
+                        <p:inputText id="yzonemezgebkutr" value="#{wenjelmezgebkedamimrmraController.selected.yzonemezgebkutr}" title="#{bundle.CreateWenjelmezgebkedamimrmraTitle_yzonemezgebkutr}" />
+                        <p:outputLabel value="#{bundle.CreateWenjelmezgebkedamimrmraLabel_zonekeftegnawfrdbet}" for="zonekeftegnawfrdbet" />
+                        <p:inputText id="zonekeftegnawfrdbet" value="#{wenjelmezgebkedamimrmraController.selected.zonekeftegnawfrdbet}" title="#{bundle.CreateWenjelmezgebkedamimrmraTitle_zonekeftegnawfrdbet}" />
+                        <p:outputLabel value="#{bundle.CreateWenjelmezgebkedamimrmraLabel_zonekeftegnawfrdbetmezgebkutr}" for="zonekeftegnawfrdbetmezgebkutr" />
+                        <p:inputText id="zonekeftegnawfrdbetmezgebkutr" value="#{wenjelmezgebkedamimrmraController.selected.zonekeftegnawfrdbetmezgebkutr}" title="#{bundle.CreateWenjelmezgebkedamimrmraTitle_zonekeftegnawfrdbetmezgebkutr}" />
+                    </p:panelGrid>
+
+                   
+    <p:panel  toggleable="true"  header="ከሳሽ" > 
+                        <p:panelGrid columns="2">
+                            <p:panelGrid columns="1" rendered="#{wenjelmezgebkedamimrmraController.selected != null}">
+
+                                <p:outputLabel value="#{bundle.CreateWenjelmezgebkedamimrmraLabel_ksashaynet}" for="ksashaynet" />
+
+                                <p:selectOneRadio   id="ksashaynet" value="#{wenjelmezgebkedamimrmraController.selected.ksashaynet}" required="true" requiredMessage="please select Privilege"  >
+                                    <p:ajax  event="change" update="kk"  />                   
+                                    <f:selectItem itemLabel="ግለሰብ" itemValue="ግለሰብ"/>
+                                    <f:selectItem itemLabel="ድርጂት" itemValue="ድርጂት"/>
+
+                                </p:selectOneRadio>  </p:panelGrid>              
+                                <p:panelGrid id="kk" columns="6" >
+                                
+                                    <p:outputLabel rendered="#{wenjelmezgebkedamimrmraController.selected.ksashaynet eq 'ድርጂት'}"  value="#{bundle.CreateWenjelmezgebkedamimrmraLabel_kesashdrgtname}" for="kesashdrgtname" />
+                                    <p:inputText rendered="#{wenjelmezgebkedamimrmraController.selected.ksashaynet eq 'ድርጂት'}" id="kesashdrgtname" value="#{wenjelmezgebkedamimrmraController.selected.kesashdrgtname}" title="#{bundle.CreateWenjelmezgebkedamimrmraTitle_kesashdrgtname}" />
+                                    <p:outputLabel rendered="#{wenjelmezgebkedamimrmraController.selected.ksashaynet eq 'ግለሰብ'}" value="#{bundle.CreateWenjelmezgebkedamimrmraLabel_kesashname}" for="kesashname" />
+                                    <p:inputText rendered="#{wenjelmezgebkedamimrmraController.selected.ksashaynet eq 'ግለሰብ'}" id="kesashname" value="#{wenjelmezgebkedamimrmraController.selected.kesashname}" title="#{bundle.CreateWenjelmezgebkedamimrmraTitle_kesashname}" />
+                                    <p:outputLabel rendered="#{wenjelmezgebkedamimrmraController.selected.ksashaynet eq 'ግለሰብ'}"  value="#{bundle.CreateWenjelmezgebkedamimrmraLabel_kesashfname}" for="kesashfname" />
+                                    <p:inputText  rendered="#{wenjelmezgebkedamimrmraController.selected.ksashaynet eq 'ግለሰብ'}" id="kesashfname" value="#{wenjelmezgebkedamimrmraController.selected.kesashfname}" title="#{bundle.CreateWenjelmezgebkedamimrmraTitle_kesashfname}" />
+                                    <p:outputLabel rendered="#{wenjelmezgebkedamimrmraController.selected.ksashaynet eq 'ግለሰብ'}"  value="#{bundle.CreateWenjelmezgebkedamimrmraLabel_kesashlastname}" for="kesashlastname" />
+                                    <p:inputText rendered="#{wenjelmezgebkedamimrmraController.selected.ksashaynet eq 'ግለሰብ'}" id="kesashlastname" value="#{wenjelmezgebkedamimrmraController.selected.kesashlastname}" title="#{bundle.CreateWenjelmezgebkedamimrmraTitle_kesashlastname}" />
+ <p:outputLabel value="#{bundle.CreateWenjelmezgebkedamimrmraLabel_kesashregionid}" for="kesashregionid" />
+                                    <p:selectOneMenu id="kesashregionid" value="#{wenjelmezgebkedamimrmraController.selected.kesashregionid}" >
+                          <f:selectItem itemLabel="እባክዎን ክልል ይምረጡ" itemValue="#{null}"/>  
+                            <p:ajax update="kesashzoneid" event="change"/>                  
+                                <f:selectItems value="#{regionsController.itemsAvailableSelectOne}"
+                                                       var="kesashregionidItem"
+                                                       itemValue="#{kesashregionidItem}"/>
+                                    </p:selectOneMenu>
+                                    <p:outputLabel value="#{bundle.CreateWenjelmezgebkedamimrmraLabel_kesashzoneid}" for="kesashzoneid" />
+                                    <p:selectOneMenu panelStyleClass="hideDisabled" filter="true" filterMatchMode="contains"   id="kesashzoneid" value="#{wenjelmezgebkedamimrmraController.selected.kesashzoneid}" >
+                            <p:ajax update="kesashweredaid" event="change"/>
+                            <f:selectItem itemLabel="እባክዎን ዞን ይምረጡ" itemValue="#{null}"/>   
+                                        <f:selectItems value="#{zonesController.itemsAvailableSelectOne}"
+                                                       var="kesashzoneidItem"
+                                                       itemDisabled="#{kesashzoneidItem.regionid != wenjelmezgebkedamimrmraController.selected.kesashregionid}"
+                                                       itemValue="#{kesashzoneidItem}"/>
+                                    </p:selectOneMenu>
+                                    <p:outputLabel value="#{bundle.CreateWenjelmezgebkedamimrmraLabel_kesashweredaid}" for="kesashweredaid" />
+                                    <p:selectOneMenu panelStyleClass="hideDisabled" filter="true" filterMatchMode="contains"  id="kesashweredaid" value="#{wenjelmezgebkedamimrmraController.selected.kesashweredaid}" >
+                                        <f:selectItem itemLabel="እባክዎን ወረዳ ይምረጡ" itemValue="#{null}"/>
+                                        <f:selectItems value="#{weredasController.itemsAvailableSelectOne}"
+                                                       var="kesashweredaidItem"
+                                                       itemDisabled="#{kesashweredaidItem.zoneid != wenjelmezgebkedamimrmraController.selected.kesashzoneid}" 
+                                                       itemValue="#{kesashweredaidItem}"/>
+                                    </p:selectOneMenu>          
+     </p:panelGrid>
+                 <p:outputLabel value="#{bundle.CreateWenjelmezgebkedamimrmraLabel_xqabiheg}" for="xqabiheg" />
+                    <p:inputText id="xqabiheg" value="#{wenjelmezgebkedamimrmraController.selected.xqabiheg}" title="#{bundle.CreateWenjelmezgebkedamimrmraTitle_xqabiheg}" />        
+                        
+                        </p:panelGrid>
+                        </p:panel>
+      <p:panel  toggleable="true"  header="ተከሳሽ" > 
+                        <p:panelGrid columns="1">
+                            <p:panelGrid columns="1" rendered="#{wenjelmezgebkedamimrmraController.selected != null}">      
+                                <p:outputLabel value="#{bundle.CreateWenjelmezgebkedamimrmraLabel_yetekesashaynet}" for="yetekesashaynet" />
+                                <p:selectOneRadio   id="yetekesashaynet" value="#{wenjelmezgebkedamimrmraController.selected.yetekesashaynet}" required="true" requiredMessage="please select Privilege"  >
+                                    <p:ajax  event="change" update="tekesash"  />                   
+                                    <f:selectItem itemLabel="ግለሰብ" itemValue="ግለሰብ"/>
+                                    <f:selectItem itemLabel="ድርጂት" itemValue="ድርጂት"/>
+ </p:selectOneRadio>    
+  <p:panelGrid id="tekesash" columns="8">
+                                    <p:outputLabel rendered="#{wenjelmezgebkedamimrmraController.selected.yetekesashaynet eq 'ድርጂት'}"  value="#{bundle.CreateWenjelmezgebkedamimrmraLabel_tekesashdrgtname}" for="tekesashdrgtname" />
+                                    <p:inputText rendered="#{wenjelmezgebkedamimrmraController.selected.yetekesashaynet eq 'ድርጂት'}"  id="tekesashdrgtname" value="#{wenjelmezgebkedamimrmraController.selected.tekesashdrgtname}" title="#{bundle.CreateWenjelmezgebkedamimrmraTitle_tekesashdrgtname}" />
+                                    <p:outputLabel rendered="#{wenjelmezgebkedamimrmraController.selected.yetekesashaynet eq 'ግለሰብ'}"  value="#{bundle.CreateWenjelmezgebkedamimrmraLabel_tekesashname}" for="tekesashname" />
+                                    <p:inputText rendered="#{wenjelmezgebkedamimrmraController.selected.yetekesashaynet eq 'ግለሰብ'}" id="tekesashname" value="#{wenjelmezgebkedamimrmraController.selected.tekesashname}" title="#{bundle.CreateWenjelmezgebkedamimrmraTitle_tekesashname}" />
+                                    <p:outputLabel rendered="#{wenjelmezgebkedamimrmraController.selected.yetekesashaynet eq 'ግለሰብ'}"  value="#{bundle.CreateWenjelmezgebkedamimrmraLabel_tekesashfname}" for="tekesashfname" />
+                                    <p:inputText rendered="#{wenjelmezgebkedamimrmraController.selected.yetekesashaynet eq 'ግለሰብ'}" id="tekesashfname" value="#{wenjelmezgebkedamimrmraController.selected.tekesashfname}" title="#{bundle.CreateWenjelmezgebkedamimrmraTitle_tekesashfname}" />
+                                    <p:outputLabel rendered="#{wenjelmezgebkedamimrmraController.selected.yetekesashaynet eq 'ግለሰብ'}" value="#{bundle.CreateWenjelmezgebkedamimrmraLabel_tekesashlastname}" for="tekesashlastname" />
+                                    <p:inputText rendered="#{wenjelmezgebkedamimrmraController.selected.yetekesashaynet eq 'ግለሰብ'}" id="tekesashlastname" value="#{wenjelmezgebkedamimrmraController.selected.tekesashlastname}" title="#{bundle.CreateWenjelmezgebkedamimrmraTitle_tekesashlastname}" />
+                                   
+                                    
+                                    
+                                    <p:outputLabel value="#{bundle.CreateWenjelmezgebkedamimrmraLabel_kesashregionid}" for="tekesashregionid" />
+                                    <p:selectOneMenu id="tekesashregionid" value="#{wenjelmezgebkedamimrmraController.selected.tekesashregionid}" >
+                          <f:selectItem itemLabel="እባክዎን ክልል ይምረጡ" itemValue="#{null}"/>  
+                            <p:ajax update="tekesashzoneid" event="change"/>                  
+                                <f:selectItems value="#{regionsController.itemsAvailableSelectOne}"
+                                                       var="kesashregionidItem"
+                                                       itemValue="#{kesashregionidItem}"/>
+                                    </p:selectOneMenu>
+                                          <p:outputLabel value="#{bundle.CreateWenjelmezgebkedamimrmraLabel_kesashzoneid}" for="tekesashzoneid" />
+                                    <p:selectOneMenu panelStyleClass="hideDisabled" filter="true" filterMatchMode="contains"   id="tekesashzoneid" value="#{wenjelmezgebkedamimrmraController.selected.tekesashzoneid}" >
+                            <p:ajax update="tekesashweredaid" event="change"/>
+                            <f:selectItem itemLabel="እባክዎን ዞን ይምረጡ" itemValue="#{null}"/>   
+                                        <f:selectItems value="#{zonesController.itemsAvailableSelectOne}"
+                                                       var="kesashzoneidItem"
+                                                       itemDisabled="#{kesashzoneidItem.regionid != wenjelmezgebkedamimrmraController.selected.tekesashregionid}"
+                                                       itemValue="#{kesashzoneidItem}"/>
+                                    </p:selectOneMenu>
+                                    <p:outputLabel value="#{bundle.CreateWenjelmezgebkedamimrmraLabel_kesashweredaid}" for="tekesashweredaid" />
+                                    <p:selectOneMenu panelStyleClass="hideDisabled" filter="true" filterMatchMode="contains"  id="tekesashweredaid" value="#{wenjelmezgebkedamimrmraController.selected.tekesashweredaid}" >
+                                        <f:selectItem itemLabel="እባክዎን ወረዳ ይምረጡ" itemValue="#{null}"/>
+                                        <f:selectItems value="#{weredasController.itemsAvailableSelectOne}"
+                                                       var="kesashweredaidItem"
+                                                       itemDisabled="#{kesashweredaidItem.zoneid != wenjelmezgebkedamimrmraController.selected.tekesashzoneid}" 
+                                                       itemValue="#{kesashweredaidItem}"/>
+                                    </p:selectOneMenu> 
+                                    
+                                    
+                                   
+
+                                </p:panelGrid></p:panelGrid>
+                            </p:panelGrid></p:panel>
+                    
+                    <p:panel  toggleable="true"  header="የወንጀሉ ዝርዝር ሁኔታ" > 
+                      <p:outputLabel value="#{bundle.CreateWenjelmezgebkedamimrmraLabel_wenjeluzrzr}" for="wenjeluzrzr" />
+                      <p:editor height="150" width="800" id="wenjeluzrzr" value="#{wenjelmezgebkedamimrmraController.selected.wenjeluzrzr}"  />
+                        
+                    <p:panelGrid columns="8"> 
+                      
+                         <p:outputLabel value="#{bundle.CreateWenjelmezgebkedamimrmraLabel_wenjeluregion}" for="wenjeluregion" />
+                        <p:selectOneMenu id="wenjeluregion" value="#{wenjelmezgebkedamimrmraController.selected.wenjeluregion}" >
+                                <f:selectItem itemLabel="እባክዎን ክልል ይምረጡ" itemValue="#{null}"/>  
+                            <p:ajax update="wenjeluzone" event="change"/>        
+                            <f:selectItems value="#{regionsController.itemsAvailableSelectOne}"
+                                           var="wenjeluregionItem"
+                                           itemValue="#{wenjeluregionItem}"/>
+                        </p:selectOneMenu>
+                        
+                        <p:outputLabel value="#{bundle.CreateWenjelmezgebkedamimrmraLabel_wenjeluzone}" for="wenjeluzone" />
+                        <p:selectOneMenu panelStyleClass="hideDisabled" filter="true" filterMatchMode="contains" id="wenjeluzone" value="#{wenjelmezgebkedamimrmraController.selected.wenjeluzone}" >
+                              <p:ajax update="wenjeluwereda" event="change"/>
+                            <f:selectItem itemLabel="እባክዎን ዞን ይምረጡ" itemValue="#{null}"/> 
+                            <f:selectItems value="#{zonesController.itemsAvailableSelectOne}"
+                                           var="wenjeluzoneItem"
+                                           itemDisabled="#{wenjeluzoneItem.regionid != wenjelmezgebkedamimrmraController.selected.wenjeluregion}"
+                                           itemValue="#{wenjeluzoneItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateWenjelmezgebkedamimrmraLabel_wenjeluwereda}" for="wenjeluwereda" />
+                        <p:selectOneMenu panelStyleClass="hideDisabled" filter="true" filterMatchMode="contains" id="wenjeluwereda" value="#{wenjelmezgebkedamimrmraController.selected.wenjeluwereda}" >
+                            <f:selectItem itemLabel="እባክዎን ወረዳ ይምረጡ" itemValue="#{null}"/>
+                            <f:selectItems value="#{weredasController.itemsAvailableSelectOne}"
+                                           var="wenjeluweredaItem"
+                                           itemDisabled="#{wenjeluweredaItem.zoneid != wenjelmezgebkedamimrmraController.selected.wenjeluzone}"
+                                           itemValue="#{wenjeluweredaItem}"/>
+                        </p:selectOneMenu>
+
+                       
+                        <p:outputLabel value="#{bundle.CreateWenjelmezgebkedamimrmraLabel_wenjelukebele}" for="wenjelukebele" />
+                        <p:inputText id="wenjelukebele" value="#{wenjelmezgebkedamimrmraController.selected.wenjelukebele}" title="#{bundle.CreateWenjelmezgebkedamimrmraTitle_wenjelukebele}" />
+                        
+                    </p:panelGrid>
+                    </p:panel>
+                     <p:panelGrid columns="6"> 
+                        <p:outputLabel value="#{bundle.CreateWenjelmezgebkedamimrmraLabel_mezgebuyetekefetebetken}" for="mezgebuyetekefetebetken" />
+                        <p:inputText onmousedown="fun(this);"   id="mezgebuyetekefetebetken" value="#{wenjelmezgebkedamimrmraController.selected.mezgebuyetekefetebetken}" title="#{bundle.CreateWenjelmezgebkedamimrmraTitle_mezgebuyetekefetebetken}" />
+
+                        <p:outputLabel value="#{bundle.CreateWenjelmezgebkedamimrmraLabel_ketero}" for="ketero" />
+                        <p:inputText onmousedown="fun(this);"   id="ketero" value="#{wenjelmezgebkedamimrmraController.selected.ketero}" title="#{bundle.CreateWenjelmezgebkedamimrmraTitle_ketero}" />
+
+
+                        <p:outputLabel value="#{bundle.CreateWenjelmezgebkedamimrmraLabel_fayluyetekemetebetbota}" for="fayluyetekemetebetbota" />
+                        <p:inputText id="fayluyetekemetebetbota" value="#{wenjelmezgebkedamimrmraController.selected.fayluyetekemetebetbota}" title="#{bundle.CreateWenjelmezgebkedamimrmraTitle_fayluyetekemetebetbota}" />
+                        <p:outputLabel value="#{bundle.CreateWenjelmezgebkedamimrmraLabel_getbzat}" for="getbzat" />
+                        <p:inputText id="getbzat" value="#{wenjelmezgebkedamimrmraController.selected.getbzat}" title="#{bundle.CreateWenjelmezgebkedamimrmraTitle_getbzat}" />
+
+                        <p:outputLabel value="መዝገቡ ውሳኔ ያገኘበት ቀን" for="mezgebuwusanieyagegnebetken" />
+                        <p:inputText onmousedown="fun(this);"  id="mezgebuwusanieyagegnebetken" value="#{wenjelmezgebkedamimrmraController.selected.mezgebuwusanieyagegnebetken}" title="#{bundle.CreateWenjelmezgebkedamimrmraTitle_mezgebuwusanieyagegnebetken}" />
+   </p:panelGrid>
+                    <p:commandButton actionListener="#{wenjelmezgebkedamimrmraController.create}" value="#{bundle.Save}" update="display,:WenjelmezgebkedamimrmraListForm:datalist,:growl" oncomplete="handleSubmit(args,'WenjelmezgebkedamimrmraCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="WenjelmezgebkedamimrmraCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

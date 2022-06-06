@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListYigbagnayigbagnmelsTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="YigbagnayigbagnmelsListForm">
+              <h1 align="center"> የፍታብሔር ይግባኝ እና ይግባኝ መልስ መዝገብ </h1>
+          <p:outputPanel  style="float: right" rendered="#{((session.getValue('role') eq 'Admin') or  (session.getValue('role') eq 'department Head')  or  (session.getValue('role') eq 'postgraduate coordinator') or  (session.getValue('role') eq 'Dean'))}">   
+        <h:commandLink>
+        <p:graphicImage name="/images/excel.png"  style="width: 30px;height: 30px"/>
+        <p:dataExporter type="xls" target="datalist" fileName="Yigbagn Yigbagn Mels" pageOnly="true"/>
+    </h:commandLink>
+ 
+    <h:commandLink>
+        <p:graphicImage name="/images/pdf.png"  style="width: 30px;height: 30px" />
+        <p:dataExporter type="pdf" target="datalist" fileName="thesis List" pageOnly="true" />
+    </h:commandLink>
+                   </p:outputPanel> 
+                   <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{yigbagnayigbagnmelsController.prepareCreate}" update=":YigbagnayigbagnmelsCreateForm" oncomplete="PF('YigbagnayigbagnmelsCreateDialog').show()"/>
+                    <p:dataTable id="datalist" value="#{yigbagnayigbagnmelsController.items}" var="item"
+                                 selectionMode="single" selection="#{yigbagnayigbagnmelsController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.id}"
+                                 rows="10"
+                               rowIndexVar="index"
+                                 widgetVar="fileTable"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
+
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+<f:facet name="header">
+                  <p:outputPanel>
+                <h:outputText value="Search All Fileds  " />
+                <p:inputText id="globalFilter" onkeyup="PF('fileTable').filter()" style="width:150px" placeholder="Enter Key word"/>
+            </p:outputPanel>
+                         </f:facet>
+                        <p:column   width="30" style="text-align:left">
+        <f:facet name="header">
+            <h:outputText value="Index " />
+        </f:facet>
+        <h:outputText 
+            value="#{index + 1}" />
+    </p:column> 
+                       
+                       
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListYigbagnayigbagnmelsTitle_mezgebkutr}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.mezgebkutr}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListYigbagnayigbagnmelsTitle_yeabkmeftabhermezgebkutr}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.yeabkmeftabhermezgebkutr} #{item.yeabkmeyigbagnmezgebkutr}"/>
+                        </p:column>
+                       
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListYigbagnayigbagnmelsTitle_mezgebuyetekefetebetken}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.mezgebuyetekefetebetken}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListYigbagnayigbagnmelsTitle_yefrdbetusim}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.yefrdbetusim} #{item.yefrdbetmeleyakutr}"/>
+                        </p:column>
+                       
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListYigbagnayigbagnmelsTitle_yegudauaynet}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.yegudauaynet}"/>
+                        </p:column>
+                  
+                        <p:column filterMatchMode="contains" filterBy="#{item.kesashname} #{item.kesashfname} #{item.kesashlastname} #{item.kesashdrgtname} ">
+                            <f:facet name="header">
+                                <h:outputText value="ከሳሽ  ስም"/>
+                            </f:facet>
+                            <h:outputText value="#{item.kesashname} #{item.kesashfname} #{item.kesashlastname} "/>
+                              <h:outputText value="#{item.kesashdrgtname}"/>
+                        </p:column>
+                         <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="አድራሻ"/>
+                            </f:facet>
+                            <h:outputText value="#{item.kesashregionid.regionname}"/><br></br>
+                            <h:outputText value="#{item.kesashzoneid.zonename}"/><br></br>
+                            <h:outputText value="#{item.kesashweredaid.weredaname}"/>
+                        </p:column>
+             
+                      
+                        <p:column  filterMatchMode="contains" filterBy="#{item.tekesashname} #{item.tekesashfname}#{item.tekesashlastname} #{item.tekesashdrgtname}">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListYigbagnayigbagnmelsTitle_tekesashname}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tekesashname} #{item.tekesashfname}#{item.tekesashlastname}"/>
+                              <h:outputText value="#{item.tekesashdrgtname}"/>
+                        </p:column>
+                           <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="ተከሳሽ ስም"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tekesashregionid.regionname}"/><br></br>
+                            <h:outputText value="#{item.tekesashzoneid.zonename}"/><br></br>
+                            <h:outputText value="#{item.tekesashweredaid.weredaname}"/>
+                        </p:column>
+                        
+                        
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListYigbagnayigbagnmelsTitle_yegenzebumeten}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.yegenzebumeten}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListYigbagnayigbagnmelsTitle_fayluyetekemetebetbota}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fayluyetekemetebetbota}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListYigbagnayigbagnmelsTitle_getbzat}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.getbzat}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListYigbagnayigbagnmelsTitle_mezgebuyetewesenebetken}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.mezgebuyetewesenebetken}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListYigbagnayigbagnmelsTitle_ketero}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ketero}"/>
+                        </p:column>
+                      <f:facet name="footer">
+                          <p:commandButton rendered="false" id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{yigbagnayigbagnmelsController.prepareCreate}" update=":YigbagnayigbagnmelsCreateForm" oncomplete="PF('YigbagnayigbagnmelsCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":YigbagnayigbagnmelsViewForm" oncomplete="PF('YigbagnayigbagnmelsViewDialog').show()" disabled="#{empty yigbagnayigbagnmelsController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":YigbagnayigbagnmelsEditForm" oncomplete="PF('YigbagnayigbagnmelsEditDialog').show()" disabled="#{empty yigbagnayigbagnmelsController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{yigbagnayigbagnmelsController.destroy}" update=":growl,datalist" disabled="#{empty yigbagnayigbagnmelsController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+              
+            </h:form>
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>

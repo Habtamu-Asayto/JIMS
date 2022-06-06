@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="WengelabetutaViewDlg" widgetVar="WengelabetutaViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewWengelabetutaTitle}">
+            <h:form id="WengelabetutaViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{wengelabetutaController.selected != null}">
+                        <h:outputText value="#{bundle.ViewWengelabetutaLabel_id}"/>
+                        <h:outputText value="#{wengelabetutaController.selected.id}" title="#{bundle.ViewWengelabetutaTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewWengelabetutaLabel_regionid}"/>
+                        <h:outputText value="#{wengelabetutaController.selected.regionid}" title="#{bundle.ViewWengelabetutaTitle_regionid}"/>
+                        <h:outputText value="#{bundle.ViewWengelabetutaLabel_zoneid}"/>
+                        <h:outputText value="#{wengelabetutaController.selected.zoneid}" title="#{bundle.ViewWengelabetutaTitle_zoneid}"/>
+                        <h:outputText value="#{bundle.ViewWengelabetutaLabel_woredaid}"/>
+                        <h:outputText value="#{wengelabetutaController.selected.woredaid}" title="#{bundle.ViewWengelabetutaTitle_woredaid}"/>
+                        <h:outputText value="#{bundle.ViewWengelabetutaLabel_kebele}"/>
+                        <h:outputText value="#{wengelabetutaController.selected.kebele}" title="#{bundle.ViewWengelabetutaTitle_kebele}"/>
+                        <h:outputText value="#{bundle.ViewWengelabetutaLabel_mezgebkutr}"/>
+                        <h:outputText value="#{wengelabetutaController.selected.mezgebkutr}" title="#{bundle.ViewWengelabetutaTitle_mezgebkutr}"/>
+                        <h:outputText value="#{bundle.ViewWengelabetutaLabel_fthbiromeleyakutr}"/>
+                        <h:outputText value="#{wengelabetutaController.selected.fthbiromeleyakutr}" title="#{bundle.ViewWengelabetutaTitle_fthbiromeleyakutr}"/>
+                        <h:outputText value="#{bundle.ViewWengelabetutaLabel_yzonesim}"/>
+                        <h:outputText value="#{wengelabetutaController.selected.yzonesim}" title="#{bundle.ViewWengelabetutaTitle_yzonesim}"/>
+                        <h:outputText value="#{bundle.ViewWengelabetutaLabel_yeweredafrdbetsim}"/>
+                        <h:outputText value="#{wengelabetutaController.selected.yeweredafrdbetsim}" title="#{bundle.ViewWengelabetutaTitle_yeweredafrdbetsim}"/>
+                        <h:outputText value="#{bundle.ViewWengelabetutaLabel_ypolisesem}"/>
+                        <h:outputText value="#{wengelabetutaController.selected.ypolisesem}" title="#{bundle.ViewWengelabetutaTitle_ypolisesem}"/>
+                        <h:outputText value="#{bundle.ViewWengelabetutaLabel_yepolisewnjelmrmerameleyakutr}"/>
+                        <h:outputText value="#{wengelabetutaController.selected.yepolisewnjelmrmerameleyakutr}" title="#{bundle.ViewWengelabetutaTitle_yepolisewnjelmrmerameleyakutr}"/>
+                        <h:outputText value="#{bundle.ViewWengelabetutaLabel_ksashaynet}"/>
+                        <h:outputText value="#{wengelabetutaController.selected.ksashaynet}" title="#{bundle.ViewWengelabetutaTitle_ksashaynet}"/>
+                        <h:outputText value="#{bundle.ViewWengelabetutaLabel_kesashdrgtname}"/>
+                        <h:outputText value="#{wengelabetutaController.selected.kesashdrgtname}" title="#{bundle.ViewWengelabetutaTitle_kesashdrgtname}"/>
+                        <h:outputText value="#{bundle.ViewWengelabetutaLabel_kesashname}"/>
+                        <h:outputText value="#{wengelabetutaController.selected.kesashname}" title="#{bundle.ViewWengelabetutaTitle_kesashname}"/>
+                        <h:outputText value="#{bundle.ViewWengelabetutaLabel_kesashfname}"/>
+                        <h:outputText value="#{wengelabetutaController.selected.kesashfname}" title="#{bundle.ViewWengelabetutaTitle_kesashfname}"/>
+                        <h:outputText value="#{bundle.ViewWengelabetutaLabel_kesashlastname}"/>
+                        <h:outputText value="#{wengelabetutaController.selected.kesashlastname}" title="#{bundle.ViewWengelabetutaTitle_kesashlastname}"/>
+                        <h:outputText value="#{bundle.ViewWengelabetutaLabel_yetekesashaynet}"/>
+                        <h:outputText value="#{wengelabetutaController.selected.yetekesashaynet}" title="#{bundle.ViewWengelabetutaTitle_yetekesashaynet}"/>
+                        <h:outputText value="#{bundle.ViewWengelabetutaLabel_tekesashdrgtname}"/>
+                        <h:outputText value="#{wengelabetutaController.selected.tekesashdrgtname}" title="#{bundle.ViewWengelabetutaTitle_tekesashdrgtname}"/>
+                        <h:outputText value="#{bundle.ViewWengelabetutaLabel_tekesashname}"/>
+                        <h:outputText value="#{wengelabetutaController.selected.tekesashname}" title="#{bundle.ViewWengelabetutaTitle_tekesashname}"/>
+                        <h:outputText value="#{bundle.ViewWengelabetutaLabel_tekesashfname}"/>
+                        <h:outputText value="#{wengelabetutaController.selected.tekesashfname}" title="#{bundle.ViewWengelabetutaTitle_tekesashfname}"/>
+                        <h:outputText value="#{bundle.ViewWengelabetutaLabel_tekesashlastname}"/>
+                        <h:outputText value="#{wengelabetutaController.selected.tekesashlastname}" title="#{bundle.ViewWengelabetutaTitle_tekesashlastname}"/>
+                        <h:outputText value="#{bundle.ViewWengelabetutaLabel_yewenjeluaynet}"/>
+                        <h:outputText value="#{wengelabetutaController.selected.yewenjeluaynet}" title="#{bundle.ViewWengelabetutaTitle_yewenjeluaynet}"/>
+                        <h:outputText value="#{bundle.ViewWengelabetutaLabel_ketero}"/>
+                        <h:outputText value="#{wengelabetutaController.selected.ketero}" title="#{bundle.ViewWengelabetutaTitle_ketero}"/>
+                        <h:outputText value="#{bundle.ViewWengelabetutaLabel_fayluyetekemetebetbota}"/>
+                        <h:outputText value="#{wengelabetutaController.selected.fayluyetekemetebetbota}" title="#{bundle.ViewWengelabetutaTitle_fayluyetekemetebetbota}"/>
+                        <h:outputText value="#{bundle.ViewWengelabetutaLabel_getbzat}"/>
+                        <h:outputText value="#{wengelabetutaController.selected.getbzat}" title="#{bundle.ViewWengelabetutaTitle_getbzat}"/>
+                        <h:outputText value="#{bundle.ViewWengelabetutaLabel_mezgebuyetekefetebetken}"/>
+                        <h:outputText value="#{wengelabetutaController.selected.mezgebuyetekefetebetken}" title="#{bundle.ViewWengelabetutaTitle_mezgebuyetekefetebetken}"/>
+                        <h:outputText value="#{bundle.ViewWengelabetutaLabel_tekesashregionid}"/>
+                        <h:outputText value="#{wengelabetutaController.selected.tekesashregionid}" title="#{bundle.ViewWengelabetutaTitle_tekesashregionid}"/>
+                        <h:outputText value="#{bundle.ViewWengelabetutaLabel_kesashregionid}"/>
+                        <h:outputText value="#{wengelabetutaController.selected.kesashregionid}" title="#{bundle.ViewWengelabetutaTitle_kesashregionid}"/>
+                        <h:outputText value="#{bundle.ViewWengelabetutaLabel_tekesashweredaid}"/>
+                        <h:outputText value="#{wengelabetutaController.selected.tekesashweredaid}" title="#{bundle.ViewWengelabetutaTitle_tekesashweredaid}"/>
+                        <h:outputText value="#{bundle.ViewWengelabetutaLabel_kesashweredaid}"/>
+                        <h:outputText value="#{wengelabetutaController.selected.kesashweredaid}" title="#{bundle.ViewWengelabetutaTitle_kesashweredaid}"/>
+                        <h:outputText value="#{bundle.ViewWengelabetutaLabel_kesashzoneid}"/>
+                        <h:outputText value="#{wengelabetutaController.selected.kesashzoneid}" title="#{bundle.ViewWengelabetutaTitle_kesashzoneid}"/>
+                        <h:outputText value="#{bundle.ViewWengelabetutaLabel_tekesashzoneid}"/>
+                        <h:outputText value="#{wengelabetutaController.selected.tekesashzoneid}" title="#{bundle.ViewWengelabetutaTitle_tekesashzoneid}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="WengelabetutaViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="MonthsandDataFeedcovidViewDlg" widgetVar="MonthsandDataFeedcovidViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewMonthsandDataFeedcovidTitle}">
+            <h:form id="MonthsandDataFeedcovidViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{monthsandDataFeedcovidController.selected != null}">
+                        <h:outputText value="#{bundle.ViewMonthsandDataFeedcovidLabel_months}"/>
+                        <h:outputText value="#{monthsandDataFeedcovidController.selected.months}" title="#{bundle.ViewMonthsandDataFeedcovidTitle_months}"/>
+                        <h:outputText value="#{bundle.ViewMonthsandDataFeedcovidLabel_rowheading}"/>
+                        <h:outputText value="#{monthsandDataFeedcovidController.selected.rowheading}" title="#{bundle.ViewMonthsandDataFeedcovidTitle_rowheading}"/>
+                        <h:outputText value="#{bundle.ViewMonthsandDataFeedcovidLabel_positive}"/>
+                        <h:outputText value="#{monthsandDataFeedcovidController.selected.positive}" title="#{bundle.ViewMonthsandDataFeedcovidTitle_positive}"/>
+                        <h:outputText value="#{bundle.ViewMonthsandDataFeedcovidLabel_negative}"/>
+                        <h:outputText value="#{monthsandDataFeedcovidController.selected.negative}" title="#{bundle.ViewMonthsandDataFeedcovidTitle_negative}"/>
+                        <h:outputText value="#{bundle.ViewMonthsandDataFeedcovidLabel_death}"/>
+                        <h:outputText value="#{monthsandDataFeedcovidController.selected.death}" title="#{bundle.ViewMonthsandDataFeedcovidTitle_death}"/>
+                        <h:outputText value="#{bundle.ViewMonthsandDataFeedcovidLabel_icuadmitted}"/>
+                        <h:outputText value="#{monthsandDataFeedcovidController.selected.icuadmitted}" title="#{bundle.ViewMonthsandDataFeedcovidTitle_icuadmitted}"/>
+                        <h:outputText value="#{bundle.ViewMonthsandDataFeedcovidLabel_improved}"/>
+                        <h:outputText value="#{monthsandDataFeedcovidController.selected.improved}" title="#{bundle.ViewMonthsandDataFeedcovidTitle_improved}"/>
+                        <h:outputText value="#{bundle.ViewMonthsandDataFeedcovidLabel_disapeared}"/>
+                        <h:outputText value="#{monthsandDataFeedcovidController.selected.disapeared}" title="#{bundle.ViewMonthsandDataFeedcovidTitle_disapeared}"/>
+                        <h:outputText value="#{bundle.ViewMonthsandDataFeedcovidLabel_totalquarentied}"/>
+                        <h:outputText value="#{monthsandDataFeedcovidController.selected.totalquarentied}" title="#{bundle.ViewMonthsandDataFeedcovidTitle_totalquarentied}"/>
+                        <h:outputText value="#{bundle.ViewMonthsandDataFeedcovidLabel_id}"/>
+                        <h:outputText value="#{monthsandDataFeedcovidController.selected.id}" title="#{bundle.ViewMonthsandDataFeedcovidTitle_id}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="MonthsandDataFeedcovidViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

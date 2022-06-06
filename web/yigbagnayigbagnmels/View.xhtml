@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="YigbagnayigbagnmelsViewDlg" widgetVar="YigbagnayigbagnmelsViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewYigbagnayigbagnmelsTitle}">
+            <h:form id="YigbagnayigbagnmelsViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{yigbagnayigbagnmelsController.selected != null}">
+                        <h:outputText value="#{bundle.ViewYigbagnayigbagnmelsLabel_id}"/>
+                        <h:outputText value="#{yigbagnayigbagnmelsController.selected.id}" title="#{bundle.ViewYigbagnayigbagnmelsTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewYigbagnayigbagnmelsLabel_region}"/>
+                        <h:outputText value="#{yigbagnayigbagnmelsController.selected.region}" title="#{bundle.ViewYigbagnayigbagnmelsTitle_region}"/>
+                        <h:outputText value="#{bundle.ViewYigbagnayigbagnmelsLabel_zone}"/>
+                        <h:outputText value="#{yigbagnayigbagnmelsController.selected.zone}" title="#{bundle.ViewYigbagnayigbagnmelsTitle_zone}"/>
+                        <h:outputText value="#{bundle.ViewYigbagnayigbagnmelsLabel_woreda}"/>
+                        <h:outputText value="#{yigbagnayigbagnmelsController.selected.woreda}" title="#{bundle.ViewYigbagnayigbagnmelsTitle_woreda}"/>
+                        <h:outputText value="#{bundle.ViewYigbagnayigbagnmelsLabel_kebele}"/>
+                        <h:outputText value="#{yigbagnayigbagnmelsController.selected.kebele}" title="#{bundle.ViewYigbagnayigbagnmelsTitle_kebele}"/>
+                        <h:outputText value="#{bundle.ViewYigbagnayigbagnmelsLabel_mezgebkutr}"/>
+                        <h:outputText value="#{yigbagnayigbagnmelsController.selected.mezgebkutr}" title="#{bundle.ViewYigbagnayigbagnmelsTitle_mezgebkutr}"/>
+                        <h:outputText value="#{bundle.ViewYigbagnayigbagnmelsLabel_yeabkmeftabhermezgebkutr}"/>
+                        <h:outputText value="#{yigbagnayigbagnmelsController.selected.yeabkmeftabhermezgebkutr}" title="#{bundle.ViewYigbagnayigbagnmelsTitle_yeabkmeftabhermezgebkutr}"/>
+                        <h:outputText value="#{bundle.ViewYigbagnayigbagnmelsLabel_yeabkmeyigbagnmezgebkutr}"/>
+                        <h:outputText value="#{yigbagnayigbagnmelsController.selected.yeabkmeyigbagnmezgebkutr}" title="#{bundle.ViewYigbagnayigbagnmelsTitle_yeabkmeyigbagnmezgebkutr}"/>
+                        <h:outputText value="#{bundle.ViewYigbagnayigbagnmelsLabel_mezgebuyetekefetebetken}"/>
+                        <h:outputText value="#{yigbagnayigbagnmelsController.selected.mezgebuyetekefetebetken}" title="#{bundle.ViewYigbagnayigbagnmelsTitle_mezgebuyetekefetebetken}"/>
+                        <h:outputText value="#{bundle.ViewYigbagnayigbagnmelsLabel_yefrdbetusim}"/>
+                        <h:outputText value="#{yigbagnayigbagnmelsController.selected.yefrdbetusim}" title="#{bundle.ViewYigbagnayigbagnmelsTitle_yefrdbetusim}"/>
+                        <h:outputText value="#{bundle.ViewYigbagnayigbagnmelsLabel_yefrdbetmeleyakutr}"/>
+                        <h:outputText value="#{yigbagnayigbagnmelsController.selected.yefrdbetmeleyakutr}" title="#{bundle.ViewYigbagnayigbagnmelsTitle_yefrdbetmeleyakutr}"/>
+                        <h:outputText value="#{bundle.ViewYigbagnayigbagnmelsLabel_yegudauaynet}"/>
+                        <h:outputText value="#{yigbagnayigbagnmelsController.selected.yegudauaynet}" title="#{bundle.ViewYigbagnayigbagnmelsTitle_yegudauaynet}"/>
+                        <h:outputText value="#{bundle.ViewYigbagnayigbagnmelsLabel_ksashaynet}"/>
+                        <h:outputText value="#{yigbagnayigbagnmelsController.selected.ksashaynet}" title="#{bundle.ViewYigbagnayigbagnmelsTitle_ksashaynet}"/>
+                        <h:outputText value="#{bundle.ViewYigbagnayigbagnmelsLabel_kesashdrgtname}"/>
+                        <h:outputText value="#{yigbagnayigbagnmelsController.selected.kesashdrgtname}" title="#{bundle.ViewYigbagnayigbagnmelsTitle_kesashdrgtname}"/>
+                        <h:outputText value="#{bundle.ViewYigbagnayigbagnmelsLabel_kesashname}"/>
+                        <h:outputText value="#{yigbagnayigbagnmelsController.selected.kesashname}" title="#{bundle.ViewYigbagnayigbagnmelsTitle_kesashname}"/>
+                        <h:outputText value="#{bundle.ViewYigbagnayigbagnmelsLabel_kesashfname}"/>
+                        <h:outputText value="#{yigbagnayigbagnmelsController.selected.kesashfname}" title="#{bundle.ViewYigbagnayigbagnmelsTitle_kesashfname}"/>
+                        <h:outputText value="#{bundle.ViewYigbagnayigbagnmelsLabel_kesashlastname}"/>
+                        <h:outputText value="#{yigbagnayigbagnmelsController.selected.kesashlastname}" title="#{bundle.ViewYigbagnayigbagnmelsTitle_kesashlastname}"/>
+                        <h:outputText value="#{bundle.ViewYigbagnayigbagnmelsLabel_yetekesashaynet}"/>
+                        <h:outputText value="#{yigbagnayigbagnmelsController.selected.yetekesashaynet}" title="#{bundle.ViewYigbagnayigbagnmelsTitle_yetekesashaynet}"/>
+                        <h:outputText value="#{bundle.ViewYigbagnayigbagnmelsLabel_tekesashdrgtname}"/>
+                        <h:outputText value="#{yigbagnayigbagnmelsController.selected.tekesashdrgtname}" title="#{bundle.ViewYigbagnayigbagnmelsTitle_tekesashdrgtname}"/>
+                        <h:outputText value="#{bundle.ViewYigbagnayigbagnmelsLabel_tekesashname}"/>
+                        <h:outputText value="#{yigbagnayigbagnmelsController.selected.tekesashname}" title="#{bundle.ViewYigbagnayigbagnmelsTitle_tekesashname}"/>
+                        <h:outputText value="#{bundle.ViewYigbagnayigbagnmelsLabel_tekesashfname}"/>
+                        <h:outputText value="#{yigbagnayigbagnmelsController.selected.tekesashfname}" title="#{bundle.ViewYigbagnayigbagnmelsTitle_tekesashfname}"/>
+                        <h:outputText value="#{bundle.ViewYigbagnayigbagnmelsLabel_tekesashlastname}"/>
+                        <h:outputText value="#{yigbagnayigbagnmelsController.selected.tekesashlastname}" title="#{bundle.ViewYigbagnayigbagnmelsTitle_tekesashlastname}"/>
+                        <h:outputText value="#{bundle.ViewYigbagnayigbagnmelsLabel_yegenzebumeten}"/>
+                        <h:outputText value="#{yigbagnayigbagnmelsController.selected.yegenzebumeten}" title="#{bundle.ViewYigbagnayigbagnmelsTitle_yegenzebumeten}"/>
+                        <h:outputText value="#{bundle.ViewYigbagnayigbagnmelsLabel_fayluyetekemetebetbota}"/>
+                        <h:outputText value="#{yigbagnayigbagnmelsController.selected.fayluyetekemetebetbota}" title="#{bundle.ViewYigbagnayigbagnmelsTitle_fayluyetekemetebetbota}"/>
+                        <h:outputText value="#{bundle.ViewYigbagnayigbagnmelsLabel_getbzat}"/>
+                        <h:outputText value="#{yigbagnayigbagnmelsController.selected.getbzat}" title="#{bundle.ViewYigbagnayigbagnmelsTitle_getbzat}"/>
+                        <h:outputText value="#{bundle.ViewYigbagnayigbagnmelsLabel_mezgebuyetewesenebetken}"/>
+                        <h:outputText value="#{yigbagnayigbagnmelsController.selected.mezgebuyetewesenebetken}" title="#{bundle.ViewYigbagnayigbagnmelsTitle_mezgebuyetewesenebetken}"/>
+                        <h:outputText value="#{bundle.ViewYigbagnayigbagnmelsLabel_ketero}"/>
+                        <h:outputText value="#{yigbagnayigbagnmelsController.selected.ketero}" title="#{bundle.ViewYigbagnayigbagnmelsTitle_ketero}"/>
+                        <h:outputText value="#{bundle.ViewYigbagnayigbagnmelsLabel_kesashregionid}"/>
+                        <h:outputText value="#{yigbagnayigbagnmelsController.selected.kesashregionid}" title="#{bundle.ViewYigbagnayigbagnmelsTitle_kesashregionid}"/>
+                        <h:outputText value="#{bundle.ViewYigbagnayigbagnmelsLabel_kesashzoneid}"/>
+                        <h:outputText value="#{yigbagnayigbagnmelsController.selected.kesashzoneid}" title="#{bundle.ViewYigbagnayigbagnmelsTitle_kesashzoneid}"/>
+                        <h:outputText value="#{bundle.ViewYigbagnayigbagnmelsLabel_kesashweredaid}"/>
+                        <h:outputText value="#{yigbagnayigbagnmelsController.selected.kesashweredaid}" title="#{bundle.ViewYigbagnayigbagnmelsTitle_kesashweredaid}"/>
+                        <h:outputText value="#{bundle.ViewYigbagnayigbagnmelsLabel_tekesashregionid}"/>
+                        <h:outputText value="#{yigbagnayigbagnmelsController.selected.tekesashregionid}" title="#{bundle.ViewYigbagnayigbagnmelsTitle_tekesashregionid}"/>
+                        <h:outputText value="#{bundle.ViewYigbagnayigbagnmelsLabel_tekesashzoneid}"/>
+                        <h:outputText value="#{yigbagnayigbagnmelsController.selected.tekesashzoneid}" title="#{bundle.ViewYigbagnayigbagnmelsTitle_tekesashzoneid}"/>
+                        <h:outputText value="#{bundle.ViewYigbagnayigbagnmelsLabel_tekesashweredaid}"/>
+                        <h:outputText value="#{yigbagnayigbagnmelsController.selected.tekesashweredaid}" title="#{bundle.ViewYigbagnayigbagnmelsTitle_tekesashweredaid}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="YigbagnayigbagnmelsViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

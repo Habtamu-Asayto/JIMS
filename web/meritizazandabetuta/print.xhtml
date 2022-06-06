@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog height="500" id="MeritizazandabetutaEditDlgprint" widgetVar="MeritizazandabetutaEditDialogprint" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditMeritizazandabetutaTitle}">
+           
+         
+            <h:form id="MeritizazandabetutaEditFormprint">
+                <h:panelGroup id="display">
+                       <h2 align="center" style="color: blue">ጎንደር ከተማ አስተዳደር አቃቢ ህግ ፅ/ቤት</h2>
+                   <p:panelGrid columns="8" rendered="#{meritizazandabetutaController.selected != null}">
+                     
+                       
+                       <p:outputLabel value="#{bundle.CreateMeritizazandabetutaLabel_regionid}" for="regionid" />
+                        <p:selectOneMenu id="regionid" value="#{meritizazandabetutaController.selected.regionid}" required="true" requiredMessage="#{bundle.EditMeritizazandabetutaRequiredMessage_regionid}">
+                            <f:selectItems value="#{regionsController.itemsAvailableSelectOne}"
+                                           var="regionidItem"
+                                           itemValue="#{regionidItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateMeritizazandabetutaLabel_zoneid}" for="zoneid" />
+                        <p:selectOneMenu id="zoneid" value="#{meritizazandabetutaController.selected.zoneid}" required="true" requiredMessage="#{bundle.EditMeritizazandabetutaRequiredMessage_zoneid}">
+                            <f:selectItems value="#{zonesController.itemsAvailableSelectOne}"
+                                           var="zoneidItem"
+                                           itemValue="#{zoneidItem}"/>
+                        </p:selectOneMenu>
+                          <p:outputLabel value="ወረዳ" for="woredaid" />
+                          <p:selectOneMenu id="woredaid" value="#{meritizazandabetutaController.selected.woredaid}" required="true" requiredMessage="#{bundle.EditMebtnatkmmastebekyefetabherafetatemfayRequiredMessage_kesashweredaid}">
+                            <f:selectItems value="#{weredasController.itemsAvailableSelectOne}"
+                                           var="woredaidItem"
+                                           itemValue="#{woredaidItem}"/>
+                        </p:selectOneMenu>
+                       
+                    </p:panelGrid>
+                  
+                     <p:panelGrid  layout="grid"  columns="3" rendered="#{meritizazandabetutaController.selected != null}"> 
+               <p:panelGrid columns="2" rendered="#{meritizazandabetutaController.selected != null}">         
+                       <p:outputLabel rendered="false" value="#{bundle.CreateMeritizazandabetutaLabel_kebele}" for="kebele" />
+                        <p:inputText rendered="false" id="kebele" value="#{meritizazandabetutaController.selected.kebele}" title="#{bundle.CreateMeritizazandabetutaTitle_kebele}" />
+                        
+                        <p:outputLabel value="#{bundle.CreateMeritizazandabetutaLabel_yefetihbiromeleyakutr}" for="yefetihbiromeleyakutr" />
+                        <p:inputText id="yefetihbiromeleyakutr" value="#{meritizazandabetutaController.selected.yefetihbiromeleyakutr}" title="#{bundle.CreateMeritizazandabetutaTitle_yefetihbiromeleyakutr}" />
+                        <p:outputLabel value="#{bundle.CreateMeritizazandabetutaLabel_yezonefithmemroya}" for="yezonefithmemroya" />
+                        <p:inputText id="yezonefithmemroya" value="#{meritizazandabetutaController.selected.yezonefithmemroya}" title="#{bundle.CreateMeritizazandabetutaTitle_yezonefithmemroya}" />
+                        <p:outputLabel value="#{bundle.CreateMeritizazandabetutaLabel_yeweredafithmemrya}" for="yeweredafithmemrya" />
+                        <p:inputText id="yeweredafithmemrya" value="#{meritizazandabetutaController.selected.yeweredafithmemrya}" title="#{bundle.CreateMeritizazandabetutaTitle_yeweredafithmemrya}" />
+                        <p:outputLabel value="#{bundle.CreateMeritizazandabetutaLabel_mezgebuyetekefetebetken}" for="mezgebuyetekefetebetken" />
+                        <p:inputText  onmousedown="fun(this);" id="mezgebuyetekefetebetken" value="#{meritizazandabetutaController.selected.mezgebuyetekefetebetken}" title="#{bundle.CreateMeritizazandabetutaTitle_mezgebuyetekefetebetken}" />
+                        
+               </p:panelGrid>
+                         <p:panel  styleClass="" toggleable="true"   > 
+                        <p:panelGrid columns="2" rendered="#{meritizazandabetutaController.selected != null}">           
+                       <p:outputLabel value="#{bundle.CreateMeritizazandabetutaLabel_yefayluaynet}" for="yefayluaynet" />
+                        <p:selectOneMenu   id="yefayluaynet" value="#{meritizazandabetutaController.selected.yefayluaynet}"  required="true" requiredMessage="please select Privilege"  >
+                                 <f:selectItem itemLabel="እባክዎን የፋይሉ አይነት ይምረጡ " itemValue="#{null}"/>
+                                 <f:selectItem itemLabel="የህግ ምክር" itemValue="የህግ ምክር"/>
+                                  <f:selectItem itemLabel="የውል ረቂቅ ምርመራ " itemValue="የውል ረቂቅ ምርመራ"/>
+                                 <f:selectItem itemLabel="የውል ረቂቅ ዝግጂት" itemValue="የውል ረቂቅ ዝግጂት "/>
+                          </p:selectOneMenu>
+                        </p:panelGrid>
+                     </p:panel>
+                         <p:panelGrid columns="2" rendered="#{meritizazandabetutaController.selected != null}">           
+                        
+                           <p:outputLabel value="#{bundle.CreateMeritizazandabetutaLabel_yegenzebmeten}" for="yegenzebmeten" />
+                        <p:inputText id="yegenzebmeten" value="#{meritizazandabetutaController.selected.yegenzebmeten}" title="#{bundle.CreateMeritizazandabetutaTitle_yegenzebmeten}" />
+                        <p:outputLabel value="#{bundle.CreateMeritizazandabetutaLabel_agelgilotyetesetebetken}" for="agelgilotyetesetebetken" />
+                        <p:inputText  onmousedown="fun(this);"  id="agelgilotyetesetebetken" value="#{meritizazandabetutaController.selected.agelgilotyetesetebetken}" title="#{bundle.CreateMeritizazandabetutaTitle_agelgilotyetesetebetken}" />
+                         </p:panelGrid>
+                         
+                     </p:panelGrid>
+                  
+    <p:panel  toggleable="true"  header="አገልግሎት ጠያቂ " >        
+      <p:panelGrid columns="2" rendered="#{meritizazandabetutaController.selected != null}">        
+                       
+           <p:outputLabel value="#{bundle.CreateMeritizazandabetutaLabel_agelglotteyakiaynet}" for="agelglotteyakiaynet" />
+          
+                   <p:inputText id="agelglotteyakiaynet" value="#{meritizazandabetutaController.selected.agelglotteyakiaynet}" />         
+      </p:panelGrid>
+     <p:panelGrid columns="8"  id="teyaki" rendered="#{meritizazandabetutaController.selected != null}">        
+                        <p:outputLabel rendered="#{meritizazandabetutaController.selected.agelglotteyakiaynet == 'ድርጂት'}" value="#{bundle.CreateMeritizazandabetutaLabel_glglaotteyaksechnmae}"  for="glglaotteyakiname" />
+                        <p:inputText rendered="#{meritizazandabetutaController.selected.agelglotteyakiaynet == 'ድርጂት'}" id="glglaotteyakiname" value="#{meritizazandabetutaController.selected.glglaotteyakiname}" title="#{bundle.CreateMeritizazandabetutaTitle_glglaotteyakiname}" />
+                        <p:outputLabel rendered="#{meritizazandabetutaController.selected.agelglotteyakiaynet eq 'ግለሰብ'}" value="#{bundle.CreateMeritizazandabetutaLabel_name}" for="name" />
+                        <p:inputText rendered="#{meritizazandabetutaController.selected.agelglotteyakiaynet eq 'ግለሰብ'}" id="name" value="#{meritizazandabetutaController.selected.name}" title="#{bundle.CreateMeritizazandabetutaTitle_name}" />
+                        <p:outputLabel rendered="#{meritizazandabetutaController.selected.agelglotteyakiaynet eq 'ግለሰብ'}" value="#{bundle.CreateMeritizazandabetutaLabel_fname}" for="fname" />
+                        <p:inputText rendered="#{meritizazandabetutaController.selected.agelglotteyakiaynet eq 'ግለሰብ'}" id="fname" value="#{meritizazandabetutaController.selected.fname}" title="#{bundle.CreateMeritizazandabetutaTitle_fname}" />
+                        <p:outputLabel rendered="#{meritizazandabetutaController.selected.agelglotteyakiaynet eq 'ግለሰብ'}" value="#{bundle.CreateMeritizazandabetutaLabel_lastname}" for="lastname" />
+                        <p:inputText rendered="#{meritizazandabetutaController.selected.agelglotteyakiaynet eq 'ግለሰብ'}"  id="lastname" value="#{meritizazandabetutaController.selected.lastname}" title="#{bundle.CreateMeritizazandabetutaTitle_lastname}" />
+   
+       <p:outputLabel  value="ስልክ ቁጥር" for="phonekesash" />
+       <p:inputMask mask="(+251) 999-99-9999?"  id="phonekesash" value="#{meritizazandabetutaController.selected.phonekesash}" title="#{bundle.CreateMeritizazandabetutaTitle_lastname}" />
+     
+     </p:panelGrid>  </p:panel>
+                    
+                    <p:panel  toggleable="true" header="አገልግሎት ተቀባይ" >        
+      <p:panelGrid columns="2" rendered="#{meritizazandabetutaController.selected != null}">        
+       <p:outputLabel value="#{bundle.CreateMeritizazandabetutaLabel_glglaotteyaksechaynet}" for="glglaotteyaksechaynet" />
+       
+      
+    
+           <p:inputText id="glglaotteyaksechaynet" value="#{meritizazandabetutaController.selected.glglaotteyaksechaynet}" />         
+      </p:panelGrid>
+          <p:panelGrid id="tekebay" columns="8" rendered="#{meritizazandabetutaController.selected != null}">        
+                       
+                        <p:outputLabel rendered="#{meritizazandabetutaController.selected.glglaotteyaksechaynet == 'ድርጂት'}" value="#{bundle.CreateMeritizazandabetutaLabel_glglaotteyaksechnmae}"  />
+                        <p:inputText rendered="#{meritizazandabetutaController.selected.glglaotteyaksechaynet == 'ድርጂት'}" id="glglaotteyaksechnmae" value="#{meritizazandabetutaController.selected.glglaotteyaksechnmae}" title="#{bundle.CreateMeritizazandabetutaTitle_glglaotteyaksechnmae}" />
+                        <p:outputLabel rendered="#{meritizazandabetutaController.selected.glglaotteyaksechaynet eq 'ግለሰብ'}" value="#{bundle.CreateMeritizazandabetutaLabel_wultekebayname}" for="wultekebayname" />
+                        <p:inputText rendered="#{meritizazandabetutaController.selected.glglaotteyaksechaynet eq 'ግለሰብ'}" id="wultekebayname" value="#{meritizazandabetutaController.selected.wultekebayname}" title="#{bundle.CreateMeritizazandabetutaTitle_wultekebayname}" />
+                        <p:outputLabel rendered="#{meritizazandabetutaController.selected.glglaotteyaksechaynet eq 'ግለሰብ'}" value="#{bundle.CreateMeritizazandabetutaLabel_wultekebayfname}" for="wultekebayfname" />
+                        <p:inputText rendered="#{meritizazandabetutaController.selected.glglaotteyaksechaynet eq 'ግለሰብ'}" id="wultekebayfname" value="#{meritizazandabetutaController.selected.wultekebayfname}" title="#{bundle.CreateMeritizazandabetutaTitle_wultekebayfname}" />
+                        <p:outputLabel rendered="#{meritizazandabetutaController.selected.glglaotteyaksechaynet eq 'ግለሰብ'}" value="#{bundle.CreateMeritizazandabetutaLabel_wultekebaylastname}" for="wultekebaylastname" />
+                        <p:inputText rendered="#{ meritizazandabetutaController.selected.glglaotteyaksechaynet eq 'ግለሰብ'}" id="wultekebaylastname" value="#{meritizazandabetutaController.selected.wultekebaylastname}" title="#{bundle.CreateMeritizazandabetutaTitle_wultekebaylastname}" />
+           <p:outputLabel  value="ስልክ ቁጥር" for="phonetekesash" />
+        <p:inputMask mask="(+251) 999-99-9999?"  id="phonetekesash" value="#{meritizazandabetutaController.selected.phonetekesash}" title="#{bundle.CreateMeritizazandabetutaTitle_lastname}" />
+     
+          </p:panelGrid>
+                    </p:panel>
+                   
+                       <fieldset  style="border-color: cyan;color: blue" >
+                           <legend style="width: 25%">የቀጠሮ መረጃ</legend>  
+    <p:panelGrid     style="width: 100%" columns="4" rendered="#{meritizazandabetutaController.selected != null}">        
+                       
+                          <p:outputLabel  value="#{bundle.CreateMeritizazandabetutaLabel_ketero}" for="ketero" />
+                          <p:inputText  onmousedown="fun(this);"  id="ketero" value="#{meritizazandabetutaController.selected.ketero}" title="#{bundle.CreateMeritizazandabetutaTitle_ketero}" />
+                          <p:outputLabel  value="የቀጠሮ ምክንያት" for="keteromknyat" />
+                          <p:inputText style="width: 100%" id="keteromknyat" value="#{meritizazandabetutaController.selected.keteromknyat}" title="#{bundle.CreateMeritizazandabetutaTitle_ketero}" />
+                       
+                        
+                     </p:panelGrid>
+                       
+                       
+                       </fieldset>
+                      </h:panelGroup>
+             
+                    <p:commandButton value="#{bundle.Cancel}" onclick="MeritizazandabetutaEditDialogprint.hide()"/>
+               <p:commandButton value="Print" type="button" icon="pi pi-print" style="display:block;margin-bottom: 20px">
+    <p:printer target="display" />
+</p:commandButton>
+              
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

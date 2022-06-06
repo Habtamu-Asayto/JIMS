@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="MebtnatkmmyefetabherafetatemViewDlg" widgetVar="MebtnatkmmyefetabherafetatemViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewMebtnatkmmyefetabherafetatemTitle}">
+            <h:form id="MebtnatkmmyefetabherafetatemViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="6" rendered="#{mebtnatkmmyefetabherafetatemController.selected != null}">
+                   
+                        
+                        
+                        
+                        <h:outputText value="#{bundle.ViewMebtnatkmmyefetabherafetatemLabel_kebele}"/>
+                        <h:outputText value="#{mebtnatkmmyefetabherafetatemController.selected.kebele}" title="#{bundle.ViewMebtnatkmmyefetabherafetatemTitle_kebele}"/>
+                        <h:outputText value="#{bundle.ViewMebtnatkmmyefetabherafetatemLabel_mezgebkutr}"/>
+                        <h:outputText value="#{mebtnatkmmyefetabherafetatemController.selected.mezgebkutr}" title="#{bundle.ViewMebtnatkmmyefetabherafetatemTitle_mezgebkutr}"/>
+                        <h:outputText value="#{bundle.ViewMebtnatkmmyefetabherafetatemLabel_yefthbiromeleyakutr}"/>
+                        <h:outputText value="#{mebtnatkmmyefetabherafetatemController.selected.yefthbiromeleyakutr}" title="#{bundle.ViewMebtnatkmmyefetabherafetatemTitle_yefthbiromeleyakutr}"/>
+                        <h:outputText value="#{bundle.ViewMebtnatkmmyefetabherafetatemLabel_yexonefthmemriyameleyakutr}"/>
+                        <h:outputText value="#{mebtnatkmmyefetabherafetatemController.selected.yexonefthmemriyameleyakutr}" title="#{bundle.ViewMebtnatkmmyefetabherafetatemTitle_yexonefthmemriyameleyakutr}"/>
+                        <h:outputText value="#{bundle.ViewMebtnatkmmyefetabherafetatemLabel_yeworedafthmeleyakutr}"/>
+                        <h:outputText value="#{mebtnatkmmyefetabherafetatemController.selected.yeworedafthmeleyakutr}" title="#{bundle.ViewMebtnatkmmyefetabherafetatemTitle_yeworedafthmeleyakutr}"/>
+                        <h:outputText value="#{bundle.ViewMebtnatkmmyefetabherafetatemLabel_mezgebuyetekefetebetken}"/>
+                        <h:outputText value="#{mebtnatkmmyefetabherafetatemController.selected.mezgebuyetekefetebetken}" title="#{bundle.ViewMebtnatkmmyefetabherafetatemTitle_mezgebuyetekefetebetken}"/>
+                        <h:outputText value="#{bundle.ViewMebtnatkmmyefetabherafetatemLabel_yefrdbetusim}"/>
+                        <h:outputText value="#{mebtnatkmmyefetabherafetatemController.selected.yefrdbetusim}" title="#{bundle.ViewMebtnatkmmyefetabherafetatemTitle_yefrdbetusim}"/>
+                        <h:outputText value="#{bundle.ViewMebtnatkmmyefetabherafetatemLabel_yefrdbetmeleyakutr}"/>
+                        <h:outputText value="#{mebtnatkmmyefetabherafetatemController.selected.yefrdbetmeleyakutr}" title="#{bundle.ViewMebtnatkmmyefetabherafetatemTitle_yefrdbetmeleyakutr}"/>
+                        
+                        
+                        <h:outputText value="#{bundle.ViewMebtnatkmmyefetabherafetatemLabel_yefayluaynet}"/>
+                        <h:outputText value="#{mebtnatkmmyefetabherafetatemController.selected.yefayluaynet}" title="#{bundle.ViewMebtnatkmmyefetabherafetatemTitle_yefayluaynet}"/>
+                        <h:outputText value="#{bundle.ViewMebtnatkmmyefetabherafetatemLabel_ksashaynet}"/>
+                        <h:outputText value="#{mebtnatkmmyefetabherafetatemController.selected.ksashaynet}" title="#{bundle.ViewMebtnatkmmyefetabherafetatemTitle_ksashaynet}"/>
+                        <h:outputText value="#{bundle.ViewMebtnatkmmyefetabherafetatemLabel_kesashdrgtname}"/>
+                        <h:outputText value="#{mebtnatkmmyefetabherafetatemController.selected.kesashdrgtname}" title="#{bundle.ViewMebtnatkmmyefetabherafetatemTitle_kesashdrgtname}"/>
+                        <h:outputText value="#{bundle.ViewMebtnatkmmyefetabherafetatemLabel_kesashname}"/>
+                        <h:outputText value="#{mebtnatkmmyefetabherafetatemController.selected.kesashname}" title="#{bundle.ViewMebtnatkmmyefetabherafetatemTitle_kesashname}"/>
+                        <h:outputText value="#{bundle.ViewMebtnatkmmyefetabherafetatemLabel_kesashfname}"/>
+                        <h:outputText value="#{mebtnatkmmyefetabherafetatemController.selected.kesashfname}" title="#{bundle.ViewMebtnatkmmyefetabherafetatemTitle_kesashfname}"/>
+                        <h:outputText value="#{bundle.ViewMebtnatkmmyefetabherafetatemLabel_kesashlastname}"/>
+                        <h:outputText value="#{mebtnatkmmyefetabherafetatemController.selected.kesashlastname}" title="#{bundle.ViewMebtnatkmmyefetabherafetatemTitle_kesashlastname}"/>
+                        <h:outputText value="#{bundle.ViewMebtnatkmmyefetabherafetatemLabel_yetekesashaynet}"/>
+                        <h:outputText value="#{mebtnatkmmyefetabherafetatemController.selected.yetekesashaynet}" title="#{bundle.ViewMebtnatkmmyefetabherafetatemTitle_yetekesashaynet}"/>
+                        <h:outputText value="#{bundle.ViewMebtnatkmmyefetabherafetatemLabel_tekesashdrgtname}"/>
+                        <h:outputText value="#{mebtnatkmmyefetabherafetatemController.selected.tekesashdrgtname}" title="#{bundle.ViewMebtnatkmmyefetabherafetatemTitle_tekesashdrgtname}"/>
+                        <h:outputText value="#{bundle.ViewMebtnatkmmyefetabherafetatemLabel_tekesashname}"/>
+                        <h:outputText value="#{mebtnatkmmyefetabherafetatemController.selected.tekesashname}" title="#{bundle.ViewMebtnatkmmyefetabherafetatemTitle_tekesashname}"/>
+                        <h:outputText value="#{bundle.ViewMebtnatkmmyefetabherafetatemLabel_tekesashfname}"/>
+                        <h:outputText value="#{mebtnatkmmyefetabherafetatemController.selected.tekesashfname}" title="#{bundle.ViewMebtnatkmmyefetabherafetatemTitle_tekesashfname}"/>
+                        <h:outputText value="#{bundle.ViewMebtnatkmmyefetabherafetatemLabel_tekesashlastname}"/>
+                        <h:outputText value="#{mebtnatkmmyefetabherafetatemController.selected.tekesashlastname}" title="#{bundle.ViewMebtnatkmmyefetabherafetatemTitle_tekesashlastname}"/>
+                        <h:outputText value="#{bundle.ViewMebtnatkmmyefetabherafetatemLabel_yegenzebumeten}"/>
+                        <h:outputText value="#{mebtnatkmmyefetabherafetatemController.selected.yegenzebumeten}" title="#{bundle.ViewMebtnatkmmyefetabherafetatemTitle_yegenzebumeten}"/>
+                        <h:outputText value="#{bundle.ViewMebtnatkmmyefetabherafetatemLabel_fayluyetekemetebetbota}"/>
+                        <h:outputText value="#{mebtnatkmmyefetabherafetatemController.selected.fayluyetekemetebetbota}" title="#{bundle.ViewMebtnatkmmyefetabherafetatemTitle_fayluyetekemetebetbota}"/>
+                        <h:outputText value="#{bundle.ViewMebtnatkmmyefetabherafetatemLabel_getbzat}"/>
+                        <h:outputText value="#{mebtnatkmmyefetabherafetatemController.selected.getbzat}" title="#{bundle.ViewMebtnatkmmyefetabherafetatemTitle_getbzat}"/>
+                        <h:outputText value="#{bundle.ViewMebtnatkmmyefetabherafetatemLabel_mezgebuyetewesenebetken}"/>
+                        <h:outputText value="#{mebtnatkmmyefetabherafetatemController.selected.mezgebuyetewesenebetken}" title="#{bundle.ViewMebtnatkmmyefetabherafetatemTitle_mezgebuyetewesenebetken}"/>
+                        <h:outputText value="#{bundle.ViewMebtnatkmmyefetabherafetatemLabel_gudayuyalekebethuneta}"/>
+                        <h:outputText value="#{mebtnatkmmyefetabherafetatemController.selected.gudayuyalekebethuneta}" title="#{bundle.ViewMebtnatkmmyefetabherafetatemTitle_gudayuyalekebethuneta}"/>
+                        <h:outputText value="#{bundle.ViewMebtnatkmmyefetabherafetatemLabel_ketero}"/>
+                        <h:outputText value="#{mebtnatkmmyefetabherafetatemController.selected.ketero}" title="#{bundle.ViewMebtnatkmmyefetabherafetatemTitle_ketero}"/>
+                        <h:outputText value="#{bundle.ViewMebtnatkmmyefetabherafetatemLabel_tekesashregionid}"/>
+                        <h:outputText value="#{mebtnatkmmyefetabherafetatemController.selected.tekesashregionid}" title="#{bundle.ViewMebtnatkmmyefetabherafetatemTitle_tekesashregionid}"/>
+                        <h:outputText value="#{bundle.ViewMebtnatkmmyefetabherafetatemLabel_kesashregionid}"/>
+                        <h:outputText value="#{mebtnatkmmyefetabherafetatemController.selected.kesashregionid}" title="#{bundle.ViewMebtnatkmmyefetabherafetatemTitle_kesashregionid}"/>
+                        <h:outputText value="#{bundle.ViewMebtnatkmmyefetabherafetatemLabel_regionid}"/>
+                        <h:outputText value="#{mebtnatkmmyefetabherafetatemController.selected.regionid}" title="#{bundle.ViewMebtnatkmmyefetabherafetatemTitle_regionid}"/>
+                        <h:outputText value="#{bundle.ViewMebtnatkmmyefetabherafetatemLabel_tekesashweredaid}"/>
+                        <h:outputText value="#{mebtnatkmmyefetabherafetatemController.selected.tekesashweredaid}" title="#{bundle.ViewMebtnatkmmyefetabherafetatemTitle_tekesashweredaid}"/>
+                        <h:outputText value="#{bundle.ViewMebtnatkmmyefetabherafetatemLabel_kesashweredaid}"/>
+                        <h:outputText value="#{mebtnatkmmyefetabherafetatemController.selected.kesashweredaid}" title="#{bundle.ViewMebtnatkmmyefetabherafetatemTitle_kesashweredaid}"/>
+                        <h:outputText value="#{bundle.ViewMebtnatkmmyefetabherafetatemLabel_woredaid}"/>
+                        <h:outputText value="#{mebtnatkmmyefetabherafetatemController.selected.woredaid}" title="#{bundle.ViewMebtnatkmmyefetabherafetatemTitle_woredaid}"/>
+                        <h:outputText value="#{bundle.ViewMebtnatkmmyefetabherafetatemLabel_kesashzoneid}"/>
+                        <h:outputText value="#{mebtnatkmmyefetabherafetatemController.selected.kesashzoneid}" title="#{bundle.ViewMebtnatkmmyefetabherafetatemTitle_kesashzoneid}"/>
+                        <h:outputText value="#{bundle.ViewMebtnatkmmyefetabherafetatemLabel_tekesashzoneid}"/>
+                        <h:outputText value="#{mebtnatkmmyefetabherafetatemController.selected.tekesashzoneid}" title="#{bundle.ViewMebtnatkmmyefetabherafetatemTitle_tekesashzoneid}"/>
+                        <h:outputText value="#{bundle.ViewMebtnatkmmyefetabherafetatemLabel_zoneid}"/>
+                        <h:outputText value="#{mebtnatkmmyefetabherafetatemController.selected.zoneid}" title="#{bundle.ViewMebtnatkmmyefetabherafetatemTitle_zoneid}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="MebtnatkmmyefetabherafetatemViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

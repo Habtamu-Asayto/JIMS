@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="WengelwastnaViewDlg" widgetVar="WengelwastnaViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewWengelwastnaTitle}">
+            <h:form id="WengelwastnaViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{wengelwastnaController.selected != null}">
+                        <h:outputText value="#{bundle.ViewWengelwastnaLabel_id}"/>
+                        <h:outputText value="#{wengelwastnaController.selected.id}" title="#{bundle.ViewWengelwastnaTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewWengelwastnaLabel_kebele}"/>
+                        <h:outputText value="#{wengelwastnaController.selected.kebele}" title="#{bundle.ViewWengelwastnaTitle_kebele}"/>
+                        <h:outputText value="#{bundle.ViewWengelwastnaLabel_mezgebkutr}"/>
+                        <h:outputText value="#{wengelwastnaController.selected.mezgebkutr}" title="#{bundle.ViewWengelwastnaTitle_mezgebkutr}"/>
+                        <h:outputText value="#{bundle.ViewWengelwastnaLabel_fthbiromeleyakutr}"/>
+                        <h:outputText value="#{wengelwastnaController.selected.fthbiromeleyakutr}" title="#{bundle.ViewWengelwastnaTitle_fthbiromeleyakutr}"/>
+                        <h:outputText value="#{bundle.ViewWengelwastnaLabel_yzonesim}"/>
+                        <h:outputText value="#{wengelwastnaController.selected.yzonesim}" title="#{bundle.ViewWengelwastnaTitle_yzonesim}"/>
+                        <h:outputText value="#{bundle.ViewWengelwastnaLabel_yeweredafrdbetsim}"/>
+                        <h:outputText value="#{wengelwastnaController.selected.yeweredafrdbetsim}" title="#{bundle.ViewWengelwastnaTitle_yeweredafrdbetsim}"/>
+                        <h:outputText value="#{bundle.ViewWengelwastnaLabel_ypolisesem}"/>
+                        <h:outputText value="#{wengelwastnaController.selected.ypolisesem}" title="#{bundle.ViewWengelwastnaTitle_ypolisesem}"/>
+                        <h:outputText value="#{bundle.ViewWengelwastnaLabel_yepolisewnjelmrmerameleyakutr}"/>
+                        <h:outputText value="#{wengelwastnaController.selected.yepolisewnjelmrmerameleyakutr}" title="#{bundle.ViewWengelwastnaTitle_yepolisewnjelmrmerameleyakutr}"/>
+                        <h:outputText value="#{bundle.ViewWengelwastnaLabel_ksashaynet}"/>
+                        <h:outputText value="#{wengelwastnaController.selected.ksashaynet}" title="#{bundle.ViewWengelwastnaTitle_ksashaynet}"/>
+                        <h:outputText value="#{bundle.ViewWengelwastnaLabel_kesashdrgtname}"/>
+                        <h:outputText value="#{wengelwastnaController.selected.kesashdrgtname}" title="#{bundle.ViewWengelwastnaTitle_kesashdrgtname}"/>
+                        <h:outputText value="#{bundle.ViewWengelwastnaLabel_kesashname}"/>
+                        <h:outputText value="#{wengelwastnaController.selected.kesashname}" title="#{bundle.ViewWengelwastnaTitle_kesashname}"/>
+                        <h:outputText value="#{bundle.ViewWengelwastnaLabel_kesashfname}"/>
+                        <h:outputText value="#{wengelwastnaController.selected.kesashfname}" title="#{bundle.ViewWengelwastnaTitle_kesashfname}"/>
+                        <h:outputText value="#{bundle.ViewWengelwastnaLabel_kesashlastname}"/>
+                        <h:outputText value="#{wengelwastnaController.selected.kesashlastname}" title="#{bundle.ViewWengelwastnaTitle_kesashlastname}"/>
+                        <h:outputText value="#{bundle.ViewWengelwastnaLabel_yetekesashaynet}"/>
+                        <h:outputText value="#{wengelwastnaController.selected.yetekesashaynet}" title="#{bundle.ViewWengelwastnaTitle_yetekesashaynet}"/>
+                        <h:outputText value="#{bundle.ViewWengelwastnaLabel_tekesashdrgtname}"/>
+                        <h:outputText value="#{wengelwastnaController.selected.tekesashdrgtname}" title="#{bundle.ViewWengelwastnaTitle_tekesashdrgtname}"/>
+                        <h:outputText value="#{bundle.ViewWengelwastnaLabel_tekesashname}"/>
+                        <h:outputText value="#{wengelwastnaController.selected.tekesashname}" title="#{bundle.ViewWengelwastnaTitle_tekesashname}"/>
+                        <h:outputText value="#{bundle.ViewWengelwastnaLabel_tekesashfname}"/>
+                        <h:outputText value="#{wengelwastnaController.selected.tekesashfname}" title="#{bundle.ViewWengelwastnaTitle_tekesashfname}"/>
+                        <h:outputText value="#{bundle.ViewWengelwastnaLabel_tekesashlastname}"/>
+                        <h:outputText value="#{wengelwastnaController.selected.tekesashlastname}" title="#{bundle.ViewWengelwastnaTitle_tekesashlastname}"/>
+                        <h:outputText value="#{bundle.ViewWengelwastnaLabel_yewenjeluaynet}"/>
+                        <h:outputText value="#{wengelwastnaController.selected.yewenjeluaynet}" title="#{bundle.ViewWengelwastnaTitle_yewenjeluaynet}"/>
+                        <h:outputText value="#{bundle.ViewWengelwastnaLabel_ketero}"/>
+                        <h:outputText value="#{wengelwastnaController.selected.ketero}" title="#{bundle.ViewWengelwastnaTitle_ketero}"/>
+                        <h:outputText value="#{bundle.ViewWengelwastnaLabel_fayluyetekemetebetbota}"/>
+                        <h:outputText value="#{wengelwastnaController.selected.fayluyetekemetebetbota}" title="#{bundle.ViewWengelwastnaTitle_fayluyetekemetebetbota}"/>
+                        <h:outputText value="#{bundle.ViewWengelwastnaLabel_getbzat}"/>
+                        <h:outputText value="#{wengelwastnaController.selected.getbzat}" title="#{bundle.ViewWengelwastnaTitle_getbzat}"/>
+                        <h:outputText value="#{bundle.ViewWengelwastnaLabel_mezgebuyetekefetebetken}"/>
+                        <h:outputText value="#{wengelwastnaController.selected.mezgebuyetekefetebetken}" title="#{bundle.ViewWengelwastnaTitle_mezgebuyetekefetebetken}"/>
+                        <h:outputText value="#{bundle.ViewWengelwastnaLabel_kesashregionid}"/>
+                        <h:outputText value="#{wengelwastnaController.selected.kesashregionid}" title="#{bundle.ViewWengelwastnaTitle_kesashregionid}"/>
+                        <h:outputText value="#{bundle.ViewWengelwastnaLabel_regionid}"/>
+                        <h:outputText value="#{wengelwastnaController.selected.regionid}" title="#{bundle.ViewWengelwastnaTitle_regionid}"/>
+                        <h:outputText value="#{bundle.ViewWengelwastnaLabel_tekesashregionid}"/>
+                        <h:outputText value="#{wengelwastnaController.selected.tekesashregionid}" title="#{bundle.ViewWengelwastnaTitle_tekesashregionid}"/>
+                        <h:outputText value="#{bundle.ViewWengelwastnaLabel_tekesashweredaid}"/>
+                        <h:outputText value="#{wengelwastnaController.selected.tekesashweredaid}" title="#{bundle.ViewWengelwastnaTitle_tekesashweredaid}"/>
+                        <h:outputText value="#{bundle.ViewWengelwastnaLabel_woredaid}"/>
+                        <h:outputText value="#{wengelwastnaController.selected.woredaid}" title="#{bundle.ViewWengelwastnaTitle_woredaid}"/>
+                        <h:outputText value="#{bundle.ViewWengelwastnaLabel_kesashweredaid}"/>
+                        <h:outputText value="#{wengelwastnaController.selected.kesashweredaid}" title="#{bundle.ViewWengelwastnaTitle_kesashweredaid}"/>
+                        <h:outputText value="#{bundle.ViewWengelwastnaLabel_kesashzoneid}"/>
+                        <h:outputText value="#{wengelwastnaController.selected.kesashzoneid}" title="#{bundle.ViewWengelwastnaTitle_kesashzoneid}"/>
+                        <h:outputText value="#{bundle.ViewWengelwastnaLabel_zoneid}"/>
+                        <h:outputText value="#{wengelwastnaController.selected.zoneid}" title="#{bundle.ViewWengelwastnaTitle_zoneid}"/>
+                        <h:outputText value="#{bundle.ViewWengelwastnaLabel_tekesashzoneid}"/>
+                        <h:outputText value="#{wengelwastnaController.selected.tekesashzoneid}" title="#{bundle.ViewWengelwastnaTitle_tekesashzoneid}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="WengelwastnaViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

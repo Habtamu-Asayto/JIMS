@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListSenedochenatebekochTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="SenedochenatebekochListForm">
+             
+                <h1 align="center" style="color: blue">ሰነዶች እና ጠበቆች ማረጋገጫና ምዝገባ የስራ ሂደት</h1>
+          <p:outputPanel  style="float: right" rendered="#{((session.getValue('role') eq 'Admin') or  (session.getValue('role') eq 'department Head')  or  (session.getValue('role') eq 'postgraduate coordinator') or  (session.getValue('role') eq 'Dean'))}">   
+  
+     <h:commandLink>
+        <p:graphicImage name="/images/excel.png"  style="width: 30px;height: 30px"/>
+        <p:dataExporter type="xls" target="datalist" fileName="Tebekoch and Senedoch" pageOnly="true"/>
+        
+    </h:commandLink>
+ 
+    <h:commandLink>
+        <p:graphicImage name="/images/pdf.png"  style="width: 30px;height: 30px" />
+        <p:dataExporter type="pdf" target="datalist" fileName="thesis List" pageOnly="true" />
+    </h:commandLink>
+                   </p:outputPanel>    
+                <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" action="#{senedochenatebekochController.returnpage('/senedochenatebekoch/register_DRAS.xhtml')}"/>
+                    <p:dataTable id="datalist" value="#{senedochenatebekochController.items}" var="item"
+                                 selectionMode="single" selection="#{senedochenatebekochController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.id}"
+                                 rows="10"
+                                 
+                                 
+                                  rowIndexVar="index"
+                                 widgetVar="fileTable"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
+
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+ <f:facet name="header">
+                  <p:outputPanel>
+                <h:outputText value="Search All Fileds  " />
+                <p:inputText id="globalFilter" onkeyup="PF('fileTable').filter()" style="width:150px" placeholder="Enter Key word"/>
+            </p:outputPanel>
+                         </f:facet>
+                        <p:column   width="30" style="text-align:left">
+        <f:facet name="header">
+            <h:outputText value="Index " />
+        </f:facet>
+        <h:outputText 
+            value="#{index + 1}" />
+    </p:column> 
+                        <p:column filterBy="#{item.filekutr}" filterMatchMode="contains">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSenedochenatebekochTitle_filekutr}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.filekutr}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.name} #{item.fname} #{item.lastname} " filterMatchMode="contains">
+                            <f:facet name="header">
+                                <h:outputText value="ውል ሰጭ"/>
+                            </f:facet>
+                            <h:outputText value="#{item.name} #{item.fname} #{item.lastname} "/>
+                             <h:outputText value="#{item.dregtname}"/>
+                        </p:column>
+                         <p:column filterBy="#{item.wname} #{item.wmname} #{item.wlname} " filterMatchMode="contains">
+                            <f:facet name="header">
+                                <h:outputText value="ውል ተቀባይ"/>
+                            </f:facet>
+                            <h:outputText value="#{item.wname} #{item.wmname} #{item.wlname} "/>
+                            <h:outputText value="#{item.glglaotteyaksechnmae}"/>
+                        </p:column>
+                        <p:column filterMatchMode="contains" filterBy="#{item.yegudayuaynet} ">
+                            <f:facet name="header">
+                                <h:outputText value="የውክልና አይነት"/>
+                            </f:facet>
+                <h:outputText value="#{item.yegudayuaynet}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.gelgalotyetesetebetken}" filterMatchMode="contains">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSenedochenatebekochTitle_gelgalotyetesetebetken}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.gelgalotyetesetebetken}"/>
+                        </p:column>
+                        
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSenedochenatebekochTitle_mezgebuyetekemetebetbota}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.mezgebuyetekemetebetbota}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSenedochenatebekochTitle_getbzat}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.getbzat}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSenedochenatebekochTitle_glgalotyesetewbalemuyaname}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.glgalotyesetewbalemuyaname}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSenedochenatebekochTitle_regionid}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.regionid.regionname}"/>
+                        </p:column>
+                         <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSenedochenatebekochTitle_zoneid}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.zoneid.zonename}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSenedochenatebekochTitle_woredaid}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.weredacor.weredaname}"/>
+                        </p:column>
+                         <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="የተከፈለ የገንዘብ መጠን"/>
+                            </f:facet>
+                             <h:outputText value="#{item.amount}"/>
+                        </p:column>
+                          <p:column  exportable="false" >   
+                          
+                             <f:facet name="header">
+                                <h:outputText value="File"/>
+                            </f:facet>
+                           
+                              <p:commandLink rendered="#{item.filepath != null}"  style="color: blue;font-family: verdina"  value="open file "  onstart="this.form.target = '_blank'" immediate="true"
+                                                 actionListener="#{filedownloads.openFile(item.filepath)}"
+                                 ajax="false" />           
+                   <br></br>
+                 <p:commandLink  rendered="#{item.filepath != null}" value="Download" ajax="false"  style="color: blue;font-family: verdina"   actionListener="#{filedownloads.fileuploadpath(item.filepath)}"   >
+                  <p:fileDownload value="#{filedownloads.file}"  />
+                         </p:commandLink>
+                                 
+                          </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{senedochenatebekochController.prepareCreate}" update=":SenedochenatebekochCreateForm" oncomplete="PF('SenedochenatebekochCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":SenedochenatebekochViewForm" oncomplete="PF('SenedochenatebekochViewDialog').show()" disabled="#{empty senedochenatebekochController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":SenedochenatebekochEditForm" oncomplete="PF('SenedochenatebekochEditDialog').show()" disabled="#{empty senedochenatebekochController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{senedochenatebekochController.destroy}" update=":growl,datalist" disabled="#{empty senedochenatebekochController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+           
+            </h:form>
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+   <p:dialog height="500" id="WengelwastnaCreateDlg" widgetVar="WengelwastnaCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateWengelwastnaTitle}">
+            <h:form id="WengelwastnaCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2"   style="width: 50%" rendered="#{wengelwastnaController.selected != null}">
+                       <p:outputLabel value="#{bundle.CreateWengelwastnaLabel_fthbiromeleyakutr}" for="fthbiromeleyakutr" />
+                        <p:inputText style="width: 100%" id="fthbiromeleyakutr" value="#{wengelwastnaController.selected.fthbiromeleyakutr}" title="#{bundle.CreateWengelwastnaTitle_fthbiromeleyakutr}" />
+                    </p:panelGrid>
+                       <p:panelGrid columns="4" rendered="#{wengelwastnaController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateWengelwastnaLabel_yzonesim}" for="yzonesim" />
+                        <p:inputText id="yzonesim" value="#{wengelwastnaController.selected.yzonesim}" title="#{bundle.CreateWengelwastnaTitle_yzonesim}" />
+                       
+                         <p:outputLabel value="የወ/ይ/መ/ቁ" for="zonekutr" />
+                         <p:inputText id="zonekutr" value="#{wengelwastnaController.selected.zonekutr}" title="#{bundle.CreateWengelwastnaTitle_yzonesim}" />
+                       
+                        <p:outputLabel value="ፍርድቤት ስም" for="yeweredafrdbetsim" />
+                        <p:inputText id="yeweredafrdbetsim" value="#{wengelwastnaController.selected.yeweredafrdbetsim}" title="#{bundle.CreateWengelwastnaTitle_yeweredafrdbetsim}" />
+                       
+                        <p:outputLabel value="የወ/ይ/መ/ቁ" for="weredakutr" />
+                        <p:inputText id="weredakutr" value="#{wengelwastnaController.selected.weredakutr}" title="#{bundle.CreateWengelwastnaTitle_yeweredafrdbetsim}" />
+                        <p:outputLabel value="#{bundle.CreateWengelwastnaLabel_ypolisesem}" for="ypolisesem" />
+                        <p:inputText id="ypolisesem" value="#{wengelwastnaController.selected.ypolisesem}" title="#{bundle.CreateWengelwastnaTitle_ypolisesem}" />
+                        <p:outputLabel value="#{bundle.CreateWengelwastnaLabel_yepolisewnjelmrmerameleyakutr}" for="yepolisewnjelmrmerameleyakutr" />
+                        <p:inputText id="yepolisewnjelmrmerameleyakutr" value="#{wengelwastnaController.selected.yepolisewnjelmrmerameleyakutr}" title="#{bundle.CreateWengelwastnaTitle_yepolisewnjelmrmerameleyakutr}" />
+                     
+                      <p:outputLabel value="#{bundle.CreateWengelwastnaLabel_mezgebkutr}" for="mezgebkutr" />
+                        <p:inputText id="mezgebkutr" value="#{wengelwastnaController.selected.mezgebkutr}" title="#{bundle.CreateWengelwastnaTitle_mezgebkutr}" />
+                    </p:panelGrid>
+                        
+                      <p:panel  toggleable="true"  header="የፋይሉ የተቀመጠበት ቦታ እና መረጃ" > 
+                          <p:panelGrid columns="2">
+         <p:panelGrid columns="1" rendered="#{wengelwastnaController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateWengelwastnaLabel_ksashaynet}" for="ksashaynet" />
+                   <p:selectOneRadio   id="ksashaynet" value="#{wengelwastnaController.selected.ksashaynet}"  required="true" requiredMessage="please select Privilege"  >
+                    <p:ajax  event="change" update="kesash"  />                   
+            <f:selectItem itemLabel="ግለሰብ" itemValue="ግለሰብ"/>
+             <f:selectItem itemLabel="ድርጂት" itemValue="ድርጂት"/>
+                                
+           </p:selectOneRadio>     
+         </p:panelGrid>
+                        
+                         <p:panelGrid id="kesash" columns="6" rendered="#{wengelwastnaController.selected != null}">
+                        <p:outputLabel rendered="#{wengelwastnaController.selected.ksashaynet eq 'ድርጂት'}" value="#{bundle.CreateWengelwastnaLabel_kesashdrgtname}" for="kesashdrgtname" />
+                        <p:inputText rendered="#{wengelwastnaController.selected.ksashaynet eq 'ድርጂት'}" id="kesashdrgtname" value="#{wengelwastnaController.selected.kesashdrgtname}" title="#{bundle.CreateWengelwastnaTitle_kesashdrgtname}" />
+                        <p:outputLabel rendered="#{wengelwastnaController.selected.ksashaynet eq 'ግለሰብ'}" value="#{bundle.CreateWengelwastnaLabel_kesashname}" for="kesashname" />
+                        <p:inputText rendered="#{wengelwastnaController.selected.ksashaynet eq 'ግለሰብ'}" id="kesashname" value="#{wengelwastnaController.selected.kesashname}" title="#{bundle.CreateWengelwastnaTitle_kesashname}" />
+                        <p:outputLabel rendered="#{wengelwastnaController.selected.ksashaynet eq 'ግለሰብ'}"  value="#{bundle.CreateWengelwastnaLabel_kesashfname}" for="kesashfname" />
+                        <p:inputText rendered="#{wengelwastnaController.selected.ksashaynet eq 'ግለሰብ'}" id="kesashfname" value="#{wengelwastnaController.selected.kesashfname}" title="#{bundle.CreateWengelwastnaTitle_kesashfname}" />
+                        <p:outputLabel rendered="#{wengelwastnaController.selected.ksashaynet eq 'ግለሰብ'}" value="#{bundle.CreateWengelwastnaLabel_kesashlastname}" for="kesashlastname" />
+                        <p:inputText rendered="#{wengelwastnaController.selected.ksashaynet eq 'ግለሰብ'}" id="kesashlastname" value="#{wengelwastnaController.selected.kesashlastname}" title="#{bundle.CreateWengelwastnaTitle_kesashlastname}" />
+                           <p:outputLabel    value="#{bundle.CreateWengelwastnaLabel_tekesashregionid}" for="tekesashregionid" />
+                        <p:selectOneMenu id="kesashregionid" value="#{wengelwastnaController.selected.kesashregionid}" >
+                            <f:selectItems value="#{regionsController.itemsAvailableSelectOne}"
+                                           var="kesashregionidItem"
+                                           itemValue="#{kesashregionidItem}"/>
+                        </p:selectOneMenu>
+                           
+                            <p:outputLabel value="#{bundle.CreateWengelwastnaLabel_kesashzoneid}" for="kesashzoneid" />
+                        <p:selectOneMenu id="kesashzoneid" value="#{wengelwastnaController.selected.kesashzoneid}" >
+                            <f:selectItems value="#{zonesController.itemsAvailableSelectOne}"
+                                           var="kesashzoneidItem"
+                                           itemValue="#{kesashzoneidItem}"/>
+                        </p:selectOneMenu>
+                         <p:outputLabel value="#{bundle.CreateWengelwastnaLabel_kesashweredaid}" for="kesashweredaid" />
+                        <p:selectOneMenu id="kesashweredaid" value="#{wengelwastnaController.selected.kesashweredaid}" >
+                            <f:selectItems value="#{weredasController.itemsAvailableSelectOne}"
+                                           var="kesashweredaidItem"
+                                           itemValue="#{kesashweredaidItem}"/>
+                        </p:selectOneMenu>
+                       
+                        
+                      </p:panelGrid></p:panelGrid></p:panel>
+    
+                     <p:panel  toggleable="true"  header="የፋይሉ የተቀመጠበት ቦታ እና መረጃ" > 
+                          <p:panelGrid columns="2">
+         <p:panelGrid columns="1" rendered="#{wengelwastnaController.selected != null}">
+                        <p:outputLabel value="መልስ ሰጭ አይነት" for="yetekesashaynet" />
+                        <p:selectOneRadio   id="yetekesashaynet" value="#{wengelwastnaController.selected.yetekesashaynet}"  required="true" requiredMessage="please select Privilege"  >
+                    <p:ajax  event="change" update="tekesash"  />                   
+            <f:selectItem itemLabel="ግለሰብ" itemValue="ግለሰብ"/>
+             <f:selectItem itemLabel="ድርጂት" itemValue="ድርጂት"/>
+                                
+           </p:selectOneRadio>     
+         </p:panelGrid>
+                              <p:panelGrid id="tekesash" columns="6" rendered="#{wengelwastnaController.selected != null}">
+                      
+                         <p:outputLabel rendered="#{wengelwastnaController.selected.yetekesashaynet eq 'ድርጂት'}"   value="#{bundle.CreateWengelwastnaLabel_tekesashdrgtname}" for="tekesashdrgtname" />
+                        <p:inputText rendered="#{wengelwastnaController.selected.yetekesashaynet eq 'ድርጂት'}" id="tekesashdrgtname" value="#{wengelwastnaController.selected.tekesashdrgtname}" title="#{bundle.CreateWengelwastnaTitle_tekesashdrgtname}" />
+                      
+                          <p:outputLabel rendered="#{wengelwastnaController.selected.yetekesashaynet eq 'ግለሰብ'}"  value="#{bundle.CreateWengelwastnaLabel_tekesashname}" for="tekesashname" />
+                        <p:inputText rendered="#{wengelwastnaController.selected.yetekesashaynet eq 'ግለሰብ'}"   id="tekesashname" value="#{wengelwastnaController.selected.tekesashname}" title="#{bundle.CreateWengelwastnaTitle_tekesashname}" />
+                        <p:outputLabel rendered="#{wengelwastnaController.selected.yetekesashaynet eq 'ግለሰብ'}"  value="#{bundle.CreateWengelwastnaLabel_tekesashfname}" for="tekesashfname" />
+                        <p:inputText rendered="#{wengelwastnaController.selected.yetekesashaynet eq 'ግለሰብ'}"  id="tekesashfname" value="#{wengelwastnaController.selected.tekesashfname}" title="#{bundle.CreateWengelwastnaTitle_tekesashfname}" />
+                        <p:outputLabel rendered="#{wengelwastnaController.selected.yetekesashaynet eq 'ግለሰብ'}"  value="#{bundle.CreateWengelwastnaLabel_tekesashlastname}" for="tekesashlastname" />
+                        <p:inputText rendered="#{wengelwastnaController.selected.yetekesashaynet eq 'ግለሰብ'}"   id="tekesashlastname" value="#{wengelwastnaController.selected.tekesashlastname}" title="#{bundle.CreateWengelwastnaTitle_tekesashlastname}" />
+                          <p:outputLabel    value="#{bundle.CreateWengelwastnaLabel_tekesashregionid}" for="tekesashregionid" />
+                        <p:selectOneMenu  id="tekesashregionid" value="#{wengelwastnaController.selected.tekesashregionid}" >
+                            <f:selectItems value="#{regionsController.itemsAvailableSelectOne}"
+                                           var="tekesashregionidItem"
+                                           itemValue="#{tekesashregionidItem}"/>
+                        </p:selectOneMenu>
+                          <p:outputLabel    value="#{bundle.CreateWengelwastnaLabel_tekesashzoneid}" for="tekesashzoneid" />
+                        <p:selectOneMenu id="tekesashzoneid" value="#{wengelwastnaController.selected.tekesashzoneid}" >
+                            <f:selectItems value="#{zonesController.itemsAvailableSelectOne}"
+                                           var="tekesashzoneidItem"
+                                           itemValue="#{tekesashzoneidItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateWengelwastnaLabel_tekesashweredaid}" for="tekesashweredaid" />
+                        <p:selectOneMenu id="tekesashweredaid" value="#{wengelwastnaController.selected.tekesashweredaid}" >
+                            <f:selectItems value="#{weredasController.itemsAvailableSelectOne}"
+                                           var="tekesashweredaidItem"
+                                           itemValue="#{tekesashweredaidItem}"/>
+                        </p:selectOneMenu>
+                       
+                      </p:panelGrid></p:panelGrid></p:panel>
+                        
+              <p:panelGrid columns="6" rendered="#{wengelwastnaController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateWengelwastnaLabel_yewenjeluaynet}" for="yewenjeluaynet" />
+                        <p:inputText id="yewenjeluaynet" value="#{wengelwastnaController.selected.yewenjeluaynet}" title="#{bundle.CreateWengelwastnaTitle_yewenjeluaynet}" />
+                        <p:outputLabel value="#{bundle.CreateWengelwastnaLabel_ketero}" for="ketero" />
+                        <p:inputText onmousedown="fun(this);"  id="ketero" value="#{wengelwastnaController.selected.ketero}" title="#{bundle.CreateWengelwastnaTitle_ketero}" />
+                        <p:outputLabel value="#{bundle.CreateWengelwastnaLabel_fayluyetekemetebetbota}" for="fayluyetekemetebetbota" />
+                        <p:inputText id="fayluyetekemetebetbota" value="#{wengelwastnaController.selected.fayluyetekemetebetbota}" title="#{bundle.CreateWengelwastnaTitle_fayluyetekemetebetbota}" />
+                        <p:outputLabel value="#{bundle.CreateWengelwastnaLabel_getbzat}" for="getbzat" />
+                        <p:inputText id="getbzat" value="#{wengelwastnaController.selected.getbzat}" title="#{bundle.CreateWengelwastnaTitle_getbzat}" />
+                        <p:outputLabel value="#{bundle.CreateWengelwastnaLabel_mezgebuyetekefetebetken}" for="mezgebuyetekefetebetken" />
+                        <p:inputText onmousedown="fun(this);"  id="mezgebuyetekefetebetken" value="#{wengelwastnaController.selected.mezgebuyetekefetebetken}" title="#{bundle.CreateWengelwastnaTitle_mezgebuyetekefetebetken}" />
+                      
+                      </p:panelGrid>
+              
+                    <p:commandButton actionListener="#{wengelwastnaController.create}" value="#{bundle.Save}" update="display,:WengelwastnaListForm:datalist,:growl" oncomplete="handleSubmit(args,'WengelwastnaCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="WengelwastnaCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

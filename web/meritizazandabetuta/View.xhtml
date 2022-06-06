@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="MeritizazandabetutaViewDlg" widgetVar="MeritizazandabetutaViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewMeritizazandabetutaTitle}">
+            <h:form id="MeritizazandabetutaViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{meritizazandabetutaController.selected != null}">
+                        <h:outputText value="#{bundle.ViewMeritizazandabetutaLabel_id}"/>
+                        <h:outputText value="#{meritizazandabetutaController.selected.id}" title="#{bundle.ViewMeritizazandabetutaTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewMeritizazandabetutaLabel_agelgilotyetesetebetken}"/>
+                        <h:outputText value="#{meritizazandabetutaController.selected.agelgilotyetesetebetken}" title="#{bundle.ViewMeritizazandabetutaTitle_agelgilotyetesetebetken}"/>
+                        <h:outputText value="#{bundle.ViewMeritizazandabetutaLabel_agelglotteyakiaynet}"/>
+                        <h:outputText value="#{meritizazandabetutaController.selected.agelglotteyakiaynet}" title="#{bundle.ViewMeritizazandabetutaTitle_agelglotteyakiaynet}"/>
+                        <h:outputText value="#{bundle.ViewMeritizazandabetutaLabel_fname}"/>
+                        <h:outputText value="#{meritizazandabetutaController.selected.fname}" title="#{bundle.ViewMeritizazandabetutaTitle_fname}"/>
+                        <h:outputText value="#{bundle.ViewMeritizazandabetutaLabel_glgalotteyakiaynet}"/>
+                        <h:outputText value="#{meritizazandabetutaController.selected.glgalotteyakiaynet}" title="#{bundle.ViewMeritizazandabetutaTitle_glgalotteyakiaynet}"/>
+                        <h:outputText value="#{bundle.ViewMeritizazandabetutaLabel_glglaotteyakiname}"/>
+                        <h:outputText value="#{meritizazandabetutaController.selected.glglaotteyakiname}" title="#{bundle.ViewMeritizazandabetutaTitle_glglaotteyakiname}"/>
+                        <h:outputText value="#{bundle.ViewMeritizazandabetutaLabel_glglaotteyaksechaynet}"/>
+                        <h:outputText value="#{meritizazandabetutaController.selected.glglaotteyaksechaynet}" title="#{bundle.ViewMeritizazandabetutaTitle_glglaotteyaksechaynet}"/>
+                        <h:outputText value="#{bundle.ViewMeritizazandabetutaLabel_glglaotteyaksechnmae}"/>
+                        <h:outputText value="#{meritizazandabetutaController.selected.glglaotteyaksechnmae}" title="#{bundle.ViewMeritizazandabetutaTitle_glglaotteyaksechnmae}"/>
+                        <h:outputText value="#{bundle.ViewMeritizazandabetutaLabel_hager}"/>
+                        <h:outputText value="#{meritizazandabetutaController.selected.hager}" title="#{bundle.ViewMeritizazandabetutaTitle_hager}"/>
+                        <h:outputText value="#{bundle.ViewMeritizazandabetutaLabel_kebele}"/>
+                        <h:outputText value="#{meritizazandabetutaController.selected.kebele}" title="#{bundle.ViewMeritizazandabetutaTitle_kebele}"/>
+                        <h:outputText value="#{bundle.ViewMeritizazandabetutaLabel_ketero}"/>
+                        <h:outputText value="#{meritizazandabetutaController.selected.ketero}" title="#{bundle.ViewMeritizazandabetutaTitle_ketero}"/>
+                        <h:outputText value="#{bundle.ViewMeritizazandabetutaLabel_lastname}"/>
+                        <h:outputText value="#{meritizazandabetutaController.selected.lastname}" title="#{bundle.ViewMeritizazandabetutaTitle_lastname}"/>
+                        <h:outputText value="#{bundle.ViewMeritizazandabetutaLabel_mezgebuyetekefetebetken}"/>
+                        <h:outputText value="#{meritizazandabetutaController.selected.mezgebuyetekefetebetken}" title="#{bundle.ViewMeritizazandabetutaTitle_mezgebuyetekefetebetken}"/>
+                        <h:outputText value="#{bundle.ViewMeritizazandabetutaLabel_name}"/>
+                        <h:outputText value="#{meritizazandabetutaController.selected.name}" title="#{bundle.ViewMeritizazandabetutaTitle_name}"/>
+                        <h:outputText value="#{bundle.ViewMeritizazandabetutaLabel_wultekebayfname}"/>
+                        <h:outputText value="#{meritizazandabetutaController.selected.wultekebayfname}" title="#{bundle.ViewMeritizazandabetutaTitle_wultekebayfname}"/>
+                        <h:outputText value="#{bundle.ViewMeritizazandabetutaLabel_wultekebaylastname}"/>
+                        <h:outputText value="#{meritizazandabetutaController.selected.wultekebaylastname}" title="#{bundle.ViewMeritizazandabetutaTitle_wultekebaylastname}"/>
+                        <h:outputText value="#{bundle.ViewMeritizazandabetutaLabel_wultekebayname}"/>
+                        <h:outputText value="#{meritizazandabetutaController.selected.wultekebayname}" title="#{bundle.ViewMeritizazandabetutaTitle_wultekebayname}"/>
+                        <h:outputText value="#{bundle.ViewMeritizazandabetutaLabel_yefayluaynet}"/>
+                        <h:outputText value="#{meritizazandabetutaController.selected.yefayluaynet}" title="#{bundle.ViewMeritizazandabetutaTitle_yefayluaynet}"/>
+                        <h:outputText value="#{bundle.ViewMeritizazandabetutaLabel_yefetihbiromeleyakutr}"/>
+                        <h:outputText value="#{meritizazandabetutaController.selected.yefetihbiromeleyakutr}" title="#{bundle.ViewMeritizazandabetutaTitle_yefetihbiromeleyakutr}"/>
+                        <h:outputText value="#{bundle.ViewMeritizazandabetutaLabel_yegenzebmeten}"/>
+                        <h:outputText value="#{meritizazandabetutaController.selected.yegenzebmeten}" title="#{bundle.ViewMeritizazandabetutaTitle_yegenzebmeten}"/>
+                        <h:outputText value="#{bundle.ViewMeritizazandabetutaLabel_yeweredafithmemrya}"/>
+                        <h:outputText value="#{meritizazandabetutaController.selected.yeweredafithmemrya}" title="#{bundle.ViewMeritizazandabetutaTitle_yeweredafithmemrya}"/>
+                        <h:outputText value="#{bundle.ViewMeritizazandabetutaLabel_yezonefithmemroya}"/>
+                        <h:outputText value="#{meritizazandabetutaController.selected.yezonefithmemroya}" title="#{bundle.ViewMeritizazandabetutaTitle_yezonefithmemroya}"/>
+                        <h:outputText value="#{bundle.ViewMeritizazandabetutaLabel_region}"/>
+                        <h:outputText value="#{meritizazandabetutaController.selected.region}" title="#{bundle.ViewMeritizazandabetutaTitle_region}"/>
+                        <h:outputText value="#{bundle.ViewMeritizazandabetutaLabel_regionid}"/>
+                        <h:outputText value="#{meritizazandabetutaController.selected.regionid}" title="#{bundle.ViewMeritizazandabetutaTitle_regionid}"/>
+                        <h:outputText value="#{bundle.ViewMeritizazandabetutaLabel_woredaid}"/>
+                        <h:outputText value="#{meritizazandabetutaController.selected.woredaid}" title="#{bundle.ViewMeritizazandabetutaTitle_woredaid}"/>
+                        <h:outputText value="#{bundle.ViewMeritizazandabetutaLabel_woreda}"/>
+                        <h:outputText value="#{meritizazandabetutaController.selected.woreda}" title="#{bundle.ViewMeritizazandabetutaTitle_woreda}"/>
+                        <h:outputText value="#{bundle.ViewMeritizazandabetutaLabel_zoneid}"/>
+                        <h:outputText value="#{meritizazandabetutaController.selected.zoneid}" title="#{bundle.ViewMeritizazandabetutaTitle_zoneid}"/>
+                        <h:outputText value="#{bundle.ViewMeritizazandabetutaLabel_zone}"/>
+                        <h:outputText value="#{meritizazandabetutaController.selected.zone}" title="#{bundle.ViewMeritizazandabetutaTitle_zone}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="MeritizazandabetutaViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

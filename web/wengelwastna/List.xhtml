@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListWengelwastnaTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="WengelwastnaListForm">
+                <h1 align="center"> የወንጀል ዋስትና ፋይሎች ዝርዝር</h1>
+                          <p:outputPanel  style="float: right" rendered="#{((session.getValue('role') eq 'Admin') or  (session.getValue('role') eq 'department Head')  or  (session.getValue('role') eq 'postgraduate coordinator') or  (session.getValue('role') eq 'Dean'))}">   
+  
+     <h:commandLink>
+        <p:graphicImage name="/images/excel.png"  style="width: 30px;height: 30px"/>
+        <p:dataExporter type="xls" target="datalist" fileName="Wonjel Wastna" pageOnly="true"/>
+    </h:commandLink>
+ 
+    <h:commandLink>
+        <p:graphicImage name="/images/pdf.png"  style="width: 30px;height: 30px" />
+        <p:dataExporter type="pdf" target="datalist" fileName="thesis List" pageOnly="true" />
+    </h:commandLink>
+                   </p:outputPanel> 
+                      <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{wengelwastnaController.prepareCreate}" update=":WengelwastnaCreateForm" oncomplete="PF('WengelwastnaCreateDialog').show()"/>
+                    <p:dataTable id="datalist" value="#{wengelwastnaController.items}" var="item"
+                                 selectionMode="single" selection="#{wengelwastnaController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.id}"
+                                 rows="10"
+                                 rowIndexVar="index"
+                                  widgetVar="fileTable"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
+
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+ <f:facet name="header">
+                  <p:outputPanel>
+                <h:outputText value="Search All Fileds  " />
+                <p:inputText id="globalFilter" onkeyup="PF('fileTable').filter()" style="width:150px" placeholder="Enter Key word"/>
+            </p:outputPanel>
+                         </f:facet>
+                        <p:column   width="30" style="text-align:left">
+        <f:facet name="header">
+            <h:outputText value="Index " />
+        </f:facet>
+        <h:outputText 
+            value="#{index + 1}" />
+    </p:column> 
+                   
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListWengelwastnaTitle_mezgebkutr}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.mezgebkutr}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListWengelwastnaTitle_fthbiromeleyakutr}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fthbiromeleyakutr}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListWengelwastnaTitle_yzonesim}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.yzonesim}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListWengelwastnaTitle_yeweredafrdbetsim}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.yeweredafrdbetsim}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListWengelwastnaTitle_ypolisesem}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ypolisesem} #{item.yepolisewnjelmrmerameleyakutr}"/>
+                        </p:column>
+                     
+                      
+                        <p:column filterMatchMode="contains" filterBy="#{item.kesashname} #{item.kesashfname} #{item.kesashlastname}">
+                            <f:facet name="header">
+                                <h:outputText value="ከሳሽ  ስም"/>
+                            </f:facet>
+                            <h:outputText value="#{item.kesashname} #{item.kesashfname} #{item.kesashlastname}"/>
+                            <h:outputText value="#{item.kesashdrgtname}"/>
+                        </p:column>
+                       <p:column   >
+                            <f:facet name="header">
+                                <h:outputText value="አድራሻ"/>
+                            </f:facet>
+                           <h:outputText value="#{item.kesashregionid.regionname}"/><br></br>
+                           <h:outputText value="#{item.kesashzoneid.zonename}"/><br></br>
+                           <h:outputText value="#{item.kesashweredaid.weredaname}"/>
+                        </p:column>
+                    
+                        <p:column filterMatchMode="contains" filterBy="#{bundle.ListWengelwastnaTitle_tekesashname}">
+                            <f:facet name="header">
+                                <h:outputText value="ተከሳሽ ስም"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tekesashname} #{item.tekesashfname} #{item.tekesashlastname}"/>
+                              <h:outputText value="#{item.tekesashdrgtname}"/>
+                        </p:column>
+                        
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value=" አድራሻ"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tekesashregionid.regionname}"/><br></br>
+                            <h:outputText value="#{item.tekesashzoneid.zonename}"/><br></br>
+                            <h:outputText value="#{item.tekesashweredaid.weredaname}"/><br></br>
+                            
+                        </p:column>
+                   
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListWengelwastnaTitle_yewenjeluaynet}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.yewenjeluaynet}"/>
+                        </p:column>
+                      
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListWengelwastnaTitle_fayluyetekemetebetbota}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fayluyetekemetebetbota}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListWengelwastnaTitle_getbzat}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.getbzat}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListWengelwastnaTitle_mezgebuyetekefetebetken}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.mezgebuyetekefetebetken}"/>
+                        </p:column>
+                       
+                      
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListWengelwastnaTitle_ketero}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ketero}"/>
+                        </p:column>
+                         <p:column rendered="#{session.getValue('role') eq 'Admin'}" >
+                            <f:facet name="header">
+                                <h:outputText value="RegisterdBy"/>
+                            </f:facet>
+                            <h:outputText value="#{item.regby}"/>
+                        </p:column>
+                       <p:column rendered="#{session.getValue('role') eq 'Admin'}" >
+                            <f:facet name="header">
+                                <h:outputText value="UpdatedBy"/>
+                            </f:facet>
+                           <h:outputText value="#{item.updatedby}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton rendered="false" id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{wengelwastnaController.prepareCreate}" update=":WengelwastnaCreateForm" oncomplete="PF('WengelwastnaCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":WengelwastnaViewForm" oncomplete="PF('WengelwastnaViewDialog').show()" disabled="#{empty wengelwastnaController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":WengelwastnaEditForm" oncomplete="PF('WengelwastnaEditDialog').show()" disabled="#{empty wengelwastnaController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{wengelwastnaController.destroy}" update=":growl,datalist" disabled="#{empty wengelwastnaController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+            
+            </h:form>
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>

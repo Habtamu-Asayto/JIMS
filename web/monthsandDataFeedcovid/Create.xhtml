@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="MonthsandDataFeedcovidCreateDlg" widgetVar="MonthsandDataFeedcovidCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateMonthsandDataFeedcovidTitle}">
+            <h:form id="MonthsandDataFeedcovidCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{monthsandDataFeedcovidController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateMonthsandDataFeedcovidLabel_months}" for="months" />
+                        <p:inputText id="months" value="#{monthsandDataFeedcovidController.selected.months}" title="#{bundle.CreateMonthsandDataFeedcovidTitle_months}" />
+                        <p:outputLabel value="#{bundle.CreateMonthsandDataFeedcovidLabel_rowheading}" for="rowheading" />
+                        <p:inputText id="rowheading" value="#{monthsandDataFeedcovidController.selected.rowheading}" title="#{bundle.CreateMonthsandDataFeedcovidTitle_rowheading}" />
+                        <p:outputLabel value="#{bundle.CreateMonthsandDataFeedcovidLabel_positive}" for="positive" />
+                        <p:inputText id="positive" value="#{monthsandDataFeedcovidController.selected.positive}" title="#{bundle.CreateMonthsandDataFeedcovidTitle_positive}" />
+                        <p:outputLabel value="#{bundle.CreateMonthsandDataFeedcovidLabel_negative}" for="negative" />
+                        <p:inputText id="negative" value="#{monthsandDataFeedcovidController.selected.negative}" title="#{bundle.CreateMonthsandDataFeedcovidTitle_negative}" />
+                        <p:outputLabel value="#{bundle.CreateMonthsandDataFeedcovidLabel_death}" for="death" />
+                        <p:inputText id="death" value="#{monthsandDataFeedcovidController.selected.death}" title="#{bundle.CreateMonthsandDataFeedcovidTitle_death}" />
+                        <p:outputLabel value="#{bundle.CreateMonthsandDataFeedcovidLabel_icuadmitted}" for="icuadmitted" />
+                        <p:inputText id="icuadmitted" value="#{monthsandDataFeedcovidController.selected.icuadmitted}" title="#{bundle.CreateMonthsandDataFeedcovidTitle_icuadmitted}" />
+                        <p:outputLabel value="#{bundle.CreateMonthsandDataFeedcovidLabel_improved}" for="improved" />
+                        <p:inputText id="improved" value="#{monthsandDataFeedcovidController.selected.improved}" title="#{bundle.CreateMonthsandDataFeedcovidTitle_improved}" />
+                        <p:outputLabel value="#{bundle.CreateMonthsandDataFeedcovidLabel_disapeared}" for="disapeared" />
+                        <p:inputText id="disapeared" value="#{monthsandDataFeedcovidController.selected.disapeared}" title="#{bundle.CreateMonthsandDataFeedcovidTitle_disapeared}" />
+                        <p:outputLabel value="#{bundle.CreateMonthsandDataFeedcovidLabel_totalquarentied}" for="totalquarentied" />
+                        <p:inputText id="totalquarentied" value="#{monthsandDataFeedcovidController.selected.totalquarentied}" title="#{bundle.CreateMonthsandDataFeedcovidTitle_totalquarentied}" />
+                        <p:outputLabel value="#{bundle.CreateMonthsandDataFeedcovidLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{monthsandDataFeedcovidController.selected.id}" title="#{bundle.CreateMonthsandDataFeedcovidTitle_id}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{monthsandDataFeedcovidController.create}" value="#{bundle.Save}" update="display,:MonthsandDataFeedcovidListForm:datalist,:growl" oncomplete="handleSubmit(args,'MonthsandDataFeedcovidCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="MonthsandDataFeedcovidCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,79 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+ <h:head>
+        <title><ui:insert name="title">Default Title</ui:insert></title>
+         <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <h:outputStylesheet library="css" name="jsfcrud.css"/>
+       <h:outputScript library="js" name="jsfcrud.js"/>
+  
+ <h:outputStylesheet library="css" name="bootstrap.css"/>
+        <h:outputScript library="js" name="jquery.js"/>
+       
+    </h:head>
+     <ui:composition template="/template.xhtml">
+           
+                 <ui:define name="body"   >
+                     <p:messages id="msgss" showDetail="true"  showSummary="false" />
+                <div align="center">    <h3 style="color:blue; font-family: sans-serif; font-size: 24;"> Password Change  </h3>
+                    <hr style="width: 50%; "></hr>
+        <h:form id="Formm">
+               <h:outputText   style="color:red; font-family: sans-serif; font-size: 36;" value="#{session.getValue('infor')}" id="inf" ></h:outputText>
+                        
+                <p:commandLink id="link"  style=";font-size: 48px;font-weight: 300;background: aqua" rendered="#{!(session.getValue('infor') eq null)}"  actionListener="#{login.logout()}" value="Log-in"></p:commandLink>
+        </h:form>
+               
+                 <h:form id="menuFormm">
+                      <p:panelGrid columns="2" id="grid" >
+                    
+                      <p:outputLabel value="Old Password " for="userName" />
+                      <p:password placeholder="old password" id="userName" value="#{accountcontroller.userName}" title="userName"  rendered="true" requiredMessage="Please Enter old password"/>
+                     <p:outputLabel value="New Password" for="password" />
+                     <p:password  label="Password 1"  placeholder="password" required="true"  match="confirmpassword" feedback="false" value="#{accountcontroller.password}" id="password"/>
+                           
+                    <p:outputLabel value="New Password confirm" for="confirmpassword" />
+                    <p:password placeholder="confirm password" feedback="false" label="Confirm password" required="true"  id="confirmpassword"  value="#{accountcontroller.confirmpassword}" title="#{bundleuacc.CreateUsersaccountTitle_confirmpassword}" />
+                        
+                 
+                   </p:panelGrid>
+       
+
+
+                  <p:commandButton  value="Change Password" actionListener="#{accountcontroller.process(session.getValue('uid'))}" update="msgss,grid,:Formm"/>       
+        </h:form>
+
+
+                </div>
+
+
+
+
+
+</ui:define>
+            
+
+        
+
+   
+
+     </ui:composition>
+</html>   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

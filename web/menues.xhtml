@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets" 
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <f:view locale="#{languageController.language}">
+        <ui:composition>
+            <h:form>
+                <!-- Heading -->
+                <h:panelGroup rendered="#{(Loginjustice.hasRoleAdmin(Loginjustice.loggeduser.role) )  }"  >
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilitiesFitabher"
+                           aria-expanded="true" aria-controls="collapseUtilities">
+                            <i class="fas fa-fw fa-wrench"></i>
+                            <span>#{msg.CivilIssue}</span>
+                        </a>
+                        <div id="collapseUtilitiesFitabher" class="collapse" aria-labelledby="headingUtilities"
+                             data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <h6 class="collapse-header">የፍታብሄር ጉዳዮች</h6>
+                                <h:link   class="collapse-item" value="መብት እና ጥቅም ማስጠበቅ"   outcome="/mebtnatkmmyefetabherafetatem/List.xhtml" /> 
+                                <h:link   class="collapse-item" value="መሪ ትእዛዝ እና አቤቱታ"  outcome="/meritizazandabetuta/List.xhtml" />
+                                <h:link    class="collapse-item" value="ቀጥተኛ ክስ እና የክስ መልስ"   outcome="/qettegnakisandkesemelsmezgeb/List.xhtml"  />
+                                <h:link    class="collapse-item" value="በጎ አድራጎት"     outcome="/begoadragot/List.xhtml" />
+                                <h:link    class="collapse-item" value="Mekina shiyach"     outcome="/mekinashiyach/List.xhtml" />
+                                <h:link    class="collapse-item" value="Wekay"     outcome="/wekay/List.xhtml" />
+                                <h:link    class="collapse-item" value="Tewokay"     outcome="/tewokay/List.xhtml" />
+                                <h:link    class="collapse-item" value="Misikir"     outcome="/misikir/List.xhtml" />
+                            </div>
+                        </div>
+                    </li>
+                </h:panelGroup>
+
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilitiesSenedoch"
+                       aria-expanded="true" aria-controls="collapseUtilities">
+                        <i class="fas fa-fw fa-wrench"></i>
+                        <span>#{msg.SenedochenaTebekoch} </span>
+                    </a>
+                    <div id="collapseUtilitiesSenedoch" class="collapse" aria-labelledby="headingUtilities"
+                         data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">ሰነዶች እና ጠበቆች ማረጋገጫ</h6>
+                            <h:link   class="collapse-item" value="ሰነዶች እና ጠበቆች ማረጋገጫ"    outcome="/senedochenatebekoch/List.xhtml" /> 
+                            <h:link   class="collapse-item" value="ቤት ሽያጭ"    outcome="/betshiyach/List.xhtml"   /> 
+                            <h:link   class="collapse-item" value="መኪና  ሽያጭ"    outcome="/mekinashiyach/List.xhtml"/> 
+
+                        </div>
+                    </div>
+                </li> 
+                <!-- Nav Item - Pages Collapse Menu -->
+                <h:panelGroup rendered="#{(Loginjustice.hasRoleAdmin(Loginjustice.loggeduser.role) )  }"  >
+
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseWonjel"
+                           aria-expanded="true" aria-controls="collapseTwo">
+                            <i class="fas fa-fw fa-cog"></i>
+                            <span>ወንጀል መዛግብት ፋይል</span>
+                        </a>
+                        <div id="collapseWonjel" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <h6 class="collapse-header">ወንጀል መዛግብት ፋይል</h6>
+                                <h:link   class="collapse-item" value="የወንጀል ዋስትና "   outcome="/wengelwastna/List.xhtml"  /> 
+                                <h:link   class="collapse-item"  value="የወንጀል አቤቱታ"   outcome="/wengelabetuta/List.xhtml"  />
+                                <h:link   class="collapse-item"  value="የወንጀል መዝገብ ቀዳሚ ምርመራ"   outcome="/wenjelmezgebkedamimrmra/List.xhtml" /> 
+                                <h:link   class="collapse-item"  value="ይግባኝ እና ይግባኝ መልስ"    outcome="/yigbagnayigbagnmels/List.xhtml"  /> 
+                                <h:link   class="collapse-item"  value="የወንጀል አቤቱታ"   outcome="/wengelabetuta/List.xhtml"  /> 
+
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseketero"
+                           aria-expanded="true" aria-controls="collapseTwo">
+                            <i class="fas fa-fw fa-cog"></i>
+                            <span>የዛሬ ቀጠሮዎች</span>
+                        </a>
+                        <div id="collapseketero" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <h6 class="collapse-header">የዛሬ ቀጠሮዎች</h6>
+
+                                <h:link   class="collapse-item" value="መብት እና ጥቅም ማስጠበቅ" outcome="/mebtnatkmmyefetabherafetatem/Listappointment.xhtml" />
+                                <h:link   class="collapse-item"  value="መሪ ትእዛዝ እና አቤቱታ" rendered="false"  outcome="/meritizazandabetuta/appoint.xhtml" />
+                                <h:link   class="collapse-item" value="ቀጥተኛ ክስ እና የክስ መልስ" rendered="false" outcome="/qettegnakisandkesemelsmezgeb/Listappointment.xhtml" />
+                                <h:link   class="collapse-item"  value="ሰነዶች እና ጠበቆች ማረጋገጫ" rendered="false" outcome="/senedochenatebekoch/Listappointment.xhtml" />
+                                <h:link   class="collapse-item"   value="የወንጀል ዋስትና "  rendered="false"  outcome="/wengelabetuta/Listappointment.xhtml"  />
+                                <h:link   class="collapse-item" value="የወንጀል አቤቱታ"  rendered="false"  outcome="/wengelwastna/Listappointment.xhtml"  />
+
+                                <h:link   class="collapse-item" value="ይግባኝ እና ይግባኝ መልስ" outcome="/yigbagnayigbagnmels/List.xhtml" />
+
+                            </div>
+                        </div>
+                    </li>            
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsereport"
+                           aria-expanded="true" aria-controls="collapseTwo">
+                            <i class="fas fa-fw fa-cog"></i>
+                            <span>ሪፖርቶች</span>
+                        </a>
+                        <div id="collapsereport" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <h6 class="collapse-header">ሪፖርቶች</h6>
+                                <h:link   class="collapse-item" value="መብት እና ጥቅም ማስጠበቅ" outcome="/basic/reportmebtnatkm.xhtml" />
+                                <h:link   class="collapse-item" value="መሪ ትእዛዝ እና አቤቱታ" outcome="/basic/reportmeritizaz.xhtml" />
+                                <h:link   class="collapse-item" value="ቀጥተኛ ክስ እና የክስ መልስ" outcome="/qettegnakisandkesemelsmezgeb/Listreport.xhtml" />
+                                <h:link   class="collapse-item" value="ሰነዶች እና ጠበቆች ማረጋገጫ" outcome="/senedochenatebekoch/List.xhtml" />
+                                <h:link   class="collapse-item" value="የወንጀል ዋስትና "   outcome="/wengelabetuta/List.xhtml"  />
+                                <h:link   class="collapse-item" value="የወንጀል አቤቱታ"   outcome="/wengelwastna/List.xhtml"  />
+
+                            </div>
+                        </div>
+                    </li>     
+
+
+
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilitiesUser"
+                           aria-expanded="true" aria-controls="collapseUtilities">
+                            <i class="fas fa-fw fa-wrench"></i>
+                            <span>#{msg.Setting}</span>
+                        </a>
+                        <div id="collapseUtilitiesUser" class="collapse" aria-labelledby="headingUtilities"
+                             data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <h6 class="collapse-header">#{msg.Setting}</h6>
+
+                                <h:link   class="collapse-item" value="ሀገራቶች" outcome="/nationalities/List.xhtml" />   
+                                <h:link   class="collapse-item" value="ክልሎች" outcome="/regions/List.xhtml" />
+                                <h:link   class="collapse-item" value="ዞኖች" outcome="/zones/List.xhtml" />
+                                <h:link   class="collapse-item" value="ወረዳዎች" outcome="/weredas/List.xhtml" />
+                                <h:link   class="collapse-item" value="አርእስቶች" outcome="/titlerank/List.xhtml" />
+                                <h:link   class="collapse-item" value="የቢሮ አይነት" outcome="/officetypes/List.xhtml" />
+                                <h:link   class="collapse-item" value="ክልሎች" outcome="/regions/List.xhtml" />
+
+                                <h:link   class="collapse-item" value="Service Delivery Office" outcome="/serviceDeliveryoffice/List.xhtml" />
+                                <h:link   class="collapse-item" value="ተጠቃሚዎች"   outcome="/users/List.xhtml" />
+                                <h:link   class="collapse-item" value="መልእክቶች" outcome="/messege/List.xhtml" />
+                                <h:link   class="collapse-item" value="Manage Roles" outcome="/roles/List.xhtml" />
+                                <h:link   class="collapse-item" value="#{msg.WuklnaCriterias}" outcome="/wuklnacriterias/List.xhtml" />
+                                <h:link   class="collapse-item" value="#{msg.DateandTime}" outcome="/datetime/List.xhtml" />
+
+                            </div>
+                        </div>
+                    </li>
+                </h:panelGroup>
+
+                <!-- Divider -->
+            </h:form>
+        </ui:composition>
+    </f:view>
+</html>
+

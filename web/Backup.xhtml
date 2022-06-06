@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListUsersTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            
+            <h:outputText value="&lt;br/&gt;" escape="false" />
+            <h:outputText value="&lt;br/&gt;" escape="false" />
+            <h:outputText value="&lt;br/&gt;" escape="false" />
+            
+            <h:form id="UsersListForm">
+                <p:growl id="msgs" showDetail="true" />
+                 <p:messages id="messages" showDetail="true"  closable="true" />
+                <p:panel header="Backup Operations">
+                    <p:commandButton  value="Take Backup" icon="ui-icon-disk" action="#{backupWoreda.export()}" update="msgs" onclick="PF('pbAjax').start();PF('startButton2').disable();" widgetVar="startButton2"/>
+                     <h:outputText value="&lt;br/&gt;" escape="false" />
+                    <p:progressBar widgetVar="pbAjax" ajax="true" value="#{backupWoreda.progress}" labelTemplate="{value}%" styleClass="animated" global="false">
+                        <p:ajax event="complete" listener="#{backupWoreda.onComplete}" update="msgs,messages" oncomplete="PF('startButton2').enable()"/>
+                    </p:progressBar>
+                    
+                    <h:outputText value="&lt;br/&gt;" escape="false" />
+                    <h:outputText value="&lt;br/&gt;" escape="false" />
+                    
+                    <p:commandButton  value="Recover Database" icon="ui-icon-refresh" action="#{backupWoreda.importf()}" update="msgs,messages" onclick="PF('pbAjax1').start();PF('startButton3').disable();" widgetVar="startButton3"/>
+                    <h:outputText value="&lt;br/&gt;" escape="false" />
+                    <p:progressBar widgetVar="pbAjax1" ajax="true" value="#{backupWoreda.progressIm}" labelTemplate="{value}%" styleClass="animated" global="false">
+                        <p:ajax event="complete" listener="#{backupWoreda.onCompleteIm}" update="msgs" oncomplete="PF('startButton3').enable()"/>
+                    </p:progressBar>
+                     
+                </p:panel>
+                 <p:commandLink value="Download" ajax="false"  style="color: blue;font-family: verdina"   actionListener="#{filedownloads.backupdata()}"   >
+                  <p:fileDownload value="#{filedownloads.file}"  />
+                         </p:commandLink>
+            </h:form>
+
+            
+            
+        </ui:define>
+    </ui:composition>
+
+</html>
